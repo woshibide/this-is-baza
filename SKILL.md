@@ -1,6 +1,6 @@
 ---
 name: bazaficate
-description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, Vue reuse where appropriate, a hot-reloading npm start command, project-adapted exports, and refresh-safe browser state. Use when inheriting experimental creative-code projects; do not use for ordinary feature work in an already coherent repository.
+description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, a WYSIWYG aspect-ratio canvas, Vue reuse where appropriate, a hot-reloading npm start command, project-adapted exports, and refresh-safe browser state. Use when inheriting experimental creative-code projects; do not use for ordinary feature work in an already coherent repository.
 ---
 
 # Bazaficate
@@ -26,6 +26,14 @@ For Vue projects, move genuinely shared UI, controls, utilities, and rendering a
 
 Provide one root `npm run start` command with hot reload. Preserve the existing package manager and build tool when viable; prefer adapting its configuration over migrating tools. Ensure the command prints a stable local URL, accepts the normal host/port flags of the underlying tool, and does not require a global installation.
 
+## Preserve the preview contract
+
+The navigation and sidebar implementation are not part of the contract. Keep or simplify them according to the target project; do not spend effort imposing a standard sidebar layout.
+
+The composition canvas is the contract. Its visible frame must be WYSIWYG for aspect ratio: selecting or restoring an export aspect ratio changes the preview frame to that exact ratio. Scale the frame uniformly to fit the available workspace without stretching, cropping, or using export pixel dimensions as CSS dimensions. Canvas backing resolution may differ for device-pixel ratio or performance, but the logical composition bounds and framing must match export.
+
+Place a distinctive Photoshop-style checkerboard behind transparent canvas pixels. Choose a light or dark checkerboard with clear adjacent-tile contrast appropriate to the surrounding UI. Keep tile size stable in screen space, make the render-frame boundary unambiguous, and never draw the checkerboard into PNG, SVG, video, or sequence output. Opaque artwork or an enabled project background covers it; transparent regions reveal it.
+
 ## Preserve browser continuity
 
 Give each sketch a stable URL. On reload, restore the active sketch and user-meaningful controls when the existing product implies persistence. Use a small, versioned, project-scoped storage payload; validate and merge known keys only, tolerate missing or corrupt data, and avoid storing transient animation or DOM state.
@@ -44,10 +52,10 @@ For other renderers, carry across only applicable outcomes and explicitly report
 
 Run the complete build and test suite plus targeted browser checks. At minimum prove:
 
-1. `npm run start` launches with hot reload.
-2. Every sketch URL loads directly and after refresh.
-3. Shared components do not change sketch-specific behavior.
-4. Export formats work at their requested dimensions and always release locks/resources after failure.
+1. `npm run start` launches with hot reload, and every sketch URL loads directly and after refresh.
+2. Landscape, square, and portrait selections produce preview frames with the exact export aspect ratio and no distortion or cropping.
+3. Transparent preview areas reveal the checkerboard, while exported files never contain the checkerboard.
+4. Shared components preserve sketch behavior; export formats use their requested pixel dimensions and release locks/resources after failure.
 5. A clean install and production build succeed using the repository's declared package manager.
 
 Report the resulting structure, commands, supported exports, tests run, pre-existing failures, and genuine limitations. Finish the implementation rather than stopping after an audit or plan unless additional authority is required.

@@ -2,7 +2,7 @@
 
 A Codex skill for turning inherited vibe-coded creative projects into stable, shareable sketch workspaces.
 
-It preserves existing behavior while organizing standalone sketches, introducing reuse where it pays off, adding a hot-reloading `npm run start`, adapting a deterministic export system, and keeping browser state stable across refreshes.
+It preserves existing behavior while organizing standalone sketches, keeping the preview canvas WYSIWYG for export aspect ratio, showing transparency with a Photoshop-style checkerboard, introducing reuse where it pays off, adding a hot-reloading `npm run start`, adapting a deterministic export system, and keeping browser state stable across refreshes. Navigation and sidebar design remain project-specific.
 
 ## Use
 
