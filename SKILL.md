@@ -1,9 +1,9 @@
 ---
-name: bazaficate
+name: baza
 description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, a WYSIWYG aspect-ratio canvas, Vue reuse where appropriate, a hot-reloading npm start command, project-adapted exports, and refresh-safe browser state. Use when inheriting experimental creative-code projects; do not use for ordinary feature work in an already coherent repository.
 ---
 
-# Bazaficate
+# Baza
 
 Turn the supplied project into a dependable creative-coding workspace without changing its visible output or interaction model unnecessarily.
 

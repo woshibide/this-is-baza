@@ -1,4 +1,4 @@
 interface:
-  display_name: "Bazaficate"
+  display_name: "Baza"
   short_description: "Turn chaotic vibe-coded projects into stable sketches"
-  default_prompt: "Use $bazaficate to standardize this vibe-coded project while preserving its behavior."
+  default_prompt: "Use $baza to standardize this vibe-coded project while preserving its behavior."

@@ -1,6 +1,6 @@
 # p5.js Export Adaptation Specification
 
-This document is reference material for `$bazaficate`. Read it only when the target project uses p5.js or a compatible Canvas2D renderer and requires the full export suite. Adapt the architecture to the target; do not treat project-specific names or APIs below as universal requirements.
+This document is reference material for `$baza`. Read it only when the target project uses p5.js or a compatible Canvas2D renderer and requires the full export suite. Adapt the architecture to the target; do not treat project-specific names or APIs below as universal requirements.
 
 ## Original implementation brief
 
