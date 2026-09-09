@@ -7,7 +7,8 @@ Turns vibe-coded browser projects into stable sketch workspaces.
 - Adds stable sketch URLs for different projects and hot reload through `npm run start`.
 - Matches the preview aspect ratio to the export, WYSIWYG.
 - Browser local storage of sketch parameters after refresh.
-- Renders deterministic exports at the requested dimensions and runs build, browser, and clean-install checks.
+- Includes PNG, MP4 (H.264), and WebM exports with size, FPS, duration, progress, and cancellation controls, without named export presets.
+- Verifies real downloads and video playback alongside build, browser, and clean-install checks.
 
 ## Prerequisites
 
@@ -29,6 +30,13 @@ Audit a project without changing it:
 node scripts/audit-project.mjs /path/to/project
 ```
 
+Standardized projects support the default development-server port and an explicit port:
+
+```bash
+npm run start
+npm run start -- --port 4173
+```
+
 ## Recommended model-agnostic setup
 
 Keep one global instruction file.
@@ -37,8 +45,8 @@ Symlink `AGENTS.md` and `CLAUDE.md` to it.
 Suggested shared instructions:
 
 ```markdown
-- Never use the em dash. Use a plain dash "-" instead.
-- When writing commit messages, NEVER auto-add your agent name as co-author.
+## General Guidelines
+- When writting comments never use Emojis.
 - Never manually modify `CHANGELOG.md` files or any files that are marked as auto-generated.
 - When writing or substantially editing long Markdown files, put each full sentence on its own line.
   Preserve normal Markdown structure, but avoid wrapping multiple sentences onto one physical line.
@@ -50,6 +58,18 @@ Suggested shared instructions:
   If something clearly looks off, even if it is not directly related to what you are doing, try to get it fixed along the way.
 - Apply that same high standard to engineering excellence: lint failures, test failures, and test flakiness.
   If you see one, even if it is not caused by what you are working on right now, still get it fixed.
+
+## Engineering Principles
+Build like a disciplined field technician:
+- Prefer the smallest technically complete solution.
+- Favor boring, proven tools and explicit code over cleverness, abstractions, and dependencies.
+- Optimize for robustness, maintainability, inspectability, and easy repair.
+- Avoid feature creep, speculative generalization, unnecessary frameworks, and visual ornament.
+- Use few moving parts. Every dependency, layer, and configuration option must justify itself.
+- Make failure modes obvious; validate inputs and fail clearly.
+- Before adding code, look for the simpler way to remove code or reuse what exists.
+- Deliver working, well-tested solutions with concise documentation.
+
 ```
 
 Optional concise speaking styles:
@@ -62,4 +82,5 @@ Optional concise speaking styles:
 - `SKILL.md` - instructions.
 - `agents/openai.yaml` - UI metadata.
 - `scripts/audit-project.mjs` - project audit.
-- `references/export-system-p5.md` - p5.js and Canvas2D exports.
+- `references/export-system.md` - required export implementation and verification for every renderer.
+- `references/export-system-p5.md` - optional p5.js and Canvas2D export extensions.

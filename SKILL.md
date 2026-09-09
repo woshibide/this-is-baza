@@ -1,6 +1,6 @@
 ---
 name: baza
-description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, a WYSIWYG aspect-ratio canvas, Vue reuse where appropriate, a hot-reloading npm start command, project-adapted exports, and refresh-safe browser state. Use when inheriting experimental creative-code projects; do not use for ordinary feature work in an already coherent repository.
+description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, a WYSIWYG aspect-ratio canvas, Vue reuse where appropriate, a configurable-port hot-reloading npm start command, PNG/MP4/WebM exports, and refresh-safe browser state. Use when inheriting experimental creative-code projects; do not use for ordinary feature work in an already coherent repository.
 ---
 
 # Baza
@@ -24,7 +24,11 @@ Choose the smallest structure that makes every distinct visual experiment indepe
 
 For Vue projects, move genuinely shared UI, controls, utilities, and rendering adapters into reusable modules or components. Keep sketch-specific rendering and state local. Do not introduce Vue merely to wrap static HTML or a framework that already has a sound component model.
 
-Provide one root `npm run start` command with hot reload. Preserve the existing package manager and build tool when viable; prefer adapting its configuration over migrating tools. Ensure the command prints a stable local URL, accepts the normal host/port flags of the underlying tool, and does not require a global installation.
+Provide one root `npm run start` command with hot reload.
+Preserve the existing package manager and build tool when viable; prefer adapting its configuration over migrating tools.
+Support explicit port selection with `npm run start -- --port <port>` regardless of the underlying development server.
+When no port is supplied, retain the project's normal default.
+Reject invalid ports clearly, surface port-in-use failures, print the actual local URL, and do not require a global installation.
 
 ## Preserve the preview contract
 
@@ -42,20 +46,30 @@ When browser tools are available, keep one development-server process alive, reu
 
 ## Adapt exports
 
-First find the project's render contract, deterministic state, timing model, content bounds, and current export behavior. Preview and export should share drawing logic; export must render at the requested output dimensions rather than upscale captured preview pixels.
+Deliver visible, working PNG, MP4 (H.264), and WebM export paths unless the user explicitly narrows the requested formats.
+Default new export settings to MP4; preserve a valid saved or user-selected format.
+An existing Export PNG button is an incomplete export implementation.
 
-For p5.js or Canvas2D projects requiring the full export suite, read [references/export-system-p5.md](references/export-system-p5.md). Treat it as an adaptation specification: preserve its deterministic rendering, snapshot, metadata, cleanup, and test invariants, but map names and modules to the target project. Do not copy p5-specific APIs into projects using another renderer.
+Read [references/export-system.md](references/export-system.md) for every project before implementing exports, including p5.js, Canvas2D, Three.js, and other renderers.
+It defines the required panel, deterministic video rendering, encoding, cleanup, and actual-download acceptance checks.
+Adapt the project's renderer to that contract instead of using its framework as a reason to omit video.
 
-For other renderers, carry across only applicable outcomes and explicitly report unsupported formats or browser codec limits. Keep export state project-scoped and embed only validated, versioned project data.
+Use direct format, size, FPS, and duration settings without named export presets or batch recipes.
+Preserve existing additional export capabilities; implement new SVG, PNG-sequence, embedded-state, or console/batch features only when requested.
+When preserving or implementing those extensions for p5.js or Canvas2D, also read [references/export-system-p5.md](references/export-system-p5.md).
 
 ## Verify and hand off
 
 Run the complete build and test suite plus targeted browser checks. At minimum prove:
 
-1. `npm run start` launches with hot reload, and every sketch URL loads directly and after refresh.
+1. `npm run start` launches with hot reload, `npm run start -- --port <port>` binds to the requested port, and every sketch URL loads directly and after refresh.
 2. Landscape, square, and portrait selections produce preview frames with the exact export aspect ratio and no distortion or cropping.
 3. Transparent preview areas reveal the checkerboard, while exported files never contain the checkerboard.
-4. Shared components preserve sketch behavior; export formats use their requested pixel dimensions and release locks/resources after failure.
-5. A clean install and production build succeed using the repository's declared package manager.
+4. The visible export panel downloads a PNG, an H.264 MP4, and a WebM that pass the file and playback checks in [references/export-system.md](references/export-system.md#acceptance-checks).
+5. Shared components preserve sketch behavior; export cancellation and failure release locks/resources and restore the preview.
+6. A clean install and production build succeed using the repository's declared package manager.
 
-Report the resulting structure, commands, supported exports, tests run, pre-existing failures, and genuine limitations. Finish the implementation rather than stopping after an audit or plan unless additional authority is required.
+Report the resulting structure, commands, tests run, pre-existing failures, and genuine limitations.
+For each required export format, report a verified sample path and its dimensions, plus codec, FPS, and duration for video, or the concrete reason it remains unverified.
+An unsupported codec in the test browser is a limitation to report, not a passing video-export check.
+Finish the implementation rather than stopping after an audit or plan unless additional authority is required.
