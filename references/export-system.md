@@ -3,14 +3,6 @@
 Read this reference for every `$baza` export implementation.
 The required formats and scope are defined in [SKILL.md](../SKILL.md#adapt-exports).
 
-## Reference implementation
-
-The local reference is `/Users/pyotr/wip/openai/devday26/rolling-clock`.
-When available, inspect `src/export.ts`, `src/video-export.ts`, `src/state.ts`, the export controls in `index.html` and `src/main.ts`, and the export checks in `e2e/clock.spec.ts` and `e2e/export-settings.spec.ts`.
-Reuse the approach: one format selector, direct settings, a separate export scene, fixed-time video frames, lazy encoder loading, progress, cancellation, and guaranteed cleanup.
-Adapt it without copying `export-presets.ts`, emotion-specific rendering, or batch recipes.
-The contract below is self-contained when that local project is unavailable.
-
 ## Export panel
 
 Place the export controls in the normal workspace UI and connect every format to its real implementation.
@@ -96,7 +88,7 @@ Do not use `MediaRecorder`, `captureStream()`, or real-time screen recording for
 - Use an output-resolution-appropriate bitrate, explicit FPS, timestamps, frame durations, and a keyframe interval of one or two seconds.
 - Keep baseline video opaque; preserve or add WebM alpha only when already supported or explicitly requested, with alpha-specific capability and decode checks.
 
-For Mediabunny, the reference uses `canEncodeVideo`, `Output`, `BufferTarget`, `CanvasSource`, `Mp4OutputFormat`, and `WebMOutputFormat`.
+A Mediabunny implementation can use `canEncodeVideo`, `Output`, `BufferTarget`, `CanvasSource`, `Mp4OutputFormat`, and `WebMOutputFormat`.
 Start the output, submit each rendered canvas frame with its timestamp and duration, finalize, and verify that a nonempty buffer exists.
 Return the actual container MIME type (`video/mp4` or `video/webm`) and use the matching filename extension.
 Never substitute WebM bytes behind an MP4 filename or silently switch the selected format.
