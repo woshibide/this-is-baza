@@ -32,7 +32,6 @@ Choose only the controls needed by the sketch.
 | Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
 | Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
 | How many, copies, rows | [CountControl](../src/components/CountControl.vue) | Use meaningful integer bounds. |
-| Amount, thickness, strength | [AmountControl](../src/components/AmountControl.vue) | Bind slider and exact entry to the same scalar. |
 | Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
 | Play, scrub, inspect a frame | [PlaybackControl](../src/components/PlaybackControl.vue) | Drive rendering from its reported time. |
 

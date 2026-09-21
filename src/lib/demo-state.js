@@ -32,7 +32,6 @@ export const defaults = {
   },
   durationBounds: { min: 0.1, max: 60 },
   gradientBounds: { min: 0, max: 100 },
-  thickness: 6,
   choices: { align: "center", shape: "circle", fill: true },
 };
 export const validators = {
@@ -76,7 +75,6 @@ export const validators = {
     ["width", "height"].every((key) => validLimits(v[key], { hardMin: 1 })),
   durationBounds: (v) => validLimits(v, { hardMin: 0.1 }),
   gradientBounds: (v) => validLimits(v, { hardMin: 0, hardMax: 100 }),
-  thickness: (v) => finite(v, 1, 24),
   choices: (v) =>
     v &&
     ["left", "center", "right"].includes(v.align) &&

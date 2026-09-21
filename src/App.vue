@@ -113,7 +113,6 @@ footer {
         v-model="state.count"
         v-model:bounds="state.countBounds"
       />
-      <AmountControl id="amount" v-model="state.thickness" />
       <ChoiceControl id="choices" v-model="state.choices" />
     </div>
     <footer>
@@ -135,7 +134,6 @@ import PositionControl from "./components/PositionControl.vue";
 import AngleControl from "./components/AngleControl.vue";
 import DimensionsControl from "./components/DimensionsControl.vue";
 import CountControl from "./components/CountControl.vue";
-import AmountControl from "./components/AmountControl.vue";
 import ChoiceControl from "./components/ChoiceControl.vue";
 import { useSavedState } from "./composables/useSavedState.js";
 import { defaults, validators } from "./lib/demo-state.js";
