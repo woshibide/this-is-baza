@@ -1,99 +1,92 @@
 ---
 name: baza
-description: Standardize an unfamiliar or vibe-coded browser project into a maintainable, Git-backed sketch workspace with stable entry points, a WYSIWYG aspect-ratio canvas, Vue reuse where appropriate, a configurable-port hot-reloading npm start command, PNG/MP4/WebM exports, and refresh-safe browser state. Also use when asked to build or reproduce beat-based composition timing with one timing root. Otherwise, do not use for ordinary feature work in an already coherent repository.
+description: Create or standardize browser sketches with Baza's reference UI controls, aspect-correct preview, saved state, and PNG/MP4/WebM exports. Also use when adding Baza controls or its beat-based timing to an existing sketch. Keep focused requests scoped to the requested part of the workspace.
 ---
 
 # Baza
 
-Turn the supplied project into a dependable creative-coding workspace without changing its visible output or interaction model unnecessarily.
-Favor small, readable implementations, a few useful documents, and direct checks of real behavior.
-Keep verification proportional to the change; add automated tests only when they protect meaningful logic or prevent a concrete regression.
+Give every sketch a standard creative-coding workspace while preserving its artwork and rendering behavior.
+The bundled UI examples define the controls' appearance and interactions: reuse or port them rather than inventing replacements.
+Apply the full workspace contract below unless the user explicitly narrows the task.
+For a controls-only or timing-only request, follow the relevant reference and verify the affected behavior.
 
-## New projects
+## Completion checks
 
-When creating a project from scratch, start with only the lowercase text `hello`, centered horizontally and vertically in the composition canvas.
-Keep the initial composition static and free of graphics, illustrations, decorative shapes, or other artwork.
-Apply the workspace, preview, persistence, and export requirements below to this minimal composition.
+A standard workspace is complete when these checks pass in the browser:
 
-## Beat-based composition timing
+| Check | Required evidence |
+| --- | --- |
+| Saved state | Change artwork controls and export settings, navigate to a sketch directly, and refresh: the active sketch and edited values return without console errors. |
+| Preview framing | Change aspect ratio and output size: the preview frame has the selected ratio, and exported artwork has the same composition bounds and framing. |
+| Exports | Download and open a PNG and short MP4 and WebM files through the normal UI, checking size, framing, motion, and absence of editor overlays. |
 
-When the user requests a beat-based system, automatic durations, or the p5js single-root timing pattern, read [references/beat-timing.md](references/beat-timing.md).
-Each composition owns one absolute timing root, resolves and freezes `beatSeconds`, and derives dependent durations from one named parent using `"auto"` or `"calc(auto * n)"`.
-For a timing-only request, apply that reference and relevant verification without expanding the work into workspace normalization or new export features.
-Introduce this timing model when requested; preserve an existing project's timing behavior during ordinary standardization.
+Record each check as passed, failed, or unverified in the handoff.
+A visible export button or successful build does not establish these behaviors.
+If browser or codec availability prevents a check, report the concrete limitation and which behavior remains unverified.
 
-## Establish the contract
+## Inspect and preserve
 
-Before editing, inspect the repository, entry points, package manager, frameworks, build tools, browser storage, rendering lifecycle, export code, and tests. Run `node <skill-folder>/scripts/audit-project.mjs <project-folder>` for a quick read-only inventory, then verify its findings directly.
+Run the existing project and inspect its entry points, renderer, controls, storage, exports, build scripts, and tests before editing.
+Distinguish existing failures from regressions.
+The optional `node <skill-folder>/scripts/audit-project.mjs <project-folder>` gives a coarse inventory; inspect the relevant code and runtime to verify its signals.
+Preserve unrelated files, working changes, and Git history; initialize Git only outside an existing repository.
+Committing, publishing, deleting originals, and adding remote services require a user request.
 
-Treat existing work as user-owned:
+Keep the existing framework, package manager, and build tool when viable.
+Share genuinely reusable controls and helpers; keep sketch-specific rendering and state local.
+Use stable sketch URLs and the smallest existing structure that makes each sketch independently addressable.
+Navigation and sidebar layout can follow the target project.
 
-- Preserve unrelated files and working changes.
-- Initialize Git only when the target is not already inside a repository. Never replace existing history.
-- Do not commit, publish, delete originals, or add remote services unless requested.
-- Record the current runnable behavior before restructuring. If it does not run, distinguish pre-existing failures from regressions.
+For a new project without supplied artwork, start with only lowercase `hello`, centered horizontally and vertically in a static composition canvas.
+It receives the same workspace controls, persistence, and exports as any other sketch.
 
-## Normalize the workspace
+## Build the workspace
 
-Choose the smallest structure that makes every distinct visual experiment independently addressable. Prefer `sketches/<slug>/index.html` when the project already contains multiple page-like sketches. Keep a single application structure when splitting it would create artificial duplication.
+### Start command
 
-For Vue projects, move genuinely shared UI, controls, utilities, and rendering adapters into reusable modules or components. Keep sketch-specific rendering and state local. Do not introduce Vue merely to wrap static HTML or a framework that already has a sound component model.
+Provide hot reload through root `npm run start`, with `npm run start -- --port <port>` for explicit port selection.
+Retain the normal default port when omitted, reject invalid or occupied ports clearly, and print the actual local URL.
+Use project dependencies rather than global installations.
 
-When adding or revising creative controls, read [references/ui-controls.md](references/ui-controls.md) to choose controls by user intent: timing ramps, colors and alpha, gradients, ranges, spatial values, randomness, and playback.
-It defines the reusable Bézier timing editor and alpha-aware color/palette contract, with guidance for choosing numeric, spatial, and discrete controls.
-Apply only the patterns needed by the requested work and preserve explicit user choices.
+### Reference controls
 
-Use icons from a free, open-source icon library for UI elements such as buttons, toolbars, navigation, and playback controls.
-Reuse the project's existing library when it meets this requirement; otherwise choose one consistent icon set and include only the icons needed.
-Preserve the library's license and required attribution, and give icon-only controls accessible names.
-Do not substitute emoji, Unicode symbols, or custom-drawn icons for library icons in UI controls.
+When adding or changing controls, use the [UI example guide](references/ui-controls.md) to select and reuse the relevant components, helpers, and styles.
+Preserve their appearance, direct manipulation, exact entry, keyboard behavior, and graphical state distinctions unless the user requests a change.
+Bind the controls to real artwork values and the project's saved state; include only controls that the sketch uses.
+Reuse an existing open-source icon set or the bundled Lucide icons, retain attribution, and give icon-only controls accessible names.
 
-Provide one root `npm run start` command with hot reload.
-Preserve the existing package manager and build tool when viable; prefer adapting its configuration over migrating tools.
-Support explicit port selection with `npm run start -- --port <port>` regardless of the underlying development server.
-When no port is supplied, retain the project's normal default.
-Reject invalid ports clearly, surface port-in-use failures, print the actual local URL, and do not require a global installation.
+### Composition preview
 
-## Preserve the preview contract
+The visible composition frame follows the selected export aspect ratio and scales uniformly to fit the workspace.
+Keep logical composition bounds independent of CSS size, export pixel dimensions, and backing resolution; avoid stretching or cropping the frame.
+Show transparent pixels over a clearly contrasting checkerboard with stable screen-space tiles and an unambiguous frame boundary.
+Project backgrounds cover the checkerboard, which stays outside all exported artwork.
 
-The navigation and sidebar implementation are not part of the contract. Keep or simplify them according to the target project; do not spend effort imposing a standard sidebar layout.
+### Saved state
 
-The composition canvas is the contract. Its visible frame must be WYSIWYG for aspect ratio: selecting or restoring an export aspect ratio changes the preview frame to that exact ratio. Scale the frame uniformly to fit the available workspace without stretching, cropping, or using export pixel dimensions as CSS dimensions. Canvas backing resolution may differ for device-pixel ratio or performance, but the logical composition bounds and framing must match export.
+Persist the active sketch, user-meaningful artwork controls, and export settings for every sketch.
+Use a small, versioned, project-scoped payload; validate and merge known keys, tolerate missing or corrupt data, and keep transient playback, focus, and drag state out of storage.
+Restore saved values into the controls and renderer before presenting the composition.
 
-Place a distinctive Photoshop-style checkerboard behind transparent canvas pixels. Choose a light or dark checkerboard with clear adjacent-tile contrast appropriate to the surrounding UI. Keep tile size stable in screen space, make the render-frame boundary unambiguous, and never draw the checkerboard into PNG, SVG, video, or sequence output. Opaque artwork or an enabled project background covers it; transparent regions reveal it.
+### Exports
 
-## Preserve browser continuity
+Provide PNG, MP4 (H.264), and WebM unless the user explicitly narrows the formats.
+Read [export-system.md](references/export-system.md) when implementing or repairing exports for any renderer.
+It owns the panel settings, deterministic rendering, encoding, progress, cancellation, cleanup, and export check.
+Default new export settings to MP4 while retaining valid saved or user-selected formats.
+Use direct format, size, FPS, and duration settings without named presets or batch recipes.
+Preserve existing additional export capabilities.
+For requested or existing SVG, PNG-sequence, embedded-state, or console/batch extensions in p5.js or Canvas2D, use [export-system-p5.md](references/export-system-p5.md).
 
-Give each sketch a stable URL. On reload, restore the active sketch and user-meaningful controls when the existing product implies persistence. Use a small, versioned, project-scoped storage payload; validate and merge known keys only, tolerate missing or corrupt data, and avoid storing transient animation or DOM state.
+## Optional timing pattern
 
-When browser tools are available, keep one development-server process alive, reuse the same tab, and verify both direct navigation and refresh. A successful check returns to the same sketch and reconstructs the intended persistent state without console errors.
-
-## Adapt exports
-
-Deliver visible, working PNG, MP4 (H.264), and WebM export paths unless the user explicitly narrows the requested formats.
-Default new export settings to MP4; preserve a valid saved or user-selected format.
-An existing Export PNG button is an incomplete export implementation.
-
-Read [references/export-system.md](references/export-system.md) for every project before implementing exports, including p5.js, Canvas2D, Three.js, and other renderers.
-It defines the required panel, deterministic video rendering, encoding, cleanup, and a practical export check.
-Adapt the project's renderer to that contract instead of using its framework as a reason to omit video.
-
-Use direct format, size, FPS, and duration settings without named export presets or batch recipes.
-Preserve existing additional export capabilities; implement new SVG, PNG-sequence, embedded-state, or console/batch features only when requested.
-When preserving or implementing those extensions for p5.js or Canvas2D, also read [references/export-system-p5.md](references/export-system-p5.md).
+For requested beat-based timing, automatic durations, or the p5js single-root timing pattern, use [beat-timing.md](references/beat-timing.md).
+Preserve existing timing behavior during ordinary workspace standardization.
 
 ## Verify and hand off
 
-Run the existing build and relevant existing tests once, when available.
-Use one short browser pass:
-
-1. Start the project and try the controls affected by the changes.
-   Check hot reload and explicit port selection when changing the development server.
-2. Check that the preview looks right at a changed aspect ratio and that refreshing restores the sketch and its settings.
-3. Confirm real exports using the [export check](references/export-system.md#export-check).
-
-A clean install, a new test framework, and exhaustive browser or settings matrices are not routine requirements.
-Expand verification only when a failure or a specific risk warrants it.
-Report how to run the project, what changed, what was checked, and any remaining limitation.
-If a format could not be exercised in the available browser, say so explicitly.
-Finish the implementation rather than stopping after an audit or plan unless additional authority is required.
+Run the existing build and relevant tests, then perform the completion checks above using one running development server and the same browser tab.
+For focused requests, check the affected controls, saved state, and existing preview/export paths without adding unrelated workspace features.
+Compare affected controls with their gallery examples and check hot reload and explicit port selection when changing the server.
+Keep verification proportional: add tests for meaningful logic or concrete regressions, and broaden checks when an observed failure warrants it.
+Report the run command, changes, completion-check results, and remaining limitations.

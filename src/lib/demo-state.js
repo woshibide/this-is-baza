@@ -32,13 +32,8 @@ export const defaults = {
   },
   durationBounds: { min: 0.1, max: 60 },
   gradientBounds: { min: 0, max: 100 },
-  randomBounds: {
-    seed: { min: 0, max: 4294967295 },
-    variation: { min: 0, max: 100 },
-  },
   thickness: 6,
   choices: { align: "center", shape: "circle", fill: true },
-  random: { seed: 42, variation: 65 },
 };
 export const validators = {
   ramp: (v) => validCurve(v, rampDefault),
@@ -81,20 +76,10 @@ export const validators = {
     ["width", "height"].every((key) => validLimits(v[key], { hardMin: 1 })),
   durationBounds: (v) => validLimits(v, { hardMin: 0.1 }),
   gradientBounds: (v) => validLimits(v, { hardMin: 0, hardMax: 100 }),
-  randomBounds: (v) =>
-    v &&
-    validLimits(v.seed, { integer: true, hardMin: 0, hardMax: 4294967295 }) &&
-    validLimits(v.variation, { integer: true, hardMin: 0, hardMax: 100 }),
   thickness: (v) => finite(v, 1, 24),
   choices: (v) =>
     v &&
     ["left", "center", "right"].includes(v.align) &&
     ["circle", "square"].includes(v.shape) &&
     typeof v.fill === "boolean",
-  random: (v) =>
-    v &&
-    Number.isInteger(v.seed) &&
-    finite(v.seed, 0, 4294967295) &&
-    Number.isInteger(v.variation) &&
-    finite(v.variation, 0, 100),
 };

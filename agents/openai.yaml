@@ -1,4 +1,4 @@
 interface:
   display_name: "Baza"
-  short_description: "Turn chaotic vibe-coded projects into stable sketches"
-  default_prompt: "Use $baza to standardize this vibe-coded project while preserving its behavior."
+  short_description: "Standard sketch workspaces with reusable UI controls"
+  default_prompt: "Use $baza to give this sketch the standard workspace with reference controls, saved state, an aspect-correct preview, and working exports while preserving its artwork."

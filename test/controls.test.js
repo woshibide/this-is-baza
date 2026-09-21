@@ -7,7 +7,7 @@ import {
   validCurve,
   moveCurvePoint,
 } from "../src/lib/bezier.js";
-import { parseHex, seededPoints } from "../src/lib/values.js";
+import { parseHex } from "../src/lib/values.js";
 import { defaults, validators } from "../src/lib/demo-state.js";
 
 test("Bézier evaluation solves X before evaluating Y", () => {
@@ -118,18 +118,6 @@ test("RGB hex edits preserve zero alpha; RGBA edits replace it", () => {
     alpha: 128 / 255,
   });
   assert.equal(parseHex("invalid", color), null);
-});
-
-test("randomness is repeatable and variation does not change radii", () => {
-  assert.deepEqual(seededPoints(42, 65), seededPoints(42, 65));
-  assert.notDeepEqual(seededPoints(42, 65), seededPoints(43, 65));
-  const flat = seededPoints(42, 0),
-    varied = seededPoints(42, 65);
-  assert.ok(flat.every((point) => point.y === 50));
-  assert.deepEqual(
-    flat.map((p) => p.r),
-    varied.map((p) => p.r),
-  );
 });
 
 test("saved state validates defaults and rejects invalid domains", () => {

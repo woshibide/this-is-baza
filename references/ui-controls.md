@@ -1,328 +1,113 @@
-# Reusable controls for creative tools
+# Reuse the UI examples
 
-Use this guide when choosing or implementing controls for a sketch or motion-design tool.
-Choose the control from what the user is manipulating: a value, interval, position, relationship over time, or collection.
-Treat the phrases below as intent examples, not literal keyword matches.
-Implement only controls needed by the current request, reuse the project's existing components, and follow explicit user choices.
+The bundled Vue components and their running gallery define Baza's control appearance and interactions.
+Reuse them in Vue projects or port them to the target framework, preserving both the visual design and behavior unless the user requests a change.
+Choose only the controls needed by the sketch.
 
-Use the [Vue reference gallery](../src/App.vue) for concrete examples of these controls.
-Run `npm install` once, then `npm run start` to open the gallery through [index.html](../index.html).
-Each file in [src/components](../src/components/) keeps brief LLM notes, scoped CSS, its HTML template, and JavaScript together.
-Read the relevant component and its explicit imports rather than loading the entire gallery.
-Components receive values through `v-model`; the gallery owns persistence and passes clock progress to the timing editors.
-When reusing a component, include its imported helpers and the shared tokens and native-control styles in [src/styles.css](../src/styles.css), or map those styles to the target project.
-Use the contracts below for behavior beyond the demonstration.
+## Reuse workflow
 
-## Graphical language and theming
-
-See [state-indicator research](ui-state-research.md) for the sources and component mapping behind the gallery's state conventions.
-
-Use [GraphicPanel](../src/components/GraphicPanel.vue) to connect a graphic to its related controls in one frame.
-Keep working areas, extended ranges, guides, value outlines, handles, and the current value visually consistent across graph types.
-The default light theme keeps every usable plotting area white, including editable overshoot.
-Label nominal boundaries rather than using a disabled-looking fill outside them.
-Hatching means an unavailable area, not the space outside a current value or interval.
-Use inverse fill, contrasting text, and a checkmark for selected choices, scenes, tracks, palette entries, and gradient stops.
-Use outlines and handles for graphical editing targets; selected curve handles have a filled center and an additional ring.
-Keep keyboard focus as a separate outer ring, visible on selected and unselected elements.
-Draw values with dark contours, points, and narrow interval tracks; a dimensions preview does not use selection styling.
-Keep timeline phase interiors on the plotting surface and show time with a playhead, a “Now” marker, and the phase name.
-Disabled controls use muted affordances and native disabled behavior.
-Color previews retain their actual artwork colors, and checkerboards indicate transparency.
-Use the shared `.plot-*` mark classes in [styles.css](../src/styles.css) for SVG guides, axes, shapes, labels, and points.
-
-[theme.css](../src/theme.css) is the color configuration; `styles.css` imports it automatically.
-Override CSS custom properties on `:root`, a containing element, or a component's root element.
-The base palette supplies defaults for every graphic, so changing the panel color also changes working areas, field backgrounds, and graphic footers.
-Optional role overrides let those parts diverge deliberately.
-Fallbacks resolve inside each control, allowing differently themed controls to coexist on the same page.
-Treat properties beginning with `--_` as internal resolved values; customize the public names below.
-
-| Base variable | Role |
-| --- | --- |
-| `--surface` | Page and recessed surfaces |
-| `--paper` | Control panels and default working areas |
-| `--ink`, `--muted` | Primary text/value strokes and secondary labels |
-| `--line` | General dividers and input borders |
-| `--accent`, `--soft` | Emphasis and subtle press feedback; selection has separate roles |
-| `--danger` | Invalid input border |
-| `--ui-color-scheme` | `light` or `dark` for native browser controls |
-
-| Optional override | Role |
-| --- | --- |
-| `--selection-bg`, `--selection-fg`, `--selection-border` | Persistent selection fill, contrasting text/checkmark, and outline; default to accent, paper, and selection fill |
-| `--disabled-fg` | Unavailable control text and icons; never the selected state |
-| `--plot-area`, `--plot-surround`, `--plot-footer` | Working area, surrounding frame interior, and attached controls |
-| `--plot-extended` | Editable overshoot; defaults to the same surface as the plot area |
-| `--plot-grid`, `--plot-frame`, `--plot-axis` | Grid, frame border, and axis/boundary strokes |
-| `--plot-boundary` | Nominal-domain and allowed-domain boundary strokes |
-| `--plot-label`, `--plot-value` | Graphic labels and value outlines |
-| `--plot-current`, `--plot-playhead` | Current value markers and the independent playback indicator |
-| `--plot-hatch`, `--plot-hatch-opacity` | Excluded-region hatching |
-| `--plot-handle-fill`, `--plot-handle-stroke` | Editable hollow handles |
-| `--plot-marker-outline` | Contrasting border around filled current-value markers |
-| `--control-bg`, `--control-hover`, `--focus` | Input/button fill, button hover fill, and focus ring |
-| `--overlay-bg`, `--shadow-color` | Color popover surface and floating-panel shadow |
-| `--checker-light`, `--checker-dark` | Transparency checkerboard squares |
-| `--color-handle-inner`, `--color-handle-outer` | Contrasting picker marker edges over the color spectrum |
-
-For example, theme a container or one Vue control by adding this class:
-
-```css
-.custom-editor {
-  --ui-color-scheme: dark;
-  --surface: #171d20;
-  --paper: #242e33;
-  --ink: #ecf1f3;
-  --muted: #b3c1c8;
-  --line: #50616b;
-  --accent: #f1bd78;
-  --soft: #463b2f;
-  --danger: #ff9e94;
-  /* Optional: give only the working area a distinct surface. */
-  --plot-area: #1b252a;
-}
-```
-
-Use `class="baza-theme custom-editor"` on a wrapper to theme its own background and text too.
-The supplied `data-ui-theme="light"` and `data-ui-theme="dark"` presets change only the base palette.
-Both defaults are monochrome, including active states and errors; colors are introduced only through theme overrides or the artwork being edited.
-The gallery's **Preview theme** selector demonstrates both presets and saves that choice separately from artwork values.
-Keep actual hue/SV gradients and SVG mask luminance fixed: those colors encode values and masking operations, not interface styling.
-When adding a theme, verify contrast, focus visibility, hatch legibility, popovers, and the same drag/keyboard interactions in each palette.
-Set selection foreground and background together when overriding either to preserve readable text and checks.
-The former `--plot-selection` role is retired: selection colors belong to selection controls, while shapes and intervals use plot area/value roles.
+1. Choose a component from the intent table below and inspect its live example.
+   From the skill folder, run `npm install` once, then `npm run start -- --port <available-port>` to view the gallery without replacing the target project's server.
+2. Read that component and its explicit imports, including shared components and pure helpers.
+   Read the component's notes, template, script, and any scoped styles; read [App.vue](../src/App.vue) only when you need its wiring example.
+3. Copy or port the component and required helpers, and include the relevant control styles from [styles.css](../src/styles.css) and tokens from [theme.css](../src/theme.css).
+   Scope shared styles to the target controls rather than importing the gallery's page layout into an existing application.
+   Keep [Lucide attribution](../THIRD_PARTY_NOTICES.txt) when reusing [Icon.vue](../src/components/Icon.vue).
+4. Bind values and editable bounds to the target project's validated, persisted state, and connect them to the actual artwork.
+   The gallery owns persistence through [useSavedState](../src/composables/useSavedState.js); components own neither browser storage nor the renderer.
+   Use the project's clock for timing controls and the same resolved values for preview and export.
+5. Compare the target control with the running example at the intended panel width, then perform the [integration checks](#integration-checks).
 
 ## Choose by intent
 
-| User intent or wording | Preferred control | Essential behavior | Vue example |
-| --- | --- | --- | --- |
-| “Ease in”, “ramp up”, “accelerate”, “slow down”, “fade over time” | [Bézier timing editor](#bézier-timing-editor) | Show how a property changes over normalized time; keep duration separate. | [BezierControl](../src/components/BezierControl.vue) |
-| “Pulse”, “breathe”, “grow then shrink” | Bézier envelope with a middle keyframe | Shape the rise and fall independently and move the peak in time. | [BezierControl](../src/components/BezierControl.vue) |
-| “Color”, “palette”, “fill”, “stroke”, “background” | [Color or palette editor with alpha](#color-and-palette-with-alpha) | Edit and preserve each color's opacity. | [PaletteControl](../src/components/PaletteControl.vue) |
-| “Gradient”, “color stops”, “fade across the surface” | [Gradient editor](#gradient-stops) | Position stops visually; each stop has color and alpha. | [GradientControl](../src/components/GradientControl.vue) |
-| “Between”, “minimum and maximum”, “random size range” | [Paired range fields](#ranges-and-intervals) | Keep both bounds visible and enforce their relationship. | [RangeControl](../src/components/RangeControl.vue) |
-| “Position”, “offset”, “origin”, “focal point” | [XY control](#position-direction-and-size) | Pair direct positioning with exact X and Y fields. | [PositionControl](../src/components/PositionControl.vue) |
-| “Angle”, “direction”, “rotation” | Angle field with a direction preview | Show orientation and allow exact degrees. | [AngleControl](../src/components/AngleControl.vue) |
-| “Width and height”, “scale”, “aspect ratio” | Linked dimension fields | Make proportional resizing explicit. | [DimensionsControl](../src/components/DimensionsControl.vue) |
-| “How many”, “copies”, “rows”, “columns” | Integer field with stepper | Use whole-number increments and meaningful bounds. | [CountControl](../src/components/CountControl.vue) |
-| “Amount”, “strength”, “thickness”, “opacity” at one instant | Numeric field; optional slider | Use a slider when a bounded continuous sweep helps, with exact entry alongside it. | [AmountControl](../src/components/AmountControl.vue) |
-| “Mode”, “alignment”, “blend mode”, “on/off” | Segmented choice, select, or checkbox | Show mutually exclusive choices or a true boolean directly. | [ChoiceControl](../src/components/ChoiceControl.vue) |
-| “Random”, “variation”, “shuffle”, “another version” | [Seed field and regenerate action](#repeatable-randomness) | Make every generated result reproducible. | [RandomControl](../src/components/RandomControl.vue) |
-| “Scrub”, “preview the loop”, “inspect a frame” | [Playback and time scrubber](#playback-and-time) | Pause and inspect the same time used by export. | [PlaybackControl](../src/components/PlaybackControl.vue) |
+| User intent | Example | Integration detail |
+| --- | --- | --- |
+| Ease in, accelerate, fade over time | [BezierControl](../src/components/BezierControl.vue) | Pass actual property bounds, units, and clock progress. |
+| Pulse, breathe, grow then shrink | [BezierControl](../src/components/BezierControl.vue) with `envelope` | Preserve the movable middle anchor and its handles. |
+| Color, fill, stroke, background | [ColorEditor](../src/components/ColorEditor.vue) | Keep color and alpha together in state. |
+| Palette | [PaletteControl](../src/components/PaletteControl.vue) | Bind the entries used by the artwork. |
+| Gradient or color stops | [GradientControl](../src/components/GradientControl.vue) | Use the same stop positions, alpha, and interpolation in rendering. |
+| Minimum and maximum, interval | [RangeControl](../src/components/RangeControl.vue) | Bind both values and editable bounds. |
+| Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | Map normalized coordinates to the composition's coordinates. |
+| Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
+| Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
+| How many, copies, rows | [CountControl](../src/components/CountControl.vue) | Use meaningful integer bounds. |
+| Amount, thickness, strength | [AmountControl](../src/components/AmountControl.vue) | Bind slider and exact entry to the same scalar. |
+| Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
+| Play, scrub, inspect a frame | [PlaybackControl](../src/components/PlaybackControl.vue) | Drive rendering from its reported time. |
 
-“Make it faster” can mean reducing total duration or changing acceleration within that duration.
-Use the surrounding request to distinguish them; ask one short question if the difference changes the requested behavior and remains unclear.
-A request for a curved path concerns spatial geometry and needs path handles, not a timing graph.
-For explicitly physical spring or bounce behavior, expose the relevant physical parameters and a response preview; a generic Bézier is not an exact physical simulation.
+These are intent examples, not keyword triggers.
+Distinguish changing a duration from changing acceleration within it, and spatial path editing from a timing curve.
+A requested physical spring or bounce needs its own physical parameters and response preview.
 
-## Bézier timing editor
+## Shared controls and styles
 
-### Reference and appearance
+Use [NumberField](../src/components/NumberField.vue) for exact entry and number dragging, [LimitsEditor](../src/components/LimitsEditor.vue) with [LimitValue](../src/components/LimitValue.vue) for editable bounds, and [GraphicPanel](../src/components/GraphicPanel.vue) for a graphic with attached controls.
+Their helpers in [number-scrub.js](../src/lib/number-scrub.js) and [numeric-limits.js](../src/lib/numeric-limits.js) own gesture and validation behavior; reuse or port those implementations with the components.
+Preserve the distinction between a value, its editable bounds, and its intrinsic domain.
+The text `-0` clears a custom limit and is stored as `null`; ordinary `0` remains a valid bound.
+Persist custom bounds alongside their values and retain intrinsic limits such as positive dimensions and 0–100% opacity.
+Keep drag, keyboard, and typed edits on the same model, with units and invalid-input feedback visible.
+Keep reset local to its control and integrate continuous gestures with the target's existing undo behavior when present.
 
-The reference is `~/wip/underline/1_explorations/lines`.
-Its `src/ui/bezier-editor.js`, `src/easing.js`, and `css/style.css` contain the editor, evaluator, and styling.
-Inspect these when available; the contract below is self-contained so other projects do not depend on that local path.
+Preserve these graphical meanings when porting:
 
-Replicate the reference's compact inline graph: quiet grid, thin curve, filled anchors, hollow handles, connecting handle lines, and one accent for selection and the playhead.
-Use the available panel width; the reference uses an SVG `viewBox="0 0 300 196"` with a plot from `(24, 26)` to `(276, 166)`.
-Keep labels and controls legible when resizing rather than requiring those exact pixels.
-In the runnable examples, reserve space above and below the 0–100% plot equal to 75% of the plot height on each side.
-Derive these margins, rendering coordinates, and pointer mapping from the same scalable geometry so the proportions hold at every panel width.
-Place the selected point's name and two numeric fields, **Time %** and **Value %**, directly below the graph.
-Show a vertical playhead and a dot on the evaluated curve while previewing animation.
-Keep the editor outside the exported composition.
+| Meaning | Reference treatment |
+| --- | --- |
+| Selected choice | Inverse fill with contrasting text and a checkmark. |
+| Selected graphical target | Marked handle or outline, distinct from keyboard focus. |
+| Keyboard focus | Separate visible outer ring on selected and unselected controls. |
+| Value or geometry | Contours, points, measurement labels, and narrow interval tracks. |
+| Unavailable region | Hatching outside the allowed domain. |
+| Editable overshoot | Usable plotting surface with labeled nominal boundaries. |
+| Playback position | Playhead and current-phase marker, independent of selection. |
+| Transparency | Checkerboard behind the actual color or artwork. |
 
-The horizontal axis is elapsed time, normalized from 0 to 1 and displayed as 0–100%.
-The vertical axis is the normalized property value or progress, with 0 at the bottom and 1 at the top.
-Label the edited property so “Value” has a concrete meaning, such as spread, opacity, or distance traveled.
-When the property is distance, a steeper curve means faster movement; the height itself is distance, not speed.
+The light and dark presets in [theme.css](../src/theme.css) are monochrome; artwork retains its actual colors.
+Use `class="baza-theme"` and `data-ui-theme="light"` or `"dark"` on a wrapper for the supplied themes.
+When a different palette is requested, override public CSS variables on that wrapper or component and preserve the state distinctions above.
+Variables beginning with `--_` are internal resolved values; selection foreground and background must remain a readable pair.
+Keep hue/SV gradients and mask luminance independent of theme colors because they encode values.
+Read [state-indicator research](ui-state-research.md) only when changing these conventions or investigating their rationale.
 
-### Curves and interaction
+## Connecting timing controls
 
-- For a single ramp, start with two anchors at `(0, 0)` and `(1, 1)`.
-- Give the start one outgoing handle and the finish one incoming handle.
-- For a rise-and-fall envelope, add a middle anchor at `(peakTime, 1)` and finish at `(1, 0)`.
-  Give each interior anchor its own incoming and outgoing handles.
-- Keep anchor values fixed at their intended endpoints and peak, and endpoint times fixed at 0 and 1.
-  Move the middle anchor horizontally to change when the peak happens, carrying its handles with it and respecting adjacent bounds.
-- Drag handles in both axes; select them to edit the same coordinates numerically.
-  Keep each handle’s time between its segment’s two anchors, but allow the outgoing and incoming handles to cross each other.
-  Moving the middle anchor carries its handles and clamps neighboring handles to their updated segment bounds.
-  Maintain a positive gap between anchors; the reference uses 0.02 of the full duration.
-- Allow handle values in `[-0.75, 1.75]`, filling the proportional space below and above the nominal 0–100% plot.
-  Apply these limits consistently to dragging, keyboard nudges, numeric fields, and restored data.
-  Preserve curve overshoot in evaluation and previews; for bounded properties such as opacity, clamp the resulting property at the rendering boundary rather than restricting the editor.
-- Support Tab focus, visible selection, arrow-key nudging, and a larger Shift nudge.
-  The reference nudges by 1 percentage point, or 5 with Shift; numeric fields allow finer entry.
-  Give small visible handles larger invisible hit areas and accessible names that identify their anchor and direction.
-- Use pointer capture for dragging and finish the gesture on pointer release, cancellation, or lost capture.
-  Convert pointer coordinates through the SVG's inverse screen transform so dragging remains accurate when resized.
-- Keep drag, keyboard, and numeric edits synchronized through the same validated value.
-  Preserve focus across redraws and offer a local reset to the project's default curve.
+[BezierControl](../src/components/BezierControl.vue) receives normalized curve data through `v-model`, plus `progress`, `outputRange` (`{ min, max }`), `unit`, and `propertyLabel`.
+Supply the actual property being edited; the gallery's pixel range is illustrative and does not measure its preview marker's screen position.
+Use [evaluateCurve](../src/lib/bezier.js) and [remapValue](../src/lib/values.js) for the graph readout and the rendered property.
+For a 40–320 px width range, a curve value of 50% produces 180 px.
+The evaluator solves X for elapsed time before evaluating Y; its Bézier parameter is not itself elapsed time.
+Reuse the evaluator rather than reconstructing its algorithm from a visual approximation.
 
-### Data and evaluation
+Endpoints are fixed; the envelope's middle anchor moves horizontally and vertically with its handles.
+Preserve crossed handles, overshoot, and the example's proportional editing margins.
+Clamp a bounded property's rendered result at the rendering boundary, keeping the editable curve intact.
+Keep duration separate from curve shape and drive the marker, artwork, scrubbing, and export from the same composition time.
+For loops, choose reset or return behavior deliberately; matching endpoint values prevents a value jump, while smooth velocity also requires matching slopes.
 
-Store normalized anchors with absolute handle coordinates, not offsets from the anchor.
-For example, this is the reference's rise-and-fall envelope:
+For sequences, reuse [PlaybackControl](../src/components/PlaybackControl.vue), [TimelineLane](../src/components/TimelineLane.vue), and [timeline.js](../src/lib/timeline.js).
+The example uses scene cuts and tracks with `start`, `intro`, `hold`, and `outro` relative to each scene; the target decides which artwork is visible in each scene.
+Wire the reported time to rendering as demonstrated in [App.vue](../src/App.vue), keeping playback, scrubbing, frame stepping, and export on one clock.
+Use the supplied timing functions for scene boundaries, skipped phases, and scene resizing.
+This sequence example does not require adopting the separate [beat-based timing pattern](beat-timing.md), which applies only when requested.
 
-```json
-[
-  { "x": 0, "y": 0, "out": { "x": 0.22, "y": 0 } },
-  { "x": 0.5, "y": 1, "in": { "x": 0.28, "y": 1 }, "out": { "x": 0.72, "y": 1 } },
-  { "x": 1, "y": 0, "in": { "x": 0.78, "y": 0 } }
-]
-```
+## Connecting colors
 
-Keep duration and output bounds separate from this shape.
-Map the curve to property units with `min + (max - min) * curve(progress)`.
-The gallery demonstrates an imaginary pixel-based property by passing its shared **Range & interval** value to both Bézier controls as `outputRange`, with `unit="px"`.
-These demo numbers illustrate remapping; they do not measure the on-screen distance traveled by the preview marker or an existing artwork property.
-The motion preview places mapped endpoint values above the line, directly above their 0% and 100% labels, and includes the mapped current value in its readout.
-These labels and the readout derive from the same range; changing the interval updates both previews without changing the normalized curves.
-In a real project, consumers must supply the actual property being tweaked through `outputRange` (`{ min, max }`), `unit`, and a meaningful `propertyLabel`.
-Derive the labels, current-value readout, and rendered property from that same mapping rather than keeping illustrative numbers or a separate display-only range.
-For example, an actual width range of 40–320 px should label 0% as 40 px and 100% as 320 px, and a curve value of 50% must produce a width of 180 px.
-Clamp that result to the property’s legal range only when the property requires it.
-For a one-shot animation, clamp elapsed time divided by positive duration to `[0, 1]`; for a repeating animation, wrap phase deliberately.
-Choose a return envelope when the property should come back continuously; use a ramp that wraps only when a reset at the loop boundary is intended.
-Matching endpoint values prevents a position/value jump, but smooth velocity across a loop also requires matching endpoint slopes.
+Use the supplied picker for individual colors, palette entries, and gradient stops, preserving alpha including zero.
+Retain RGB when alpha is zero so raising opacity restores the chosen color.
+The examples use `{ hex, alpha }`; adapt that boundary if the target already has a different color representation.
+Six-digit hex changes RGB while retaining alpha; eight-digit `#RRGGBBAA` changes both.
+Keep per-color alpha separate from whole-layer opacity, and flatten translucent artwork only when writing an opaque output.
+Preserve named palette roles or fixed slots when the artwork depends on them.
 
-For each cubic segment, use `B(u) = (1-u)^3*a + 3*(1-u)^2*u*b + 3*(1-u)*u^2*c + u^3*d` independently for X and Y.
-Find the segment containing the requested time, solve `Bx(u) = progress`, then return `By(u)`.
-The Bézier parameter `u` is not elapsed time; inserting progress directly into the Y polynomial produces the wrong timing.
-Use 32 iterations of bisection on the monotonic X curve and return anchor values exactly at their times.
-Handle X coordinates may cross each other while both remain within the segment’s anchor interval; this still gives one value for each time.
-This time-to-value interpretation also underlies [CSS easing](https://www.w3.org/TR/css-easing-1/#cubic-bezier-easing-functions).
+## Integration checks
 
-Validate finite coordinates, strictly increasing anchor times, required handles, supported value bounds, and positive duration before accepting restored or imported state.
-Use one pure evaluator for the graph marker, preview, and offline export, driven by the supplied animation time.
-Keep selection, focus, drag state, and the live playhead out of saved curve data.
+Check the controls actually added or changed:
 
-## Color and palette with alpha
+1. Compare appearance with the example, including selection, keyboard focus, disabled states, popovers, and usable plotting regions at the target panel width.
+2. Try drag, keyboard, and exact entry; confirm they update the same artwork value and recover from invalid input.
+3. Refresh after editing values and bounds, including zero/fractional alpha and curve handles where applicable; confirm both the controls and artwork are restored.
+4. At a chosen composition time, confirm the displayed values, artwork, and exported result agree and editor graphics stay out of the export.
 
-Every editable color includes alpha unless the target's data model or rendering pipeline genuinely cannot represent it.
-Apply this to individual colors, palette entries, gradient stops, fills, strokes, and backgrounds.
-Use opaque alpha as a default, not as a restriction.
-
-1. Show a swatch over a checkerboard and provide a color picker, exact color text entry, and a clearly labeled **Opacity %** field from 0 to 100.
-   An optional opacity slider is useful here because it edits one bounded scalar.
-2. Store color and alpha together using the project's established format.
-   For a new sRGB model, `{ "r": 255, "g": 96, "b": 32, "a": 0.5 }` is sufficient; define RGB as 0–255 and alpha as 0–1.
-3. Preserve alpha when changing RGB, switching picker modes, copying colors, saving, restoring, or editing palette entries.
-   Treat zero alpha as valid and retain its RGB channels so raising opacity restores the chosen color.
-4. Define exact-entry behavior: six-digit hex edits RGB while preserving the current alpha; eight-digit `#RRGGBBAA` edits both.
-   Validate entries before committing them and keep all controls synchronized.
-5. For a palette, show selectable swatches with the selected entry's editor nearby.
-   Add, remove, and reorder entries when the palette is variable-length; preserve named roles and fixed slots when the artwork depends on them.
-6. Composite transparent artwork over the actual background or a preview checkerboard.
-   Keep checkerboard pixels out of exported artwork.
-
-Use a native color picker with alpha only after checking it works in the target browser; otherwise combine RGB picking with an explicit alpha field.
-Browser picker support is not a reason to remove alpha from the product; see the [native color input reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/color).
-Keep per-color alpha separate from whole-layer opacity when both exist; their effects combine.
-An opaque export format still permits translucent colors composited over a background, so preserve their alpha in editable state and flatten only at the output boundary.
-If a specific target truly requires opaque colors, state that concrete limitation beside the affected control and make the conversion explicit.
-
-## Other reusable patterns
-
-### Dragging numeric values
-
-[NumberField](../src/components/NumberField.vue) and [LimitValue](../src/components/LimitValue.vue) use one [number-scrubbing controller](../src/lib/number-scrub.js).
-The controller emits through their existing models, so previews, linked dimensions, validation, and browser persistence keep the same source of truth.
-Do not add pointer arithmetic to individual controls.
-
-Click a number to select it for exact typing, or drag right/up to increase it and left/down to decrease it.
-A four-pixel threshold separates clicks from drags; the initial direction locks the axis for that gesture, avoiding diagonal jitter.
-Four pixels advance one step: integer fields use their declared step, and unrestricted decimal fields use 0.1 without changing native `step="any"` validation.
-Shift makes dragging ten times faster, and Alt makes it ten times finer while respecting any declared numeric step.
-Dragging respects the latest constraints and follows any additional normalization from the parent control.
-Release, Escape, pointer cancellation, loss of capture, or window blur ends the gesture and retains the last accepted value.
-Use pointer capture so a drag continues outside the input, and dispose the controller when its field unmounts.
-An unlimited `-0` boundary remains a text-entry field until a finite limit is set.
-Hover hints, resize cursors, and the active underline expose the interaction without introducing a second control.
-
-### Editable numeric limits
-
-Attach editable limits to the element they constrain using [LimitsEditor](../src/components/LimitsEditor.vue).
-For scalar values, place Min and Max inside opposing brackets in the same enclosure as the value.
-For range tracks, place editable end caps at the rail terminals; for XY pads, place the limits on their matching horizontal and vertical axes and map the pad through those visible limits.
-Place count steppers inside the scalar enclosure, between each editable limit and the central value.
-[LimitValue](../src/components/LimitValue.vue) owns parsing, focused help, and validation so all placements share one interaction contract.
-At narrow widths, stack paired scalar controls while keeping each value and its limits together.
-[NumberField](../src/components/NumberField.vue) accepts `v-model:limits="limits"`, where `limits` contains `{ min, max }`; composite controls expose `v-model:bounds` and apply the shared [limit helpers](../src/lib/numeric-limits.js) to every input path.
-Commit limits on Enter or blur, restore them on Escape, and show an inline error for malformed or reversed limits.
-The exact text `-0` removes a custom limit; store it as `null` because JSON loses numeric negative zero.
-Ordinary `0` remains a valid bound, and integer controls continue to reject fractions.
-Keep intrinsic domains intact when custom limits are removed: opacity and normalized positions stay within 0–100%, seeds stay within the PRNG domain, and dimensions and duration stay positive.
-Clamp existing values when a changed limit excludes them, and save custom limits alongside values.
-For linked dimensions, clamp both dimensions when limits change; subsequent resizing preserves the resulting ratio within both axes' limits.
-Use a finite display scale for an unbounded track and freeze its numeric span during each drag; a display scale does not restrict typed values or keyboard nudges.
-Verify extended and unbounded entry, limit edits that exclude current values, drag and keyboard consistency, and persistence after refresh.
-
-### Ranges and intervals
-
-Use adjacent Min/Max or Start/End fields with units and domain-appropriate validation.
-Add a two-handle track when visually adjusting the interval is useful; allow coincident bounds only when they have meaning.
-Prevent handles crossing without silently swapping their identities, and preserve valid intermediate typing until a complete value can be committed.
-A value range controls amplitude; a timing graph controls how that range is traversed.
-Show the current output values with units above the range handles, using the interval model itself; combine nearby labels to avoid overlap.
-
-### Position, direction, and size
-
-For a point, use an on-canvas handle when placement in the composition matters, or an XY pad when it needs a compact panel control.
-Provide exact X/Y fields, label the coordinate system and units, and map through composition coordinates rather than display pixels.
-For direction, pair degrees with an interactive orientation dial when visual rotation is useful.
-The gallery dial supports click-to-set and circular dragging through the same rotation model and editable limits as its numeric field.
-Crossing zero preserves accumulated turns; arrow keys change one degree, Shift uses 15 degrees, and Escape restores the rotation at the start of a drag.
-Distinguish wrapped orientation from accumulated rotation so a requested two-turn spin retains 720°.
-For dimensions, pair width/height or X/Y scale with an explicit aspect lock; resizing while locked updates the paired value.
-Show the actual width and height with units beside their measurement guides in the preview, derived from the same model as the numeric fields rather than the scaled preview geometry.
-
-### Gradient stops
-
-Show a gradient strip with selectable, draggable stops and a numeric position for the selected stop.
-Use the alpha-aware color editor for every stop and allow adding/removing stops when supported.
-Preview transparency over a checkerboard and use the same interpolation in preview and rendering.
-Name the domain: a spatial color gradient, a color change over time, and a timing curve are different controls.
-
-### Repeatable randomness
-
-Pair a visible integer seed with **Regenerate**, which chooses a new seed and updates the preview.
-Keep variation amount or distribution controls separate from the seed.
-Save the seed and use it consistently in preview and export; refreshing must reproduce the same result.
-If the user needs to protect individual choices while regenerating, add explicit locks for those choices.
-
-### Playback and time
-
-Provide Play/Pause, Restart, current time, and a scrubber for the animation's actual duration.
-Scrubbing pauses playback and renders the selected time immediately, including the timing graph's playhead.
-Offer frame stepping and frame numbers when the user needs frame-accurate work, derived from the chosen FPS.
-Keep timing shape, duration, and playback position separate so changing one has a predictable effect.
-
-For a sequence, use the scene tabs and phase lanes in [PlaybackControl](../src/components/PlaybackControl.vue), with [TimelineLane](../src/components/TimelineLane.vue) and the pure timing functions in [timeline.js](../src/lib/timeline.js).
-Each scene owns a positive duration and element tracks with `start`, `intro`, `hold`, and `outro` in seconds relative to that scene.
-The example uses a simple cut between scenes; the consuming project decides which elements remain visible across that boundary.
-Drag a whole clip to move its phases together, or drag a boundary to redistribute the adjacent phases without crossing them.
-Arrow keys adjust by 0.01 seconds, Shift by 0.1 seconds, and Escape cancels a drag.
-Zero skips a phase; an omitted outro can leave an element in its held state.
-Keep exact timing fields under the selected lane, and place editable scene-duration limits around that scene's duration.
-Resizing a scene scales all its track timings proportionally; total duration is derived from the scenes.
-Use one absolute clock for playback, scrubbing, frame stepping, and scene selection, with half-open scene intervals and an inclusive final endpoint.
-The gallery's curve mapping lives in `App.vue`; timeline controls report time and do not own rendering or browser storage.
-
-## Shared implementation and completion
-
-Reuse one component for each repeated interaction, with a validated value, change notification, and consistent disabled behavior.
-Keep renderer-specific code outside controls; prefer a direct component interface over a new factory or framework unless the project already benefits from one.
-Expose units and exact values, keep frequently used controls visible, and disclose secondary controls within the relevant group.
-Treat one continuous drag as one undoable edit when the application has undo, and keep reset scoped to the affected control.
-
-Before handing off an implementation, verify the controls actually added or changed:
-
-- Drag, keyboard, and exact entry agree, remain usable at the target panel width, and recover from invalid input.
-- Saved values survive refresh, including alpha 0 and fractional alpha, curve handles, and seeds where applicable.
-- Timing curves hit their intended endpoints and extrema; their playheads agree with the rendered property at a chosen time.
-- Preview and export use the same timing, colors, and random result; editor guides and transparency checkerboards stay outside the artwork.
-
-For export formats and their checks, use [export-system.md](export-system.md).
+Use the target's existing tests and the relevant [gallery tests](../test/) to verify behavior when porting helpers.
+For export implementation and file checks, follow [export-system.md](export-system.md).

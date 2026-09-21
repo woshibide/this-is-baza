@@ -106,11 +106,4 @@ test("restoration accepts extended values and bounds while preserving valid doma
     }),
     false,
   );
-  assert.equal(
-    validators.randomBounds({
-      seed: { min: 0, max: 4294967296 },
-      variation: { min: 0, max: 100 },
-    }),
-    false,
-  );
 });

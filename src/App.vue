@@ -48,7 +48,7 @@ footer {
       <nav aria-label="Control groups">
         <a href="#ramp">Timing</a><a href="#color">Color</a
         ><a href="#range">Range</a><a href="#position">Geometry</a
-        ><a href="#count">Values</a><a href="#random">Randomness</a
+        ><a href="#count">Values</a
         ><a href="#playback">Playback</a>
       </nav>
     </header>
@@ -113,12 +113,8 @@ footer {
         v-model="state.count"
         v-model:bounds="state.countBounds"
       />
+      <AmountControl id="amount" v-model="state.thickness" />
       <ChoiceControl id="choices" v-model="state.choices" />
-      <RandomControl
-        id="random"
-        v-model="state.random"
-        v-model:bounds="state.randomBounds"
-      />
     </div>
     <footer>
       <span role="status">{{ status }}</span> Vue components with scoped styles.
@@ -139,8 +135,8 @@ import PositionControl from "./components/PositionControl.vue";
 import AngleControl from "./components/AngleControl.vue";
 import DimensionsControl from "./components/DimensionsControl.vue";
 import CountControl from "./components/CountControl.vue";
+import AmountControl from "./components/AmountControl.vue";
 import ChoiceControl from "./components/ChoiceControl.vue";
-import RandomControl from "./components/RandomControl.vue";
 import { useSavedState } from "./composables/useSavedState.js";
 import { defaults, validators } from "./lib/demo-state.js";
 import {

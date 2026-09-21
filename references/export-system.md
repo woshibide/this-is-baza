@@ -1,7 +1,7 @@
 # Browser export implementation
 
 Read this reference for every `$baza` export implementation.
-The required formats and scope are defined in [SKILL.md](../SKILL.md#adapt-exports).
+The required formats and scope are defined in [SKILL.md](../SKILL.md#exports).
 
 ## Export panel
 

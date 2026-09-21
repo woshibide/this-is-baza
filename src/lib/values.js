@@ -37,15 +37,3 @@ export function parseHex(text, previous) {
       value.length === 9 ? parseInt(value.slice(7), 16) / 255 : previous.alpha,
   };
 }
-export function seededPoints(seed, variation) {
-  let state = seed >>> 0;
-  const random = () => {
-    state = (Math.imul(1664525, state) + 1013904223) >>> 0;
-    return state / 4294967296;
-  };
-  return Array.from({ length: 16 }, (_, i) => ({
-    x: 20 + i * 24,
-    y: 50 + (random() - 0.5) * variation * 0.7,
-    r: 3 + random() * 4,
-  }));
-}

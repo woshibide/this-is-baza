@@ -1,105 +1,36 @@
-TODO:
-consider for what happens if the project is not local
-
-
 # Baza
 
-Turns vibe-coded browser projects into stable sketch workspaces.
+An agent skill that gives browser sketches a standard creative-coding workspace, plus a runnable gallery of reusable UI controls.
+The workspace includes reference controls, an aspect-correct preview, saved state, and PNG/MP4/WebM exports.
+The gallery is the visual and interaction reference; it is not a complete sketch application or exporter.
 
-## What it does
+## Use the skill
 
-- Adds stable sketch URLs for different projects and hot reload through `npm run start`.
-- Matches the preview aspect ratio to the export, WYSIWYG.
-- Browser local storage of sketch parameters after refresh.
-- Guides control selection by intent, including Bézier timing editors and colors with alpha.
-- Recreates the p5js beat-based timing system when requested: one timing root and automatic dependent durations.
-- Includes PNG, MP4 (H.264), and WebM exports with size, FPS, duration, progress, and cancellation controls, without named export presets.
-- Checks the build, preview, refresh, and actual exports with a short practical pass.
-
-## Prerequisites
-
-- An agent that supports `SKILL.md`.
-- Node.js with npm.
-- Git.
-
-## Use
-
-Install or link this folder, then run:
+Install or link this folder into your agent's skills directory, then invoke:
 
 ```text
-$baza standardize this project, preserve its behavior, and implement the project export system.
+$baza give this sketch the standard workspace, preserving its artwork.
 ```
 
-Request the timing pattern on its own:
+For a new project:
 
 ```text
-$baza add the p5js beat-based system: one timing root per composition, with dependent durations resolved automatically.
+$baza create a new sketch workspace.
 ```
 
-Audit a project without changing it:
+Use a focused request to adopt only the controls or optional timing pattern:
 
-```bash
-node scripts/audit-project.mjs /path/to/project
+```text
+$baza reuse the reference color and Bézier controls in this sketch.
+$baza add beat-based timing with one composition root and automatic dependent durations.
 ```
 
-Standardized projects support the default development-server port and an explicit port:
+The [skill instructions](SKILL.md) define the workspace contract and completion checks.
+Local projects need Node.js, npm, and Git.
 
-```bash
-npm run start
-npm run start -- --port 4173
-```
+## Run and reuse the UI examples
 
-## Recommended model-agnostic setup
-
-Keep one global instruction file.
-Symlink `AGENTS.md` and `CLAUDE.md` to it.
-
-Suggested shared instructions:
-
-```markdown
-## General Guidelines
-- When writting comments never use Emojis.
-- Never manually modify `CHANGELOG.md` files or any files that are marked as auto-generated.
-- When writing or substantially editing long Markdown files, put each full sentence on its own line.
-  Preserve normal Markdown structure, but avoid wrapping multiple sentences onto one physical line.
-- When making technical decisions, do not give much weight to development cost.
-  Instead, prefer quality, simplicity, robustness, scalability, and long-term maintainability.
-- When doing bug fixes, always start by reproducing the bug in an E2E setting as closely aligned as possible with how an end user experiences it.
-  This makes sure you find the real problem, so your fix will actually solve it.
-- When end-to-end testing a product, be picky about the UI you see and be obsessed with pixel perfection.
-  If something clearly looks off, even if it is not directly related to what you are doing, try to get it fixed along the way.
-- Apply that same high standard to engineering excellence: lint failures, test failures, and test flakiness.
-  If you see one, even if it is not caused by what you are working on right now, still get it fixed.
-
-## Engineering Principles
-Build like a disciplined field technician:
-- Prefer the smallest technically complete solution.
-- Favor boring, proven tools and explicit code over cleverness, abstractions, and dependencies.
-- Optimize for robustness, maintainability, inspectability, and easy repair.
-- Avoid feature creep, speculative generalization, unnecessary frameworks, and visual ornament.
-- Use few moving parts. Every dependency, layer, and configuration option must justify itself.
-- Make failure modes obvious; validate inputs and fail clearly.
-- Before adding code, look for the simpler way to remove code or reuse what exists.
-- Deliver working, well-tested solutions with concise documentation.
-
-## Architecture and patterns
-
-- Apply established architectural best practices and software design patterns where they improve clarity, testability, or maintainability.
-- Use your judgment to choose any suitable architectural or design pattern based on the project's needs and existing architecture.
-- Examples include Strategy for interchangeable behavior, Factory for selecting and creating UI elements, Builder for assembling complex UI elements, and Facade for exposing a small, cohesive interface to a complex subsystem.
-  These are illustrative suggestions, not an exhaustive list or a required set.
-- Keep implementations direct when additional structure offers no clear benefit.
-
-```
-
-Optional concise speaking styles:
-
-- [i-have-adhd](https://github.com/ayghri/i-have-adhd) - action first.
-- [caveman](https://github.com/juliusbrussee/caveman) - minimal tokens.
-
-## UI component reference
-
-Run the interactive gallery locally:
+From this folder:
 
 ```bash
 npm install
@@ -107,19 +38,24 @@ npm run start
 ```
 
 Use `npm run start -- --port 4173` to choose a port.
-Run `npm run build` to check the Vue production build and `npm test` to check shared value logic.
+Use `npm run build` and `npm test` to check the gallery build and shared value logic.
 
-[index.html](index.html) mounts the gallery in [src/App.vue](src/App.vue).
-Each control in [src/components](src/components/) is an independent Vue single-file component with brief notes, scoped CSS, an HTML template, and JavaScript.
-The gallery supplies `v-model` values and persistence; components can be reused independently with their explicit imports and the shared [styles](src/styles.css).
-See the [control mapping](references/ui-controls.md#choose-by-intent) to find the relevant component.
+Start with the [control index and reuse instructions](references/ui-controls.md).
+Choose an example by intent, inspect it in the gallery, and reuse or port its component together with its imported helpers and shared styles.
+Preserve the appearance and interactions while connecting its values to the target artwork and saved state.
+[App.vue](src/App.vue) demonstrates composition, persistence, and a shared playback clock.
 
-## Repository contents
+## References
 
-- `SKILL.md` - instructions.
-- `agents/openai.yaml` - UI metadata.
-- `scripts/audit-project.mjs` - project audit.
-- [references/ui-controls.md](references/ui-controls.md) - intent-to-control guidance, Bézier timing, alpha-aware colors, and other reusable creative controls.
-- [references/beat-timing.md](references/beat-timing.md) - single-root composition timing, automatic duration resolution, and integration checks.
-- `references/export-system.md` - required export implementation and verification for every renderer.
-- `references/export-system-p5.md` - optional p5.js and Canvas2D export extensions.
+- [UI examples](references/ui-controls.md): control selection, reuse, and integration checks.
+- [Export system](references/export-system.md): required export implementation and verification for every renderer.
+- [Beat timing](references/beat-timing.md): optional single-root composition timing.
+- [Export extensions](references/export-system-p5.md): optional p5.js and Canvas2D export recipes.
+
+For a coarse read-only project inventory, optionally run:
+
+```bash
+node scripts/audit-project.mjs /path/to/project
+```
+
+The inventory reports code signals; it does not verify runtime behavior.
