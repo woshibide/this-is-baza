@@ -1,0 +1,19 @@
+{
+  "name": "baza-control-reference",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite --host 127.0.0.1 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --strictPort",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.9",
+    "vite": "^8.3.0"
+  }
+}

@@ -52,7 +52,7 @@ Implement the operations actually used by the project: save/restore, transforms,
 Serialize a standalone SVG with width, height, viewBox, definitions, clip paths, and recorded elements.
 Preserve the configured artwork/background and exclude preview-only guides and checkerboard.
 Fail clearly for unsupported operations instead of silently producing incorrect geometry.
-Test each drawing primitive the project actually uses and render the SVG to compare its framing with the preview.
+Open a representative SVG and compare its appearance with the preview.
 
 ## PNG sequence
 
@@ -69,7 +69,7 @@ When cancellation or failure leaves files already written to a directory, identi
 Reuse an existing ZIP utility when available.
 If a dependency-free writer is appropriate, use store-only ZIP entries because PNG is already compressed.
 Include UTF-8 filenames, CRC32, fixed DOS epoch timestamps, central directory records, and explicit rejection of unsupported ZIP64 sizes/counts.
-Validate frame count, names, CRCs, and dimensions by reading the resulting ZIP or directory.
+Open a short exported sequence and confirm its frames are present and correctly ordered.
 
 ## Embedded project state
 
@@ -111,8 +111,8 @@ Validate identity/version, deterministic seed, timeline, and known settings; ign
 Restore atomically and integrate with the existing undo mechanism when available.
 On failure, roll back to the previous snapshot, resync controls, redraw, and show a concise error.
 
-Verify metadata stamp/extract round-trips for each supported format, including PNG replacement, malformed/truncated candidates, size limits, and CRC32.
-Verify that imported state has no live references to its source and a failed restoration leaves the current project intact.
+When changing metadata handling, restore an exported sample and confirm the settings return correctly.
+Check that rejected input leaves the current project intact.
 
 ## Console and batch extensions
 
@@ -129,4 +129,4 @@ app`export --mp4 --fps 60 --duration 10`
 Only expose flags for implemented capabilities and resync the visible controls after changes.
 For projects supporting multiple compositions, an explicit batch command may select compositions or all compositions without introducing named export presets.
 Return a structured per-item result, continue after an individual composition failure, stop on user cancellation, and restore the originally active composition in `finally`.
-Validate failure cleanup with the same rigor as the single-export path.
+After trying a batch, confirm the original composition remains usable.

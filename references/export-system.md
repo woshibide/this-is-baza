@@ -111,24 +111,12 @@ Cleanup must tolerate an encoder that already canceled itself after an error.
 Reset the live animation clock when resuming so export time does not become one giant simulation step.
 Prevent page unload while an export is active.
 
-## Acceptance checks
+## Export check
 
-Exercise the normal UI before changing an existing exporter, recording which format choices and downloads actually work.
-After implementation, use a browser with the required encoders and test through the visible controls and Export button.
-A source-code signal, mocked encoder, or nonempty Blob alone does not prove working video export.
+Use the normal export controls to save one file in each required format, keeping videos short.
+Open the PNG and play the videos; confirm the expected size, framing, and motion, with no editor overlays or checkerboard.
+When changing the export lifecycle, also try Cancel once and confirm the preview remains usable.
 
-1. Start with fresh project storage and verify the default action is Export MP4, then check that PNG and WebM are selectable.
-2. Download a small PNG and short MP4 and WebM from the UI, saving the actual files as test artifacts.
-3. Decode the PNG and videos; inspect dimensions, container, video codec, FPS, and duration using a media probe or decoder.
-   Confirm MP4 contains H.264 and that video duration is within one frame of the requested duration.
-4. Seek and decode first and later video frames; compare framing and the first frame with the frozen preview, and verify visible motion for an animated scene.
-   Check that no format contains editor overlays or the checkerboard.
-5. Smoke-test MP4 at the default output size as well as the small test size; encoder support can depend on resolution.
-6. Cancel an export and force an encoder failure, then export successfully again.
-   Verify that controls, preview size/state, and the original playing or paused state recover in both cases.
-7. Change format, aspect/size, FPS, and duration, then refresh and verify persistence and contextual controls.
-
-Add focused tests for frame timing (including fractional FPS and a partial last frame), settings validation, snapshot isolation, and failure cleanup where those behaviors are newly implemented.
-Run the target project's build and required tests.
-If the automation browser lacks H.264, test in an available supported browser and identify that browser in the evidence.
-If no available browser can exercise MP4, report it as unverified with the observed capability error; keep the implementation and UI path intact.
+These real downloads are the baseline; a visible format option alone is insufficient.
+Use media probes, extra sizes/FPS values, or failure-injection tests only to investigate a specific issue.
+If MP4 cannot be tested in the available browser, report the observed limitation and keep its implementation and UI path intact.
