@@ -1,4 +1,4 @@
-<!-- Ramp or envelope v-model: fixed endpoints, freely movable middle anchor; crossing handles can overshoot into the 75% margins. Progress comes from the parent clock. -->
+<!-- Ramp or envelope v-model with a compact, adaptive value scale. -->
 <style scoped>
 .curve-graph {
   display: block;
@@ -48,7 +48,19 @@
   pointer-events: none;
 }
 .curve-dot { pointer-events: none; }
-.preview-heading { font-size: 13px; margin-bottom: 10px; }
+.preview-disclosure > summary {
+  padding-block: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.preview-disclosure > summary:hover { color: var(--accent); }
+.preview-disclosure > summary:focus-visible {
+  outline: 2px solid var(--focus, var(--accent));
+  outline-offset: 3px;
+}
+.preview-disclosure[open] > summary { margin-bottom: 10px; }
+.preview-heading { justify-content: flex-end; margin-bottom: 10px; }
 .curve-sample {
   height: 88px;
   position: relative;
@@ -61,8 +73,8 @@
 .travel-domain::before {
   content: "";
   position: absolute;
-  left: 30%;
-  width: 40%;
+  left: var(--preview-start);
+  width: calc(var(--preview-end) - var(--preview-start));
   height: 100%;
   background: var(--_plot-area);
   border-inline: 1px solid var(--_plot-boundary);
@@ -81,8 +93,8 @@
   background: var(--_plot-area);
   padding-inline: 3px;
 }
-.travel-start { left: 30%; }
-.travel-end { left: 70%; }
+.travel-start { left: var(--preview-start); }
+.travel-end { left: var(--preview-end); }
 .curve-sample .travel-value {
   top: 12px;
   color: var(--_plot-value);
@@ -131,11 +143,11 @@
       @pointercancel="finish"
       @lostpointercapture="finish"
     >
-      <!-- Continuous 25% value divisions include overshoot; heavier rules mark 0–100%. -->
+      <!-- Grid density adapts to the value scale; heavier rules mark 0–100%. -->
       <g class="graph-zones" aria-hidden="true">
         <!-- All values remain editable; labeled boundaries distinguish the nominal domain. -->
         <rect class="graph-overflow" x="24" y="0" width="252" :height="graphHeight" />
-        <rect class="graph-main" x="24" :y="py(1)" width="252" :height="plotHeight" />
+        <rect class="graph-main" x="24" :y="py(1)" width="252" :height="viewport.height" />
         <rect class="graph-frame" x="24" y="0" width="252" :height="graphHeight" />
         <path
           v-for="step in 9"
@@ -143,25 +155,25 @@
           :class="['graph-grid', 'plot-grid', { minor: step % 2 === 0 }]"
           :d="`M${px((step - 1) / 8)} 0V${graphHeight}`"
         />
-        <template v-for="step in 11" :key="`y-${step}`">
+        <template v-for="value in gridValues" :key="`y-${value}`">
           <path
             :class="[
               'graph-grid',
-              gridValue(step) === 0 || gridValue(step) === 1 ? 'plot-boundary' : 'plot-grid',
+              value === 0 || value === 1 ? 'plot-boundary' : 'plot-grid',
             ]"
-            :d="`M24 ${py(gridValue(step))}H276`"
+            :d="`M24 ${py(value)}H276`"
           />
           <text class="plot-label"
-            v-if="gridValue(step) === 0 || gridValue(step) === 1"
+            v-if="value === 0 || value === 1"
             x="17"
-            :y="py(gridValue(step))"
+            :y="py(value)"
             text-anchor="end"
             dominant-baseline="middle"
           >
-            {{ Math.round(gridValue(step) * 100) }}%
+            {{ Math.round(value * 100) }}%
           </text>
         </template>
-        <text class="plot-label" x="268" y="12" text-anchor="end">Overshoot</text>
+        <text class="plot-label" x="276" y="-4" text-anchor="end">Overshoot</text>
         <text class="plot-label"
           v-for="x in [0, 1]"
           :key="`label-${x}`"
@@ -214,8 +226,9 @@
       </g>
     </svg>
     <template #footer>
-    <div class="preview-heading row between">
-      <span>Motion preview</span>
+    <details class="preview-disclosure">
+    <summary>Motion preview</summary>
+    <div class="preview-heading row">
       <button
         @click="$emit('toggle-preview')"
         :aria-label="playing ? 'Pause motion preview' : 'Play motion preview'"
@@ -226,7 +239,7 @@
       </button>
     </div>
     <!-- Position uses the evaluated curve, not linear time; spare room keeps overshoot visible. -->
-    <div class="curve-sample plot-surface" role="img"
+    <div class="curve-sample plot-surface" role="img" :style="previewStyle"
       :aria-label="`Output mapping: 0% is ${formatValue(outputRange.min)}; 100% is ${formatValue(outputRange.max)}.`">
       <div class="travel-domain">
         <div class="travel-track"></div>
@@ -243,6 +256,7 @@
       {{ formatValue(mappedValue) }} ({{ (evaluated * 100).toFixed(1) }}%) at time
       {{ (phase * 100).toFixed(1) }}%</output
     >
+    </details>
     </template>
     </GraphicPanel>
   </section>
@@ -258,10 +272,8 @@ import {
   envelopeDefault,
   evaluateCurve,
   moveCurvePoint,
-  handleRoom,
-  handleMin,
-  handleMax,
 } from "../lib/bezier.js";
+import { graphHeight, curveViewport, curveGridValues, moveCurvePointInPlot } from "../lib/bezier-plot.js";
 const model = defineModel({ type: Array, required: true });
 const props = defineProps({
   envelope: Boolean,
@@ -283,22 +295,26 @@ const evaluated = computed(() => evaluateCurve(model.value, phase.value));
 const mappedValue = computed(() => remapValue(evaluated.value, props.outputRange));
 const valueFormatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
 const formatValue = (value) => `${valueFormatter.format(value)}${props.unit ? ` ${props.unit}` : ""}`;
-const samplePosition = computed(
-  () => (evaluated.value - handleMin) / (handleMax - handleMin),
-);
+const previewDomain = computed(() => ({
+  min: Math.min(-0.75, viewport.value.min - 0.1),
+  max: Math.max(1.75, viewport.value.max + 0.1),
+}));
+const previewPosition = (value) =>
+  (value - previewDomain.value.min) / (previewDomain.value.max - previewDomain.value.min);
+const samplePosition = computed(() => previewPosition(evaluated.value));
+const previewStyle = computed(() => ({
+  '--preview-start': `${previewPosition(0) * 100}%`,
+  '--preview-end': `${previewPosition(1) * 100}%`,
+}));
 const current = computed(() =>
   selected.value.kind === "anchor"
     ? model.value[selected.value.index]
     : model.value[selected.value.index][selected.value.kind],
 );
-// Each vertical margin is 75% of the 0–100% plot height, in scalable SVG units.
-const plotHeight = 140;
-const verticalRoom = plotHeight * handleRoom;
-const plotBottom = verticalRoom + plotHeight;
-const graphHeight = plotHeight + 2 * verticalRoom;
-const gridValue = (step) => handleMax - (step - 1) * 0.25;
+const viewport = computed(() => curveViewport(model.value));
+const gridValues = computed(() => curveGridValues(model.value));
 const px = (x) => 24 + x * 252,
-  py = (y) => plotBottom - y * plotHeight;
+  py = (y) => viewport.value.py(y);
 const name = (i, kind) =>
   (i === 0 ? "Start" : i === model.value.length - 1 ? "Finish" : "Peak") +
   " " +
@@ -339,22 +355,36 @@ function reset() {
   selected.value = { index: 0, kind: "out" };
 }
 function start(event, point) {
-  if (event.button !== 0) return;
+  if (event.button !== 0 || pointer) return;
   event.preventDefault();
   select(point);
   event.currentTarget.focus();
-  pointer = event.pointerId;
-  graph.value.setPointerCapture(pointer);
-  drag(event);
+  const cursor = cursorPosition(event);
+  if (!cursor) return;
+  pointer = {
+    id: event.pointerId,
+    points: clone(model.value),
+    offsetX: cursor.x - px(point.value.x),
+    offsetY: cursor.y - py(point.value.y),
+  };
+  graph.value.setPointerCapture(pointer.id);
 }
-function drag(event) {
-  if (event.pointerId !== pointer) return;
+function cursorPosition(event) {
   const matrix = graph.value.getScreenCTM();
   if (!matrix) return;
-  const cursor = new DOMPoint(event.clientX, event.clientY).matrixTransform(
+  return new DOMPoint(event.clientX, event.clientY).matrixTransform(
     matrix.inverse(),
   );
-  move((cursor.x - 24) / 252, (plotBottom - cursor.y) / plotHeight);
+}
+function drag(event) {
+  if (event.pointerId !== pointer?.id) return;
+  const cursor = cursorPosition(event);
+  if (!cursor) return;
+  model.value = moveCurvePointInPlot(
+    pointer.points, selected.value,
+    (cursor.x - pointer.offsetX - 24) / 252,
+    cursor.y - pointer.offsetY,
+  );
 }
 function finish() {
   pointer = null;

@@ -1,8 +1,7 @@
 import { clamp, finite, clone } from "./values.js";
 // Handles use absolute normalized coordinates; solve X(time) before evaluating Y(value).
-export const handleRoom = 0.75;
-export const handleMin = -handleRoom;
-export const handleMax = 1 + handleRoom;
+export const handleMin = -5;
+export const handleMax = 6;
 export const rampDefault = [
   { x: 0, y: 0, out: { x: 0.22, y: 0 } },
   { x: 1, y: 1, in: { x: 0.78, y: 1 } },
@@ -14,9 +13,9 @@ export const envelopeDefault = [
 ];
 export function validCurve(points, defaults) {
   const point = (p) =>
-    p && finite(p.x, 0, 1) && finite(p.y, handleMin, handleMax);
+    p && finite(p.x, 0, 1) && Number.isFinite(p.y);
   const handle = (p, start, end) =>
-    p && finite(p.x, start, end) && finite(p.y, handleMin, handleMax);
+    p && finite(p.x, start, end) && Number.isFinite(p.y);
   return (
     Array.isArray(points) &&
     points.length === defaults.length &&
@@ -33,7 +32,7 @@ export function validCurve(points, defaults) {
     )
   );
 }
-// A handle is bounded by its segment's anchors, never by its opposing handle.
+// Time stays inside the segment; each direction has its own 500% overshoot allowance.
 export function moveCurvePoint(value, { index, kind }, x, y) {
   const points = clone(value);
   if (!Number.isFinite(x) || !Number.isFinite(y)) return points;
@@ -46,9 +45,12 @@ export function moveCurvePoint(value, { index, kind }, x, y) {
     const delta = time - anchor.x;
     const height = clamp(y, handleMin, handleMax);
     const heightDelta = height - anchor.y;
+    const incomingY = anchor.in.y + heightDelta;
+    const outgoingY = anchor.out.y + heightDelta;
+    if (![incomingY, outgoingY].every(Number.isFinite)) return points;
     anchor.y = height;
-    anchor.in.y = clamp(anchor.in.y + heightDelta, handleMin, handleMax);
-    anchor.out.y = clamp(anchor.out.y + heightDelta, handleMin, handleMax);
+    anchor.in.y = clamp(incomingY, handleMin, handleMax);
+    anchor.out.y = clamp(outgoingY, handleMin, handleMax);
     anchor.x = time;
     anchor.in.x = clamp(anchor.in.x + delta, previous.x, time);
     anchor.out.x = clamp(anchor.out.x + delta, time, next.x);

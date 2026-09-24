@@ -102,11 +102,13 @@ test("moving the envelope peak preserves valid segments with crossed handles", (
   }
 });
 
-test("handle motion clamps only to the segment and extended value bounds", () => {
+test("handle motion clamps time to its segment with independent 500% overshoot limits", () => {
   const upper = moveCurvePoint(rampDefault, { index: 0, kind: "out" }, 2, 3);
-  assert.deepEqual(upper[0].out, { x: 1, y: 1.75 });
+  assert.deepEqual(upper[0].out, { x: 1, y: 3 });
   const lower = moveCurvePoint(rampDefault, { index: 1, kind: "in" }, -1, -2);
-  assert.deepEqual(lower[1].in, { x: 0, y: -0.75 });
+  assert.deepEqual(lower[1].in, { x: 0, y: -2 });
+  assert.ok(validators.ramp(JSON.parse(JSON.stringify(upper))));
+  assert.ok(validators.ramp(JSON.parse(JSON.stringify(lower))));
   assert.deepEqual(rampDefault[0].out, { x: 0.22, y: 0 });
 });
 
@@ -135,7 +137,7 @@ test("saved state validates defaults and rejects invalid domains", () => {
 });
 
 test("middle anchor moves vertically with its handles and survives persistence", () => {
-  for (const y of [-0.75, 0.4, 1.5, 1.75]) {
+  for (const y of [-5, -0.75, 0.4, 1.5, 1.75, 6]) {
     const moved = moveCurvePoint(
       envelopeDefault,
       { index: 1, kind: "anchor" },
@@ -154,7 +156,7 @@ test("middle anchor moves vertically with its handles and survives persistence",
     0.5,
     9,
   );
-  assert.equal(limited[1].y, 1.75);
+  assert.equal(limited[1].y, 6);
   assert.deepEqual(
     moveCurvePoint(envelopeDefault, { index: 0, kind: "anchor" }, 0.2, 0.5),
     envelopeDefault,
