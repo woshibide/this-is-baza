@@ -33,6 +33,20 @@
     <p class="reference-intro">Interactive controls for browser sketches. Each example shows a reusable way to edit a value, shape motion, or arrange a sequence. Changes save locally in this browser.</p>
     <div class="baza-theme examples-theme" :data-ui-theme="appearance.theme">
     <div class="reference-examples">
+      <div id="count" class="example-anchor">
+      <h2 id="values" class="reference-heading">Values</h2>
+      <div class="example">
+        <p class="example-intro">A slider edits a whole-number quantity, such as copies or repetitions. Drag the number, step through values with the buttons, or enter a number within the chosen limits.</p>
+      <CountControl
+        v-model="state.count"
+        v-model:bounds="state.countBounds"
+      />
+      </div>
+      </div>
+      <div class="example" id="choices">
+        <p class="example-intro">Choices and toggles represent discrete settings. These examples show a mutually exclusive alignment, a shape selection, and an independent on/off option.</p>
+      <ChoiceControl  v-model="state.choices" />
+      </div>
       <div id="ramp" class="example-anchor">
       <h2 id="timing" class="reference-heading">Timing</h2>
       <div class="example">
@@ -94,6 +108,10 @@
       />
       </div>
       </div>
+      <div class="example" id="angle-range">
+        <p class="example-intro">An angle interval limits freedom of rotation to an allowed arc. Move either endpoint to resize it, or rotate the whole interval around the dial, including across 0°.</p>
+        <AngleRangeControl v-model="state.angleRange" />
+      </div>
       <div id="position" class="example-anchor">
       <h2 id="geometry" class="reference-heading">Geometry</h2>
       <div class="example">
@@ -118,20 +136,6 @@
         v-model:bounds="state.dimensionsBounds"
       />
       </div>
-      <div id="count" class="example-anchor">
-      <h2 id="values" class="reference-heading">Values</h2>
-      <div class="example">
-        <p class="example-intro">A count control edits a whole-number quantity, such as copies or repetitions. Step through values with the buttons or enter a number within the chosen limits.</p>
-      <CountControl
-        v-model="state.count"
-        v-model:bounds="state.countBounds"
-      />
-      </div>
-      </div>
-      <div class="example" id="choices">
-        <p class="example-intro">Choices and toggles represent discrete settings. These examples show a mutually exclusive alignment, a shape selection, and an independent on/off option.</p>
-      <ChoiceControl  v-model="state.choices" />
-      </div>
     </div>
     </div>
     <p class="gallery-status">
@@ -148,6 +152,7 @@ import PlaybackControl from "./components/PlaybackControl.vue";
 import PaletteControl from "./components/PaletteControl.vue";
 import GradientControl from "./components/GradientControl.vue";
 import RangeControl from "./components/RangeControl.vue";
+import AngleRangeControl from "./components/AngleRangeControl.vue";
 import PositionControl from "./components/PositionControl.vue";
 import AngleControl from "./components/AngleControl.vue";
 import DimensionsControl from "./components/DimensionsControl.vue";
@@ -171,6 +176,9 @@ const { state: appearance, status: appearanceStatus } = useSavedState(
   { theme: (value) => value === "light" || value === "dark" },
 );
 const contents = [
+  { id: "values", label: "Values" },
+  { id: "count", label: "Slider", example: true },
+  { id: "choices", label: "Choices and toggles", example: true },
   { id: "timing", label: "Timing" },
   { id: "ramp", label: "Bézier ramp", example: true },
   { id: "envelope", label: "Pulse envelope", example: true },
@@ -180,13 +188,11 @@ const contents = [
   { id: "gradient", label: "Gradient", example: true },
   { id: "ranges", label: "Range" },
   { id: "range", label: "Interval", example: true },
+  { id: "angle-range", label: "Angle interval", example: true },
   { id: "geometry", label: "Geometry" },
   { id: "position", label: "XY position", example: true },
   { id: "angle", label: "Angle", example: true },
   { id: "dimensions", label: "Linked dimensions", example: true },
-  { id: "values", label: "Values" },
-  { id: "count", label: "Count", example: true },
-  { id: "choices", label: "Choices and toggles", example: true },
 ];
 const time = ref(0);
 // Migrate the original single duration once; existing unrelated controls retain their state.

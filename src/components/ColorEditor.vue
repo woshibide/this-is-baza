@@ -289,6 +289,9 @@
         :value="hsv.h"
         @input="setHsv({ h: Number($event.target.value) })"
       />
+      <details class="exact-values">
+      <summary>Exact values</summary>
+      <div class="exact-values-content">
       <div v-for="format in formats" :key="format" class="value-row">
         <label :for="id + format">{{ format }}</label>
         <input
@@ -325,6 +328,8 @@
       <p v-if="message" :id="id + 'feedback'" class="feedback" role="status">
         {{ message }}
       </p>
+      </div>
+      </details>
     </div>
   </div>
 </template>

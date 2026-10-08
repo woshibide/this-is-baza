@@ -2,6 +2,7 @@ import { validLimits } from "./numeric-limits.js";
 import { finite, validColor } from "./values.js";
 import { rampDefault, envelopeDefault, validCurve } from "./bezier.js";
 import { validTimeline } from "./timeline.js";
+import { validAngleRange } from "./angle-range.js";
 export const defaults = {
   ramp: rampDefault,
   envelope: envelopeDefault,
@@ -18,6 +19,7 @@ export const defaults = {
     { hex: "#7894b2", alpha: 0, position: 100 },
   ],
   range: { min: 20, max: 80 },
+  angleRange: { start: 300, sweep: 120 },
   position: { x: 50, y: 50 },
   rotation: 45,
   dimensions: { width: 320, height: 180, locked: true },
@@ -35,6 +37,7 @@ export const defaults = {
   choices: { align: "center", shape: "circle", fill: true },
 };
 export const validators = {
+  angleRange: validAngleRange,
   ramp: (v) => validCurve(v, rampDefault),
   envelope: (v) => validCurve(v, envelopeDefault),
   duration: (v) => finite(v, 0.1, Number.MAX_SAFE_INTEGER),

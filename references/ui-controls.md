@@ -28,6 +28,7 @@ Choose only the controls needed by the sketch.
 | Palette | [PaletteControl](../src/components/PaletteControl.vue) | Bind the entries used by the artwork. |
 | Gradient or color stops | [GradientControl](../src/components/GradientControl.vue) | Use the same stop positions, alpha, and interpolation in rendering. |
 | Minimum and maximum, interval | [RangeControl](../src/components/RangeControl.vue) | Bind both values and editable bounds. |
+| Allowed angles, rotational freedom, angular interval | [AngleRangeControl](../src/components/AngleRangeControl.vue) | Bind `{ start, sweep }` in whole degrees: start is 0–359°, clockwise sweep is 0–360°. |
 | Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | Map normalized coordinates to the composition's coordinates. |
 | Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
 | Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
@@ -43,6 +44,9 @@ A requested physical spring or bounce needs its own physical parameters and resp
 
 Use [NumberField](../src/components/NumberField.vue) for exact entry and number dragging, [LimitsEditor](../src/components/LimitsEditor.vue) with [LimitValue](../src/components/LimitValue.vue) for editable bounds, and [GraphicPanel](../src/components/GraphicPanel.vue) for a graphic with attached controls.
 Their helpers in [number-scrub.js](../src/lib/number-scrub.js) and [numeric-limits.js](../src/lib/numeric-limits.js) own gesture and validation behavior; reuse or port those implementations with the components.
+Put supplementary input fields beneath graphics in GraphicPanel's `fields` slot; its native “Exact values” disclosure is collapsed by default.
+Keep primary actions and readouts in the `footer` slot, and keep essential standalone inputs visible.
+Use the shared `exact-values` disclosure styles for supplementary fields outside GraphicPanel, as in the color picker.
 Preserve the distinction between a value, its editable bounds, and its intrinsic domain.
 The text `-0` clears a custom limit and is stored as `null`; ordinary `0` remains a valid bound.
 Persist custom bounds alongside their values and retain intrinsic limits such as positive dimensions and 0–100% opacity.
@@ -89,6 +93,17 @@ The example uses scene cuts and tracks with `start`, `intro`, `hold`, and `outro
 Wire the reported time to rendering as demonstrated in [App.vue](../src/App.vue), keeping playback, scrubbing, frame stepping, and export on one clock.
 Use the supplied timing functions for scene boundaries, skipped phases, and scene resizing.
 This sequence example does not require adopting the separate [beat-based timing pattern](beat-timing.md), which applies only when requested.
+
+## Connecting angle intervals
+
+[AngleRangeControl](../src/components/AngleRangeControl.vue) uses the same orientation as the geometry dial: 0° points up and positive angles run clockwise.
+Store `{ start, sweep }`, rather than an ordered minimum and maximum, so an interval can cross 0° and distinguish a locked direction (`sweep: 0`) from unrestricted rotation (`sweep: 360`).
+For example, `{ start: 300, sweep: 120 }` allows directions from 300° clockwise through 0° to 60°.
+A direction is allowed when `wrapDegrees(direction - start) <= sweep`; use [angle-range.js](../src/lib/angle-range.js) for wrapping, validation, and interval movement.
+Endpoint drags clamp at zero and one full turn; dragging the arc preserves its width.
+Exact endpoint fields select the clockwise interval, and the Allowed field sets its width explicitly.
+Arrow keys adjust 1°, Shift adjusts 15°, and Escape restores a drag's starting state.
+Keep both handles accessible when endpoints coincide, and persist the complete model together.
 
 ## Connecting colors
 

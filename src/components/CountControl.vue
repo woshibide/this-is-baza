@@ -15,8 +15,8 @@ button:active:not(:disabled) {
 }
 </style>
 <template>
-  <section aria-label="Integer count">
-    <h2>Integer count</h2>
+  <section aria-label="Slider">
+    <h2>Slider</h2>
     <p>Whole-number increments with exact entry.</p>
     <NumberField
       v-model="model"

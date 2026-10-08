@@ -127,7 +127,7 @@
         :hard-max="100"
       />
     </div>
-    <template #footer>
+    <template #fields>
     <div class="pair">
       <NumberField
         label="X %"

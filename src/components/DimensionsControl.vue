@@ -26,7 +26,7 @@
           <text class="plot-label" x="10" :y="previewSize.height / 2 + 14">Height</text>
         </g>
       </svg>
-      <template #footer>
+      <template #fields>
     <div class="pair">
       <NumberField
         label="Width (px)"

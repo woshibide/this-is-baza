@@ -1,8 +1,12 @@
-<!-- Shared graphical control frame. Geometry stays in the default slot; related controls share its footer. Uses plot tokens from styles.css. -->
+<!-- Geometry in the default slot, primary actions/readouts in footer, optional exact entry in fields (collapsed by default). -->
 <template>
   <div class="graphic-panel">
     <div class="graphic-content" :class="{ flush }"><slot /></div>
     <div v-if="$slots.footer" class="graphic-footer"><slot name="footer" /></div>
+    <details v-if="$slots.fields" class="graphic-footer exact-values">
+      <summary>Exact values</summary>
+      <div class="exact-values-content"><slot name="fields" /></div>
+    </details>
   </div>
 </template>
 

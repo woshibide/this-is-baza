@@ -78,6 +78,9 @@
         Remove stop
       </button>
     </div>
+    <ColorEditor :model-value="model[selected]" @update:model-value="update" />
+    </template>
+    <template #fields>
     <NumberField
       class="position"
       v-model:limits="bounds"
@@ -87,7 +90,6 @@
       :max="100"
       @update:model-value="setPosition"
     />
-    <ColorEditor :model-value="model[selected]" @update:model-value="update" />
     </template>
     </GraphicPanel>
     <p class="note">

@@ -10,6 +10,14 @@ The bundled UI examples define the controls' appearance and interactions: reuse 
 Apply the full workspace contract below unless the user explicitly narrows the task.
 For a controls-only or timing-only request, follow the relevant reference and verify the affected behavior.
 
+## Target platform
+
+Assume desktop-only use unless the user explicitly requests mobile or tablet support.
+Apply this default across design, implementation, and verification: optimize layouts and interactions for desktop browsers, and verify at desktop viewport sizes.
+Mobile layouts, touch-specific adaptations, and mobile testing are out of scope by default.
+On screens too small for the desktop workspace, a simple “This app is meant for desktop. Open it on a larger screen.” message is sufficient instead of a mobile layout.
+A narrow desktop panel or browser window does not imply a requirement for a mobile version.
+
 ## Completion checks
 
 A standard workspace is complete when these checks pass in the browser:

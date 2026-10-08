@@ -59,9 +59,9 @@ The gallery includes:
 | --- | --- |
 | Timing | Bézier ramp, pulse envelope, scene timeline, playback, and scrubbing |
 | Color | Alpha-aware color picker, palette, and gradient stops |
-| Range | Paired interval values with editable bounds |
+| Range | Paired interval values with editable bounds, angle intervals |
 | Geometry | XY position, angle, and linked dimensions |
-| Values | Integer count, choices, and toggles |
+| Values | Slider, choices, and toggles |
 
 Shared components provide exact numeric entry, number dragging, editable limits, and consistent graphical states.
 The examples support light and dark themes through shared CSS tokens.

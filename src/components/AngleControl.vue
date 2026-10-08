@@ -52,7 +52,7 @@
         </g>
         <circle cx="160" cy="90" r="3" fill="var(--_plot-value)" />
       </svg>
-      <template #footer>
+      <template #fields>
     <NumberField
       label="Rotation (degrees)"
       v-model="model"
