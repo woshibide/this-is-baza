@@ -1,4 +1,5 @@
-<!-- Ramp or envelope v-model with a compact, adaptive value scale. -->
+<!-- Ramp or envelope v-model with a compact, adaptive value scale.
+     The owner may supply a heading and the curve that Reset restores. -->
 <style scoped>
 .curve-graph {
   display: block;
@@ -282,13 +283,15 @@ const props = defineProps({
   outputRange: { type: Object, required: true },
   unit: { type: String, default: "" },
   propertyLabel: { type: String, default: "" },
+  heading: { type: String, default: "" },
+  resetCurve: { type: Array, default: null },
 });
 defineEmits(["toggle-preview"]);
 const graph = ref(null),
   selected = ref({ index: 0, kind: "out" });
 let pointer = null;
 const title = computed(() =>
-  props.envelope ? "Bézier pulse envelope" : "Bézier timing ramp",
+  props.heading || (props.envelope ? "Bézier pulse envelope" : "Bézier timing ramp"),
 );
 const phase = computed(() => clamp(props.progress, 0, 1));
 const evaluated = computed(() => evaluateCurve(model.value, phase.value));
@@ -351,7 +354,7 @@ function move(x, y) {
   model.value = moveCurvePoint(model.value, selected.value, x, y);
 }
 function reset() {
-  model.value = clone(props.envelope ? envelopeDefault : rampDefault);
+  model.value = clone(props.resetCurve ?? (props.envelope ? envelopeDefault : rampDefault));
   selected.value = { index: 0, kind: "out" };
 }
 function start(event, point) {

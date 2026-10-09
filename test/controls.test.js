@@ -50,7 +50,7 @@ test("crossed handles and vertical overshoot survive curve validation", () => {
   assert.equal(crossed[0].out.y, 1.75);
   assert.equal(crossed[1].in.y, -0.75);
   assert.ok(validCurve(crossed, rampDefault));
-  assert.ok(validators.ramp(JSON.parse(JSON.stringify(crossed))));
+  assert.ok(validCurve(JSON.parse(JSON.stringify(crossed)), rampDefault));
   assert.ok(Math.abs(evaluateCurve(crossed, 0.5) - 0.5) < 1e-8);
 });
 
@@ -107,8 +107,8 @@ test("handle motion clamps time to its segment with independent 500% overshoot l
   assert.deepEqual(upper[0].out, { x: 1, y: 3 });
   const lower = moveCurvePoint(rampDefault, { index: 1, kind: "in" }, -1, -2);
   assert.deepEqual(lower[1].in, { x: 0, y: -2 });
-  assert.ok(validators.ramp(JSON.parse(JSON.stringify(upper))));
-  assert.ok(validators.ramp(JSON.parse(JSON.stringify(lower))));
+  assert.ok(validCurve(JSON.parse(JSON.stringify(upper)), rampDefault));
+  assert.ok(validCurve(JSON.parse(JSON.stringify(lower)), rampDefault));
   assert.deepEqual(rampDefault[0].out, { x: 0.22, y: 0 });
 });
 
@@ -127,7 +127,7 @@ test("saved state validates defaults and rejects invalid domains", () => {
     assert.ok(validators[name](value), name);
   assert.equal(validators.count(2.5), false);
   assert.equal(validators.range({ min: 90, max: 20 }), false);
-  assert.equal(validators.duration(0), false);
+  assert.equal(validators.durations({ rise: 0, pulse: 2 }), false);
   assert.equal(validators.position({ x: NaN, y: 20 }), false);
   assert.equal(
     validators.dimensions({ width: 320, height: 0, locked: true }),
@@ -148,7 +148,7 @@ test("middle anchor moves vertically with its handles and survives persistence",
     assert.equal(moved[1].in.y, y);
     assert.equal(moved[1].out.y, y);
     assert.equal(evaluateCurve(moved, 0.6), y);
-    assert.ok(validators.envelope(JSON.parse(JSON.stringify(moved))));
+    assert.ok(validCurve(JSON.parse(JSON.stringify(moved)), envelopeDefault));
   }
   const limited = moveCurvePoint(
     envelopeDefault,

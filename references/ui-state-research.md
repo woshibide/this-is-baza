@@ -75,7 +75,7 @@ For terminology, `aria-pressed` describes a toggle button's persistent state; it
 Separate selection styling into `--selection-bg`, `--selection-fg`, and `--selection-border` roles.
 Keep the existing `--focus` and `--plot-value` roles for focus and graphical values, and give disabled affordances and playback their own `--disabled-fg` and `--plot-playhead` roles.
 Keep plot surface, grid, constraint hatch, and nominal-boundary roles separate; values may initially share a palette color without sharing their meaning.
-Remove timeline phase type from `--plot-extended`; name the phases with text and separators.
+Keep timeline elements off `--plot-extended`; name steps and tracks with text.
 
 When extending the gallery, compare the chosen alignment, selected scene, interval, and focused handle together before applying a new state recipe to every component.
 Check selected-plus-focused and selected-plus-disabled combinations, light/dark themes, keyboard operation, and actual disabled behavior.

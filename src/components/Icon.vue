@@ -28,7 +28,7 @@ defineProps({
     type: String,
     required: true,
     validator: (value) =>
-      ["play", "pause", "reset", "plus", "minus", "copy", "check"].includes(value),
+      ["play", "pause", "reset", "plus", "minus", "copy", "check", "sliders", "panel-close", "panel-right-close", "spline", "chevron-left", "download", "x"].includes(value),
   },
 });
 const paths = {
@@ -38,5 +38,12 @@ const paths = {
   copy: "M9 9h12v12H9z M5 15H3V3h12v2",
   minus: "M5 12h14",
   check: "M20 6 9 17l-5-5",
+  sliders: "M10 5H3 M12 19H3 M14 3v4 M16 17v4 M21 12h-9 M21 19h-5 M21 5h-7 M8 10v4 M8 12H3",
+  "panel-close": "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M9 3v18 M16 15l-3-3 3-3",
+  "panel-right-close": "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M15 3v18 M8 9l3 3-3 3",
+  spline: "M17 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M3 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M5 17A12 12 0 0 1 17 5",
+  "chevron-left": "m15 18-6-6 6-6",
+  download: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3",
+  x: "M18 6 6 18 M6 6l12 12",
 };
 </script>

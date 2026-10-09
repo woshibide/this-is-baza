@@ -42,8 +42,8 @@
 </style>
 
 <template>
-  <section aria-label="Gradient stops">
-    <h2>Gradient stops</h2>
+  <section :aria-label="heading">
+    <h2>{{ heading }}</h2>
     <p>Drag a numbered stop or enter its exact position.</p>
     <GraphicPanel>
     <div
@@ -107,6 +107,7 @@ import GraphicPanel from "./GraphicPanel.vue";
 import ColorEditor from "./ColorEditor.vue";
 import Icon from "./Icon.vue";
 import { rgba, arrowDelta } from "../lib/values.js";
+defineProps({ heading: { type: String, default: "Gradient stops" } });
 const model = defineModel({ type: Array, required: true }),
   selected = ref(0),
   track = ref(null);

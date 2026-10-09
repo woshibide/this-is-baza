@@ -93,12 +93,12 @@ test("unbounded and coincident tracks have a finite nonzero display span", () =>
 
 test("restoration accepts extended values and bounds while preserving valid domains", () => {
   assert.ok(validators.range({ min: -1000, max: 5000 }));
-  assert.ok(validators.duration(90));
+  assert.ok(validators.durations({ rise: 90, pulse: 2 }));
   assert.ok(validators.dimensions({ width: 8192, height: 4608, locked: true }));
   assert.ok(validators.rotation(72000));
   assert.ok(validators.rangeBounds({ min: null, max: null }));
   assert.equal(validators.rangeBounds({ min: 1.5, max: 2 }), false);
-  assert.equal(validators.durationBounds({ min: 0, max: null }), false);
+  assert.equal(validators.durationLimits({ min: 0, max: null }), false);
   assert.equal(
     validators.positionBounds({
       x: { min: 0, max: 110 },

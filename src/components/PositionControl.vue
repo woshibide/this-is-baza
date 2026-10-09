@@ -69,8 +69,8 @@
 </style>
 
 <template>
-  <section aria-label="XY position">
-    <h2>XY position</h2>
+  <section :aria-label="heading">
+    <h2>{{ heading }}</h2>
     <p>Drag, use arrow keys, or enter exact coordinates.</p>
     <GraphicPanel>
     <div class="xy-instrument">
@@ -158,6 +158,7 @@ import LimitsEditor from "./LimitsEditor.vue";
 import NumberField from "./NumberField.vue";
 import GraphicPanel from "./GraphicPanel.vue";
 import { clamp, arrowDelta } from "../lib/values.js";
+defineProps({ heading: { type: String, default: "XY position" } });
 const model = defineModel({ type: Object, required: true }),
   pad = ref(null),
   handle = ref(null);

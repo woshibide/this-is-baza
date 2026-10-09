@@ -43,7 +43,8 @@ Committing, publishing, deleting originals, and adding remote services require a
 Keep the existing framework, package manager, and build tool when viable.
 Share genuinely reusable controls and helpers; keep sketch-specific rendering and state local.
 Use stable sketch URLs and the smallest existing structure that makes each sketch independently addressable.
-Navigation and sidebar layout can follow the target project.
+Arrange the workspace by the [workspace layout](references/workspace-layout.md): global settings in a left panel, the preview in the center with the timeline directly under it, and the inspector for the selected step or element in a right panel.
+Navigation between sketches can follow the target project.
 
 For a new project without supplied artwork, start with only lowercase `hello`, centered horizontally and vertically in a static composition canvas.
 It receives the same workspace controls, persistence, and exports as any other sketch.

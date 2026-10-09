@@ -1,5 +1,6 @@
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from "vue";
+import { computed, ref, shallowRef, onMounted, onUnmounted } from "vue";
+import HeadingLink from "./components/HeadingLink.vue";
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -9,6 +10,7 @@ const props = defineProps({
 });
 const sections = computed(() => [{ id: "overview", label: "Overview" }, ...props.contents]);
 const activeSection = ref("overview");
+const headingLinks = shallowRef([]);
 let scrollFrame = 0;
 function updateActiveSection() {
   scrollFrame = 0;
@@ -25,6 +27,13 @@ function scheduleActiveSection() {
   if (!scrollFrame) scrollFrame = requestAnimationFrame(updateActiveSection);
 }
 onMounted(() => {
+  headingLinks.value = sections.value.flatMap(({ id, label }) => {
+    const target = document.getElementById(id);
+    const heading = target?.matches("h1, h2, h3, h4, h5, h6")
+      ? target
+      : target?.querySelector("section h2") ?? target?.querySelector("h1, h2, h3, h4, h5, h6");
+    return heading ? [{ id, label, heading }] : [];
+  });
   // Vue creates the anchor targets after the browser's initial fragment lookup.
   const target = sections.value.find(({ id }) => `#${id}` === window.location.hash);
   if (target) document.getElementById(target.id)?.scrollIntoView();
@@ -41,12 +50,16 @@ onUnmounted(() => {
 
 <template>
   <div class="site-page">
+    <Teleport v-for="item in headingLinks" :key="item.id" :to="item.heading">
+      <HeadingLink :anchor="item.id" :label="item.label" />
+    </Teleport>
     <a class="site-skip" href="#overview">Skip to content</a>
     <header class="site-header">
       <a class="site-name" :href="homeHref">Baza</a>
       <nav class="site-links" aria-label="Main navigation">
         <a :href="homeHref" :aria-current="page === 'home' ? 'page' : undefined">Readme</a>
         <a :href="`${homeHref}examples/`" :aria-current="page === 'examples' ? 'page' : undefined">UI examples</a>
+        <a :href="`${homeHref}examples/demo/`">Workspace demo</a>
         <a href="https://github.com/woshibide/this-is-baza" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </header>

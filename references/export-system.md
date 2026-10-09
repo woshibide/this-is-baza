@@ -2,6 +2,7 @@
 
 Read this reference for every `$baza` export implementation.
 The required formats and scope are defined in [SKILL.md](../SKILL.md#exports).
+For Canvas2D, [export.js](../src/lib/export.js) is a working reference: the [workspace demo](../src/Demo.vue) wires it to its export panel.
 
 ## Export panel
 

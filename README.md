@@ -52,12 +52,13 @@ Start with the [control index and reuse instructions](references/ui-controls.md)
 Choose an example by intent, inspect it in the gallery, and reuse or port its component together with its imported helpers and shared styles.
 Preserve the appearance and interactions while connecting its values to the target artwork and saved state.
 [App.vue](src/App.vue) demonstrates composition, persistence, and a shared playback clock.
+The [workspace demo](examples/demo/index.html) shows the standard [workspace layout](references/workspace-layout.md) with live controls.
 
 The gallery includes:
 
 | Group | Examples |
 | --- | --- |
-| Timing | Bézier ramp, pulse envelope, scene timeline, playback, and scrubbing |
+| Timing | Bézier ramp, pulse envelope, step timeline with keyframe lanes, inspector, playback, and scrubbing |
 | Color | Alpha-aware color picker, palette, and gradient stops |
 | Range | Paired interval values with editable bounds, angle intervals |
 | Geometry | XY position, angle, and linked dimensions |
@@ -70,6 +71,7 @@ Read the [reuse workflow](references/ui-controls.md#reuse-workflow) before copyi
 ## References
 
 - [UI examples](references/ui-controls.md): control selection, reuse, and integration checks.
+- [Workspace layout](references/workspace-layout.md): panel placement, timeline, and inspector behavior.
 - [Export system](references/export-system.md): required export implementation and verification for every renderer.
 - [Beat timing](references/beat-timing.md): optional single-root composition timing.
 - [Export extensions](references/export-system-p5.md): optional p5.js and Canvas2D export recipes.

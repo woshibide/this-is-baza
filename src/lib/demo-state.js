@@ -1,14 +1,26 @@
 import { validLimits } from "./numeric-limits.js";
 import { finite, validColor } from "./values.js";
-import { rampDefault, envelopeDefault, validCurve } from "./bezier.js";
-import { validTimeline } from "./timeline.js";
+import { rampDefault, envelopeDefault } from "./bezier.js";
+import { defaultDurations, defaultTracks, validDurations } from "./timeline.js";
 import { validAngleRange } from "./angle-range.js";
+// The timing examples are two steps of one timeline; their Bézier curves are the tracks' eases.
+export const timelineSteps = [
+  {
+    id: "rise",
+    name: "Rise",
+    duration: 2,
+    tracks: [{ id: "ramp", name: "Timing ramp", start: 0.25, end: 1.75, ease: rampDefault }],
+  },
+  {
+    id: "pulse",
+    name: "Pulse",
+    duration: 2,
+    tracks: [{ id: "envelope", name: "Pulse envelope", start: 0.25, end: 1.75, ease: envelopeDefault, envelope: true }],
+  },
+];
 export const defaults = {
-  ramp: rampDefault,
-  envelope: envelopeDefault,
-  duration: 4,
-  timeline: null,
-  fps: 30,
+  durations: defaultDurations(timelineSteps),
+  tracks: defaultTracks(timelineSteps),
   palette: [
     { hex: "#006a78", alpha: 1 },
     { hex: "#cd654b", alpha: 0.65 },
@@ -32,17 +44,15 @@ export const defaults = {
     width: { min: 1, max: 4096 },
     height: { min: 1, max: 4096 },
   },
-  durationBounds: { min: 0.1, max: 60 },
+  durationLimits: { min: 0.1, max: 60 },
   gradientBounds: { min: 0, max: 100 },
   choices: { align: "center", shape: "circle", fill: true },
 };
 export const validators = {
   angleRange: validAngleRange,
-  ramp: (v) => validCurve(v, rampDefault),
-  envelope: (v) => validCurve(v, envelopeDefault),
-  duration: (v) => finite(v, 0.1, Number.MAX_SAFE_INTEGER),
-  timeline: (v) => v === null || validTimeline(v),
-  fps: (v) => [24, 30, 60].includes(v),
+  durations: (v) => validDurations(timelineSteps, v),
+  // Track contents are merged key by key with restoreTracks after loading.
+  tracks: (v) => v !== null && typeof v === "object",
   palette: (v) =>
     Array.isArray(v) && v.length >= 1 && v.length <= 8 && v.every(validColor),
   gradient: (v) =>
@@ -76,7 +86,7 @@ export const validators = {
   dimensionsBounds: (v) =>
     v &&
     ["width", "height"].every((key) => validLimits(v[key], { hardMin: 1 })),
-  durationBounds: (v) => validLimits(v, { hardMin: 0.1 }),
+  durationLimits: (v) => validLimits(v, { hardMin: 0.1 }),
   gradientBounds: (v) => validLimits(v, { hardMin: 0, hardMax: 100 }),
   choices: (v) =>
     v &&

@@ -34,7 +34,7 @@ Choose only the controls needed by the sketch.
 | Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
 | How many, copies, rows | [CountControl](../src/components/CountControl.vue) | Use meaningful integer bounds. |
 | Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
-| Play, scrub, inspect a frame | [PlaybackControl](../src/components/PlaybackControl.vue) | Drive rendering from its reported time. |
+| Play, scrub, inspect a frame, sequence steps, keyframe an element | [Timeline](../src/components/Timeline.vue) with [Inspector](../src/components/Inspector.vue) | Drive rendering from one `usePlayback` engine; place them as in the [workspace layout](workspace-layout.md). |
 
 These are intent examples, not keyword triggers.
 Distinguish changing a duration from changing acceleration within it, and spatial path editing from a timing curve.
@@ -88,10 +88,11 @@ Clamp a bounded property's rendered result at the rendering boundary, keeping th
 Keep duration separate from curve shape and drive the marker, artwork, scrubbing, and export from the same composition time.
 For loops, choose reset or return behavior deliberately; matching endpoint values prevents a value jump, while smooth velocity also requires matching slopes.
 
-For sequences, reuse [PlaybackControl](../src/components/PlaybackControl.vue), [TimelineLane](../src/components/TimelineLane.vue), and [timeline.js](../src/lib/timeline.js).
-The example uses scene cuts and tracks with `start`, `intro`, `hold`, and `outro` relative to each scene; the target decides which artwork is visible in each scene.
-Wire the reported time to rendering as demonstrated in [App.vue](../src/App.vue), keeping playback, scrubbing, frame stepping, and export on one clock.
-Use the supplied timing functions for scene boundaries, skipped phases, and scene resizing.
+For sequences, reuse [Timeline](../src/components/Timeline.vue), [KeyframeLane](../src/components/KeyframeLane.vue), [Inspector](../src/components/Inspector.vue), [timeline.js](../src/lib/timeline.js), and [usePlayback](../src/composables/usePlayback.js); the [workspace layout](workspace-layout.md) describes their placement and behavior.
+Steps play back to back; each track is one clip with `start` and `end` keyframes in step-local seconds, an `ease` curve, and optional parameters shown in the inspector.
+Describe steps and tracks as data and pass them to the components; the target decides what each track drives.
+Create one `usePlayback` engine per page and pass it to every control that plays or previews motion, as [App.vue](../src/App.vue) does for both Bézier examples, keeping playback, scrubbing, frame stepping, and export on one clock.
+Use `trackValue` for a track's progress and eased value, and the supplied functions for step boundaries, playback ranges, rescaling, and restoring saved tracks.
 This sequence example does not require adopting the separate [beat-based timing pattern](beat-timing.md), which applies only when requested.
 
 ## Connecting angle intervals

@@ -1,172 +1,127 @@
-// Scene-local phase tracks share one absolute clock. Scenes meet at a cut; rendering continuity belongs to the consuming project.
-import { clamp, finite } from "./values.js";
+// Steps play back to back; each step holds keyframed tracks in step-local seconds.
+// A step is { id, name, duration, tracks: [spec] }; a spec is
+// { id, name, start, end, ease, envelope?, params?: { key: param }, range?(track) }, where a param is a number
+// { label, value, min, max, step }, a choice { label, value, options: [[id, label]] }, or an XY point { label, value: { x, y }, position: true } in 0–100%.
+// Durations and tracks are saved state keyed by step id; one clock drives preview, scrubbing, and export.
+import { clamp, clone, finite } from "./values.js";
+import { evaluateCurve, validCurve, rampDefault, envelopeDefault } from "./bezier.js";
 
-export const PHASES = ["intro", "hold", "outro"];
-export const TIMING_FIELDS = ["start", ...PHASES];
-export const TRACKS = [
-  { id: "ramp", label: "Timing ramp" },
-  { id: "envelope", label: "Pulse envelope" },
-];
-export const MIN_SCENE_DURATION = 0.1;
+export const MIN_STEP = 0.1;
 export const seconds = (value) => String(Number(value.toFixed(2)));
-const precise = (value) => Number(value.toFixed(9));
+const round = (value) => Number(value.toFixed(4));
 
-export function createTimeline(duration = 4) {
-  return [0, 1].map((index) => ({
-    id: `scene-${index + 1}`,
-    name: `Scene ${String(index + 1).padStart(2, "0")}`,
-    duration,
-    tracks: {
-      ramp: {
-        start: 0,
-        intro: duration / 4,
-        hold: duration / 2,
-        outro: duration / 4,
-      },
-      envelope: {
-        start: duration / 8,
-        intro: duration / 4,
-        hold: duration / 4,
-        outro: duration / 4,
-      },
-    },
-  }));
-}
+export const defaultDurations = (steps) => Object.fromEntries(steps.map((step) => [step.id, step.duration]));
+export const validDurations = (steps, durations, max = Number.MAX_SAFE_INTEGER) =>
+  durations !== null && typeof durations === "object" && steps.every((step) => finite(durations[step.id], MIN_STEP, max));
 
-export function trackBounds(track) {
-  const introEnd = track.start + track.intro;
-  const holdEnd = introEnd + track.hold;
-  return [track.start, introEnd, holdEnd, holdEnd + track.outro];
-}
-
-export function validTrack(track, duration) {
-  return Boolean(
-    track &&
-    TIMING_FIELDS.every((key) => finite(track[key], 0, duration)) &&
-    trackBounds(track)[3] <= duration + 1e-8,
-  );
-}
-
-export function validTimeline(scenes) {
-  if (!Array.isArray(scenes) || !scenes.length) return false;
-  const ids = new Set();
-  return (
-    scenes.every((scene) => {
-      if (
-        !scene ||
-        typeof scene.id !== "string" ||
-        !scene.id ||
-        ids.has(scene.id)
-      )
-        return false;
-      ids.add(scene.id);
-      return (
-        typeof scene.name === "string" &&
-        Boolean(scene.name.trim()) &&
-        finite(scene.duration, MIN_SCENE_DURATION, Number.MAX_SAFE_INTEGER) &&
-        TRACKS.every(({ id }) => validTrack(scene.tracks?.[id], scene.duration))
-      );
-    }) && Number.isFinite(sequenceDuration(scenes))
-  );
-}
-
-export function sceneOffsets(scenes) {
+export function stepOffsets(steps, durations) {
   let start = 0;
-  return scenes.map((scene) => {
+  return steps.map((step) => {
     const offset = start;
-    start += scene.duration;
+    start += durations[step.id];
     return offset;
   });
 }
+export const sequenceDuration = (steps, durations) => steps.reduce((sum, step) => sum + durations[step.id], 0);
 
-export function sequenceDuration(scenes) {
-  return scenes.reduce((total, scene) => total + scene.duration, 0);
-}
-
-export function sequencePosition(scenes, time) {
-  const offsets = sceneOffsets(scenes);
-  const t = clamp(time, 0, sequenceDuration(scenes));
+// { index, local, progress } of the step containing time; the end time belongs to the last step.
+export function stepAt(steps, durations, time) {
+  const offsets = stepOffsets(steps, durations);
+  const t = clamp(time, 0, sequenceDuration(steps, durations));
   let index = 0;
-  for (let i = 1; i < scenes.length; i++) if (t >= offsets[i]) index = i;
-  const local = clamp(t - offsets[index], 0, scenes[index].duration);
-  return { index, local };
+  for (let i = 1; i < steps.length; i++) if (t >= offsets[i]) index = i;
+  const duration = durations[steps[index].id];
+  const local = clamp(t - offsets[index], 0, duration);
+  return { index, local, progress: local / duration };
 }
 
-export function trackPhase(track, time) {
-  const [start, introEnd, holdEnd, end] = trackBounds(track);
-  if (time < start) return { phase: "waiting", progress: 0 };
-  if (time >= end) return { phase: "finished", progress: 1 };
-  if (time < introEnd)
-    return { phase: "intro", progress: (time - start) / track.intro };
-  if (time < holdEnd) return { phase: "hold", progress: 1 };
-  return { phase: "outro", progress: (time - holdEnd) / track.outro };
+// Playback range: the open step loops; otherwise the whole sequence plays once.
+export function playRange(steps, durations, open = null) {
+  const index = steps.findIndex((step) => step.id === open);
+  if (index < 0) return { start: 0, end: sequenceDuration(steps, durations), loop: false };
+  const start = stepOffsets(steps, durations)[index];
+  return { start, end: start + durations[open], loop: true };
 }
 
-// The gallery maps intro/hold/outro onto a curve; projects can consume trackPhase directly.
-export function trackProgress(track, time, peak = 1, end = 0) {
-  const state = trackPhase(track, time);
-  if (state.phase === "intro") return state.progress * peak;
-  if (state.phase === "hold") return peak;
-  if (state.phase === "outro") return peak + state.progress * (end - peak);
-  if (state.phase === "finished") {
-    return track.outro === 0 && track.intro + track.hold > 0 ? peak : end;
+// Ruler ticks: the first spacing that keeps at most 24 ticks across the span.
+export function ticks(span, spacings) {
+  const every = spacings.find((value) => span / value <= 24) ?? spacings.at(-1);
+  return Array.from({ length: Math.floor(span / every + 1e-9) + 1 }, (_, i) => round(i * every));
+}
+
+// Named eases as CSS cubic-bezier control points, offered as presets for two-point curves.
+export const CURVES = [
+  { id: "linear", label: "Linear", bezier: [0, 0, 1, 1] },
+  { id: "out", label: "Out", bezier: [0.16, 1, 0.3, 1] },
+  { id: "in", label: "In", bezier: [0.7, 0, 0.84, 0] },
+  { id: "inOut", label: "In-out", bezier: [0.83, 0, 0.17, 1] },
+  { id: "soft", label: "Soft", bezier: [0.65, 0, 0.35, 1] },
+  { id: "settle", label: "Settle", bezier: [0.7, 0, 0.2, 1.06] },
+  { id: "back", label: "Back", bezier: [0.34, 1.56, 0.64, 1] },
+  { id: "pen", label: "Pen", bezier: [0.42, 0, 0.3, 1] },
+];
+// A cubic-bezier as a Baza ramp curve, the editable form stored per track.
+export const ramp = ([x1, y1, x2, y2]) => [
+  { x: 0, y: 0, out: { x: x1, y: y1 } },
+  { x: 1, y: 1, in: { x: x2, y: y2 } },
+];
+export const easeOf = (id) => ramp(CURVES.find((curve) => curve.id === id).bezier);
+
+export function defaultTrack(spec) {
+  const track = { start: spec.start, end: spec.end, ease: clone(spec.ease) };
+  for (const [key, param] of Object.entries(spec.params ?? {})) track[key] = clone(param.value);
+  return track;
+}
+export const defaultTracks = (steps) =>
+  Object.fromEntries(steps.map((step) => [step.id, Object.fromEntries(step.tracks.map((spec) => [spec.id, defaultTrack(spec)]))]));
+
+export function validParam(param, value) {
+  if (param.options) return param.options.some(([id]) => id === value);
+  if (param.position) return value !== null && typeof value === "object" && finite(value.x, 0, 100) && finite(value.y, 0, 100);
+  return finite(value, param.min, param.max);
+}
+
+// Merges a saved track into its defaults key by key; times must fit the step, or the default is fitted to it.
+export function restoreTrack(spec, saved, duration) {
+  const track = defaultTrack(spec);
+  saved ??= {};
+  if (finite(saved.start, 0, duration) && finite(saved.end, saved.start, duration)) {
+    track.start = saved.start;
+    track.end = saved.end;
+  } else if (track.end > duration) {
+    const ratio = duration / track.end;
+    track.start = round(track.start * ratio);
+    track.end = round(duration);
   }
-  return 0;
+  if (validCurve(saved.ease, spec.envelope ? envelopeDefault : rampDefault)) track.ease = clone(saved.ease);
+  for (const [key, param] of Object.entries(spec.params ?? {})) if (validParam(param, saved[key])) track[key] = clone(saved[key]);
+  return track;
 }
+export const restoreTracks = (steps, saved, durations) =>
+  Object.fromEntries(
+    steps.map((step) => [
+      step.id,
+      Object.fromEntries(step.tracks.map((spec) => [spec.id, restoreTrack(spec, saved?.[step.id]?.[spec.id], durations[step.id])])),
+    ]),
+  );
 
-// Boundary edits redistribute neighbors; moving a whole clip preserves all phases.
+// Rescales a step's keyframes when its duration changes, keeping their relative timing.
+export const scaleTracks = (tracks, ratio) =>
+  Object.fromEntries(Object.entries(tracks).map(([id, t]) => [id, { ...t, start: round(t.start * ratio), end: round(t.end * ratio) }]));
+
+// Moving keeps the length; each keyframe stays between 0, its partner, and the step's end.
 export function moveTrack(track, handle, delta, duration) {
-  const bounds = trackBounds(track);
-  if (handle === "move")
-    return {
-      ...track,
-      start: precise(
-        clamp(
-          track.start + delta,
-          0,
-          Math.max(0, duration - bounds[3] + bounds[0]),
-        ),
-      ),
-    };
-  const index = Number(handle);
-  if (!Number.isInteger(index) || index < 0 || index > 3)
-    throw new RangeError("Unknown timeline boundary.");
-  bounds[index] = clamp(
-    bounds[index] + delta,
-    index ? bounds[index - 1] : 0,
-    index < 3 ? bounds[index + 1] : duration,
-  );
-  return {
-    start: precise(bounds[0]),
-    intro: precise(bounds[1] - bounds[0]),
-    hold: precise(bounds[2] - bounds[1]),
-    outro: precise(bounds[3] - bounds[2]),
-  };
+  if (handle === "move") {
+    const start = clamp(track.start + delta, 0, duration - (track.end - track.start));
+    return { ...track, start: round(start), end: round(start + track.end - track.start) };
+  }
+  if (handle === "start") return { ...track, start: round(clamp(track.start + delta, 0, track.end)) };
+  return { ...track, end: round(clamp(track.end + delta, track.start, duration)) };
 }
 
-export function scaleScene(scenes, index, duration) {
-  if (!finite(duration, MIN_SCENE_DURATION, Number.MAX_SAFE_INTEGER))
-    throw new RangeError("Scene duration must be at least 0.1 seconds.");
-  const scene = scenes[index];
-  const ratio = duration / scene.duration;
-  const next = scenes.map((entry, i) =>
-    i !== index
-      ? { ...entry }
-      : {
-          ...scene,
-          duration,
-          tracks: Object.fromEntries(
-            TRACKS.map(({ id }) => [
-              id,
-              Object.fromEntries(
-                TIMING_FIELDS.map((key) => [
-                  key,
-                  scene.tracks[id][key] * ratio,
-                ]),
-              ),
-            ]),
-          ),
-        },
-  );
-  return next;
+// Linear progress and eased value of a track at a step-local time; a zero-length track is a cut.
+export function trackValue(track, local) {
+  const span = track.end - track.start;
+  const progress = span > 0 ? clamp((local - track.start) / span, 0, 1) : local >= track.start ? 1 : 0;
+  return { progress, value: evaluateCurve(track.ease, progress) };
 }
