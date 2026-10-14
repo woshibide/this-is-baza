@@ -43,13 +43,14 @@
     <p class="reference-intro">Interactive controls for browser sketches. Each example shows a reusable way to edit a value, shape motion, or arrange a sequence. Changes save locally in this browser.</p>
     <div class="baza-theme examples-theme" :data-ui-theme="appearance.theme">
     <div class="reference-examples">
-      <div id="count" class="example-anchor">
+      <div id="slider" class="example-anchor">
+      <span id="count" aria-hidden="true"></span><!-- keeps old #count links working -->
       <h2 id="values" class="reference-heading">Values</h2>
       <div class="example">
-        <p class="example-intro">A slider edits a whole-number quantity, such as copies or repetitions. Drag the number, step through values with the buttons, or enter a number within the chosen limits.</p>
-      <CountControl
-        v-model="state.count"
-        v-model:bounds="state.countBounds"
+        <p class="example-intro">A slider edits one number, such as copies, a delay, or a scale. Drag the number, step through values with the buttons, or enter a number within the chosen limits.</p>
+      <SliderControl
+        v-model="state.slider"
+        v-model:bounds="state.sliderBounds"
       />
       </div>
       </div>
@@ -153,6 +154,13 @@
         v-model:bounds="state.rotationBounds"
       />
       </div>
+      <div class="example" id="vector">
+        <p class="example-intro">A vector control sets direction and magnitude together. Rotate it like the angle dial, then slide the point along the line to set its length.</p>
+        <VectorControl
+          v-model="state.vector"
+          v-model:bounds="state.vectorBounds"
+        />
+      </div>
       <div class="example" id="dimensions">
         <p class="example-intro">Linked dimensions set width and height together. Lock the current aspect ratio to resize proportionally, or unlock it to change each dimension independently.</p>
       <DimensionsControl
@@ -180,8 +188,9 @@ import RangeControl from "./components/RangeControl.vue";
 import AngleRangeControl from "./components/AngleRangeControl.vue";
 import PositionControl from "./components/PositionControl.vue";
 import AngleControl from "./components/AngleControl.vue";
+import VectorControl from "./components/VectorControl.vue";
 import DimensionsControl from "./components/DimensionsControl.vue";
-import CountControl from "./components/CountControl.vue";
+import SliderControl from "./components/SliderControl.vue";
 import ChoiceControl from "./components/ChoiceControl.vue";
 import { useSavedState } from "./composables/useSavedState.js";
 import { usePlayback } from "./composables/usePlayback.js";
@@ -205,7 +214,7 @@ const { state: appearance, status: appearanceStatus } = useSavedState(
 );
 const contents = [
   { id: "values", label: "Values" },
-  { id: "count", label: "Slider", example: true },
+  { id: "slider", label: "Slider", example: true },
   { id: "choices", label: "Choices and toggles", example: true },
   { id: "timing", label: "Timing" },
   { id: "ramp", label: "Bézier ramp", example: true },
@@ -220,6 +229,7 @@ const contents = [
   { id: "geometry", label: "Geometry" },
   { id: "position", label: "XY position", example: true },
   { id: "angle", label: "Angle", example: true },
+  { id: "vector", label: "Vector", example: true },
   { id: "dimensions", label: "Linked dimensions", example: true },
 ];
 // One clock for the timeline, the inspector, and both Bézier previews.

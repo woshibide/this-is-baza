@@ -61,6 +61,7 @@ Use project dependencies rather than global installations.
 
 When adding or changing controls, use the [UI example guide](references/ui-controls.md) to select and reuse the relevant components, helpers, and styles.
 Preserve their appearance, direct manipulation, exact entry, keyboard behavior, and graphical state distinctions unless the user requests a change.
+A "slider" in Baza is SliderControl (a draggable number with -/+ buttons and editable bounds), never a native `<input type="range">`.
 Bind the controls to real artwork values and the project's saved state; include only controls that the sketch uses.
 Reuse an existing open-source icon set or the bundled Lucide icons, retain attribution, and give icon-only controls accessible names.
 

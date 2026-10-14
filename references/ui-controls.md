@@ -31,10 +31,14 @@ Choose only the controls needed by the sketch.
 | Allowed angles, rotational freedom, angular interval | [AngleRangeControl](../src/components/AngleRangeControl.vue) | Bind `{ start, sweep }` in whole degrees: start is 0–359°, clockwise sweep is 0–360°. |
 | Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | Map normalized coordinates to the composition's coordinates. |
 | Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
+| Vector, direction with magnitude, force, velocity | [VectorControl](../src/components/VectorControl.vue) | Bind `{ angle, length }`: angle keeps turns like AngleControl; length is a percentage of the dial radius with no upper domain; past 100% the dial and grid shrink to 100/length while the point stays on the rest rim. |
 | Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
-| How many, copies, rows | [CountControl](../src/components/CountControl.vue) | Use meaningful integer bounds. |
+| Slider: any single number, such as how many, copies, rows, a delay, a scale, or an amount | [SliderControl](../src/components/SliderControl.vue) | Set `min`, `max`, and `step` to the value's domain; use meaningful default bounds within it. |
 | Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
 | Play, scrub, inspect a frame, sequence steps, keyframe an element | [Timeline](../src/components/Timeline.vue) with [Inspector](../src/components/Inspector.vue) | Drive rendering from one `usePlayback` engine; place them as in the [workspace layout](workspace-layout.md). |
+
+In Baza, "slider" always means [SliderControl](../src/components/SliderControl.vue) (gallery `#slider`): a draggable number with decrease and increase buttons and editable bounds.
+Never build a slider as a native `<input type="range">` track, alone or alongside SliderControl; native range inputs appear only inside ColorEditor's hue and alpha strips.
 
 These are intent examples, not keyword triggers.
 Distinguish changing a duration from changing acceleration within it, and spatial path editing from a timing curve.

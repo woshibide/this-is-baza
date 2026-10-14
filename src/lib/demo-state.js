@@ -3,6 +3,7 @@ import { finite, validColor } from "./values.js";
 import { rampDefault, envelopeDefault } from "./bezier.js";
 import { defaultDurations, defaultTracks, validDurations } from "./timeline.js";
 import { validAngleRange } from "./angle-range.js";
+import { validVector } from "./vector.js";
 // The timing examples are two steps of one timeline; their Bézier curves are the tracks' eases.
 export const timelineSteps = [
   {
@@ -34,12 +35,14 @@ export const defaults = {
   angleRange: { start: 300, sweep: 120 },
   position: { x: 50, y: 50 },
   rotation: 45,
+  vector: { angle: 135, length: 150 },
   dimensions: { width: 320, height: 180, locked: true },
-  count: 8,
-  countBounds: { min: 1, max: 24 },
+  slider: 8,
+  sliderBounds: { min: 1, max: 24 },
   rangeBounds: { min: 0, max: 100 },
   positionBounds: { x: { min: 0, max: 100 }, y: { min: 0, max: 100 } },
   rotationBounds: { min: -36000, max: 36000 },
+  vectorBounds: { angle: { min: -36000, max: 36000 }, length: { min: 0, max: 200 } },
   dimensionsBounds: {
     width: { min: 1, max: 4096 },
     height: { min: 1, max: 4096 },
@@ -74,8 +77,8 @@ export const validators = {
     finite(v.width, 1, Number.MAX_SAFE_INTEGER) &&
     finite(v.height, 1, Number.MAX_SAFE_INTEGER) &&
     typeof v.locked === "boolean",
-  count: (v) => Number.isSafeInteger(v),
-  countBounds: (v) => validLimits(v, { integer: true }),
+  slider: (v) => Number.isSafeInteger(v),
+  sliderBounds: (v) => validLimits(v, { integer: true }),
   rangeBounds: (v) => validLimits(v, { integer: true }),
   positionBounds: (v) =>
     v &&
@@ -83,6 +86,11 @@ export const validators = {
       validLimits(v[key], { hardMin: 0, hardMax: 100 }),
     ),
   rotationBounds: (v) => validLimits(v, { integer: true }),
+  vector: validVector,
+  vectorBounds: (v) =>
+    v &&
+    validLimits(v.angle, { integer: true }) &&
+    validLimits(v.length, { integer: true, hardMin: 0 }),
   dimensionsBounds: (v) =>
     v &&
     ["width", "height"].every((key) => validLimits(v[key], { hardMin: 1 })),

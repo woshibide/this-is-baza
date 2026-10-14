@@ -61,7 +61,7 @@ The gallery includes:
 | Timing | Bézier ramp, pulse envelope, step timeline with keyframe lanes, inspector, playback, and scrubbing |
 | Color | Alpha-aware color picker, palette, and gradient stops |
 | Range | Paired interval values with editable bounds, angle intervals |
-| Geometry | XY position, angle, and linked dimensions |
+| Geometry | XY position, angle, vector, and linked dimensions |
 | Values | Slider, choices, and toggles |
 
 Shared components provide exact numeric entry, number dragging, editable limits, and consistent graphical states.

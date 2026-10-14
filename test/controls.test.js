@@ -125,7 +125,7 @@ test("RGB hex edits preserve zero alpha; RGBA edits replace it", () => {
 test("saved state validates defaults and rejects invalid domains", () => {
   for (const [name, value] of Object.entries(defaults))
     assert.ok(validators[name](value), name);
-  assert.equal(validators.count(2.5), false);
+  assert.equal(validators.slider(2.5), false);
   assert.equal(validators.range({ min: 90, max: 20 }), false);
   assert.equal(validators.durations({ rise: 0, pulse: 2 }), false);
   assert.equal(validators.position({ x: NaN, y: 20 }), false);
