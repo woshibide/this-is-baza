@@ -66,14 +66,24 @@
               <span class="color-label">Letters</span>
               <ColorEditor v-model="state.ink" />
             </div>
-            <NumberField
-              v-model="state.size"
-              v-model:limits="state.sizeLimits"
-              label="Letter size (% of height)"
-              :min="1"
-              :max="100"
-              :step="0.5"
-            />
+            <div class="stack">
+              <SliderControl
+                v-model="state.size"
+                v-model:bounds="state.sizeLimits"
+                label="Letter size (% of height)"
+                :min="1"
+                :max="100"
+                :step="0.5"
+              />
+              <SliderControl
+                v-model="state.weight"
+                v-model:bounds="state.weightLimits"
+                label="Letter weight"
+                :min="100"
+                :max="900"
+                :step="100"
+              />
+            </div>
           </details>
           <details class="group" open>
             <summary>Interface</summary>
@@ -102,14 +112,22 @@
               </div>
             </fieldset>
             <div class="stack">
-              <NumberField v-model="state.export.longEdge" label="Long edge (px)" :min="16" :max="MAX_EDGE" :step="2" />
-              <NumberField
+              <SliderControl
+                v-model="state.export.longEdge"
+                v-model:bounds="state.longEdgeLimits"
+                label="Long edge (px)"
+                :min="16"
+                :max="MAX_EDGE"
+                :step="2"
+              />
+              <SliderControl
                 v-if="state.export.format !== 'png'"
                 v-model="state.export.fps"
+                v-model:bounds="state.fpsLimits"
                 label="Frame rate (fps)"
                 :min="1"
                 :max="120"
-                :step="0.01"
+                :step="1"
               />
               <label v-else class="inline"
                 ><input v-model="state.export.transparent" type="checkbox" name="transparent" />Transparent background</label
@@ -168,7 +186,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from "vue";
 import Icon from "./components/Icon.vue";
-import NumberField from "./components/NumberField.vue";
+import SliderControl from "./components/SliderControl.vue";
 import GradientControl from "./components/GradientControl.vue";
 import ColorEditor from "./components/ColorEditor.vue";
 import Timeline from "./components/Timeline.vue";
@@ -192,7 +210,11 @@ const { state, status } = useSavedState(
     ink: LOOK.ink,
     size: LOOK.size,
     sizeLimits: { min: 5, max: 60 },
+    weight: LOOK.weight,
+    weightLimits: { min: 100, max: 900 },
     export: { format: "mp4", longEdge: 1920, fps: 30, transparent: false },
+    longEdgeLimits: { min: 256, max: MAX_EDGE },
+    fpsLimits: { min: 12, max: 60 },
     durations: defaultDurations(STEPS),
     durationLimits: { min: 0.1, max: 10 },
     tracks: defaultTracks(STEPS),
@@ -206,11 +228,15 @@ const { state, status } = useSavedState(
     ink: validColor,
     size: (v) => finite(v, 1, 100),
     sizeLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 100 }),
+    weight: (v) => finite(v, 100, 900),
+    weightLimits: (v) => validLimits(v, { hardMin: 100, hardMax: 900 }),
     export: (v) =>
       v !== null && typeof v === "object" && Object.hasOwn(FORMATS, v.format) && Number.isInteger(v.longEdge) &&
       finite(v.longEdge, 16, MAX_EDGE) && finite(v.fps, 1, 120) && typeof v.transparent === "boolean",
     durations: (v) => validDurations(STEPS, v),
     durationLimits: (v) => validLimits(v, { hardMin: 0.1 }),
+    longEdgeLimits: (v) => validLimits(v, { hardMin: 16, hardMax: MAX_EDGE }),
+    fpsLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 120 }),
     // Track contents are merged key by key with restoreTracks below.
     tracks: (v) => v !== null && typeof v === "object",
     panelOpen: (v) => typeof v === "boolean",

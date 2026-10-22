@@ -23,9 +23,9 @@
       <template v-if="!track">
         <div class="group" role="group" aria-label="Step">
           <h2>Step</h2>
-          <NumberField
+          <SliderControl
             v-model="duration"
-            v-model:limits="limits"
+            v-model:bounds="limits"
             label="Duration (s)"
             :min="MIN_STEP"
             :max="max"
@@ -119,6 +119,7 @@
 <script setup>
 import { computed } from "vue";
 import NumberField from "./NumberField.vue";
+import SliderControl from "./SliderControl.vue";
 import BezierControl from "./BezierControl.vue";
 import PositionControl from "./PositionControl.vue";
 import Icon from "./Icon.vue";

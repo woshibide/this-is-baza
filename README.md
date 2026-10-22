@@ -83,3 +83,11 @@ node scripts/audit-project.mjs /path/to/project
 ```
 
 The inventory reports code signals; it does not verify runtime behavior.
+
+Optional Jev decisions for which controls a sketch gets: paste a TypeSafe API key into `.env` (see `.env.example`), then run:
+
+```bash
+node scripts/jev/decide.mjs scripts/jev/demo-candidates.json
+```
+
+See [Jev decisions](references/ui-controls.md#jev-decisions-optional).

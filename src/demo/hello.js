@@ -58,6 +58,7 @@ export const LOOK = {
   ],
   ink: { hex: "#161616", alpha: 1 },
   size: 28,
+  weight: 600,
 };
 
 // One letter of a staggered track: letters share the clip, each taking `length` % of it, in order q (0 first, 1 last).
@@ -72,7 +73,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
 // Offset of an XY point (0–100%, 50/50 is the rest position) in composition pixels.
 const offsetOf = (point, width, height) => ({ x: ((point.x - 50) / 100) * width, y: ((point.y - 50) / 100) * height });
 
-// look: { background: stops, ink, size }; options.transparent skips the background.
+// look: { background: stops, ink, size, weight }; options.transparent skips the background.
 export function render(ctx, { width, height }, look, timeline, time, { transparent = false } = {}) {
   ctx.clearRect(0, 0, width, height);
   if (!transparent) {
@@ -86,7 +87,7 @@ export function render(ctx, { width, height }, look, timeline, time, { transpare
   const step = STEPS[index].id;
   const { intro, outro } = timeline.tracks;
   const size = (look.size / 100) * height;
-  ctx.font = `600 ${size}px system-ui, sans-serif`;
+  ctx.font = `${look.weight} ${size}px system-ui, sans-serif`;
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
   ctx.fillStyle = rgba(look.ink);

@@ -49,6 +49,7 @@
       <div class="example">
         <p class="example-intro">A slider edits one number, such as copies, a delay, or a scale. Drag the number, step through values with the buttons, or enter a number within the chosen limits.</p>
       <SliderControl
+        heading="Slider"
         v-model="state.slider"
         v-model:bounds="state.sliderBounds"
       />

@@ -17,9 +17,11 @@ button:active:not(:disabled) {
 }
 </style>
 <template>
-  <section aria-label="Slider">
-    <h2>Slider</h2>
-    <p>Drag the number, step with the buttons, or enter an exact value.</p>
+  <section :aria-label="heading || label">
+    <template v-if="heading">
+      <h2>{{ heading }}</h2>
+      <p>Drag the number, step with the buttons, or enter an exact value.</p>
+    </template>
     <NumberField
       v-model="model"
       v-model:limits="bounds"
@@ -59,6 +61,7 @@ const bounds = defineModel("bounds", {
 });
 const props = defineProps({
   label: { type: String, default: "Copies" },
+  heading: { type: String, default: "" }, // gallery heading and hint; omit inside a panel
   min: { type: Number, default: SAFE_MIN }, // intrinsic domain; bounds stay within it
   max: { type: Number, default: SAFE_MAX },
   step: { type: Number, default: 1 }, // the buttons' increment; fractional steps work too

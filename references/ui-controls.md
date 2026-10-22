@@ -44,6 +44,29 @@ These are intent examples, not keyword triggers.
 Distinguish changing a duration from changing acceleration within it, and spatial path editing from a timing curve.
 A requested physical spring or bounce needs its own physical parameters and response preview.
 
+## Jev decisions (optional)
+
+[decide.mjs](../scripts/jev/decide.mjs) asks TypeSafe's Jev model five fixed questions per value: `expose`, `control`, `region`, `section`, and `persist`.
+It needs `TYPESAFE_API_KEY` in the environment or in the skill folder's `.env`; without one it prints `{"jev":"unavailable"}` and makes no request.
+It runs only on the developer's machine and never becomes part of a sketch or its build.
+Models, thresholds, control descriptions, and question wording live only in [config.mjs](../scripts/jev/config.mjs).
+
+Write candidates as `{ "sketch": "<one-paragraph description>", "values": [ ... ] }`, with one entry per value the artwork or editor uses:
+
+| Field | Content |
+| --- | --- |
+| `name` | Identifier in the sketch's code. |
+| `label` | Human-readable name with its unit. |
+| `type` | Shape and unit, such as `number, percent` or `one of "first", "last"`. |
+| `example` | Current or default value. |
+| `usage` | One sentence on what the value does in the artwork or editor. |
+| `gold` | Optional expected answers, used only to report disagreements. |
+
+Each answer comes back with `status: "ok"` when it clears the threshold, or `"review"` with the runner-up when it does not.
+Answers that do not apply are omitted: a confidently hidden value has only `expose`, and only left-panel values get a `section`.
+Jev chooses among controls; take bounds, steps, units, and labels from the sketch's code.
+[demo-candidates.json](../scripts/jev/demo-candidates.json) is a worked example for the workspace demo.
+
 ## Shared controls and styles
 
 Use [NumberField](../src/components/NumberField.vue) for exact entry and number dragging, [LimitsEditor](../src/components/LimitsEditor.vue) with [LimitValue](../src/components/LimitValue.vue) for editable bounds, and [GraphicPanel](../src/components/GraphicPanel.vue) for a graphic with attached controls.
