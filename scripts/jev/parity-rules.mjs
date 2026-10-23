@@ -80,4 +80,26 @@ export const RULES = {
     "Changing the position bounds clamps every stop into them.",
     "The painted gradient lists the stops sorted by position with their colors and alpha.",
   ],
+  RangeControl: [
+    "Dragging the minimum or maximum handle moves only that end, which cannot cross the other end or leave the bounds.",
+    "Dragging the band moves both ends together, keeping the interval's width, and stops at the bounds.",
+    "Arrow keys move a handle or the band by 1, or 5 with Shift; Home and End move to the start and end of the visible scale.",
+    "The handles are role=\"slider\" with aria-valuemin, aria-valuemax, aria-valuenow, and an aria-valuetext in pixels.",
+    "When the ends are close together a single combined value label is shown instead of one label per end.",
+    "Editing the rail limits clamps both ends into the new bounds; a cleared limit widens the visible scale to include the values.",
+    "The footer readout shows \"<min>–<max> px\".",
+  ],
+  DimensionsControl: [
+    "With the aspect lock on, editing the width or the height changes the other to keep the ratio, within both dimensions' limits.",
+    "With the lock off, each dimension changes alone.",
+    "Changing a dimension's limits clamps that dimension into them; limits below 1 are rejected.",
+    "The preview rectangle, its width and height labels, and the readout show the dimensions rounded to three decimals with the ratio.",
+  ],
+  PositionControl: [
+    "Pressing or dragging on the pad moves the point to the pointer, clamped to the X and Y limits, and focuses the point.",
+    "Arrow keys move the point by 1 percent, or 5 percent with Shift.",
+    "Editing the X or Y axis limits moves the point inside them, hatches the excluded area, and outlines the allowed area.",
+    "The exact X and Y fields set the coordinates, limited to the allowed range.",
+    "The point's accessible description states its coordinates and the allowed ranges.",
+  ],
 };

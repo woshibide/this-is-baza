@@ -29,11 +29,13 @@ const setupOf = (name) => {
 };
 
 // One entry per step: the initial markup, then the action and only what changed: emitted values, model state, focus, DOM lines.
-export function condense(records) {
+// `ignore` names models that Vue edits in place instead of emitting (a case's `mutates`); their events are dropped.
+export function condense(records, ignore = []) {
   let previous = null;
   return records.map((record) => {
     const entry = { action: describe(record.step) };
-    if (record.log.length) entry.emitted = record.log;
+    const log = record.log.filter((item) => !(item.type === "model" && ignore.includes(item.name)));
+    if (log.length) entry.emitted = log;
     if (!previous || JSON.stringify(record.models) !== JSON.stringify(previous.models)) entry.models = record.models;
     if (!previous || record.focus !== previous.focus) entry.focus = record.focus;
     if (!previous || record.html !== previous.html) entry.html = record.html || "(none)";
@@ -90,7 +92,9 @@ export function loadRecordings(component, dir = recordings) {
   if (!files.length) throw new Error(`No light-theme recordings for ${component} in ${dir}.`);
   return files.map((file) => {
     const { vue, vanilla } = JSON.parse(readFileSync(join(dir, file), "utf8"));
-    return { case: file.replace(/\.light\.json$/, ""), vue: condense(vue), vanilla: condense(vanilla) };
+    const name = file.replace(/\.light\.json$/, "");
+    const ignore = SETUPS[name]?.mutates ?? [];
+    return { case: name, vue: condense(vue, ignore), vanilla: condense(vanilla, ignore) };
   });
 }
 

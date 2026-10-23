@@ -653,3 +653,156 @@ svg.baza-icon {
   background: var(--_selection-bg);
   color: var(--_selection-fg);
 }
+
+/* RangeControl */
+.baza-range-control .range-track {
+  position: relative;
+  height: 96px;
+  touch-action: none;
+  user-select: none;
+  background-color: var(--_plot-area);
+  border-block: 1px solid var(--_plot-frame);
+  background-image: linear-gradient(90deg, var(--_plot-grid) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+.baza-range-control .range-track::before {
+  content: "";
+  position: absolute;
+  inset: 47px 0 auto;
+  border-top: 1px solid var(--_plot-axis);
+}
+.baza-range-control .range-band {
+  position: absolute;
+  top: 25px;
+  height: 44px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 2px;
+  cursor: grab;
+  touch-action: none;
+}
+.baza-range-control .range-band::before {
+  content: "";
+  position: absolute;
+  inset: 19px 0;
+  background: var(--_plot-value);
+  border-radius: 2px;
+}
+.baza-range-control .range-band:hover,
+.baza-range-control .range-band:active { background: transparent; }
+.baza-range-control .range-band:hover::before,
+.baza-range-control .range-band:active::before { inset-block: 18px; }
+.baza-range-control .range-handle {
+  position: absolute;
+  top: 25px;
+  width: 28px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  touch-action: none;
+}
+.baza-range-control .range-handle::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--_plot-handle-stroke);
+  border-radius: 50%;
+  background: var(--_plot-handle-fill);
+}
+.baza-range-control .range-handle:hover { background: transparent; }
+.baza-range-control .range-handle:hover::after,
+.baza-range-control .range-handle:focus-visible::after { border-color: var(--_plot-current); }
+.baza-range-control .range-handle:focus-visible { z-index: 1; }
+.baza-range-control .range-band:active { cursor: grabbing; }
+.baza-range-control .range-readout { margin: 0; }
+.baza-range-control .range-value {
+  position: absolute;
+  top: 8px;
+  transform: translateX(-50%);
+  padding-inline: 3px;
+  background: var(--_plot-area);
+  color: var(--_plot-value);
+  font: 12px ui-monospace, monospace;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* DimensionsControl */
+.baza-dimensions-control .size-preview { display: block; width: 100%; height: 180px; }
+.baza-dimensions-control .size-box { fill: var(--_plot-area); }
+.baza-dimensions-control .size-value { fill: var(--_plot-value); font: 12px ui-monospace, monospace; }
+.baza-dimensions-control .size-preview text { paint-order: stroke fill; stroke: var(--_plot-area); stroke-width: 3px; }
+.baza-dimensions-control .aspect-lock { margin-top: 12px; }
+
+/* PositionControl */
+.baza-position-control .xy-instrument {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 62px;
+  grid-template-rows: 180px auto;
+  gap: 12px 16px;
+  margin: 0;
+}
+.baza-position-control .xy-pad {
+  position: relative;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  overflow: visible;
+  margin: 0;
+}
+.baza-position-control .xy-excluded {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.baza-position-control .xy-allowed {
+  position: absolute;
+  border: 1px solid var(--_plot-boundary);
+  pointer-events: none;
+}
+.baza-position-control .xy-crosshair {
+  position: absolute;
+  pointer-events: none;
+  border-color: var(--_plot-axis);
+  border-style: dashed;
+  border-width: 0;
+}
+.baza-position-control .xy-crosshair.horizontal { left: 0; right: 0; border-top-width: 1px; }
+.baza-position-control .xy-crosshair.vertical { top: 0; bottom: 0; border-left-width: 1px; }
+.baza-position-control .xy-handle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  width: 28px;
+  min-height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  touch-action: none;
+  cursor: grab;
+}
+.baza-position-control .xy-handle::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--_plot-marker-outline);
+  border-radius: 50%;
+  background: var(--_plot-current);
+  box-shadow: 0 0 0 1px var(--_plot-current);
+}
+.baza-position-control .xy-handle:hover::after { box-shadow: 0 0 0 2px var(--_plot-current); }
+.baza-position-control .xy-handle:active { cursor: grabbing; }
+@media (max-width: 767px) {
+  .baza-position-control .xy-instrument {
+    grid-template-columns: minmax(0, 1fr) 55px;
+    gap: 12px;
+  }
+}

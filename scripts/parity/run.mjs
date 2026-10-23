@@ -222,7 +222,9 @@ try {
           if (dom) problems.push(`${label}: DOM differs at ${dom}`);
           if (v.focus !== w.focus) problems.push(`${label}: focus vue=${v.focus} vanilla=${w.focus}`);
           if (v.html !== w.html) problems.push(`${label}: <html> vue="${v.html}" vanilla="${w.html}"`);
-          if (JSON.stringify(v.log) !== JSON.stringify(w.log)) problems.push(`${label}: log\n    vue:     ${JSON.stringify(v.log)}\n    vanilla: ${JSON.stringify(w.log)}`);
+          // `mutates` names models the Vue component edits in place instead of emitting; the port emits them.
+          const emitted = (log) => log.filter((entry) => !(entry.type === "model" && fixture.mutates?.includes(entry.name)));
+          if (JSON.stringify(emitted(v.log)) !== JSON.stringify(emitted(w.log))) problems.push(`${label}: log\n    vue:     ${JSON.stringify(v.log)}\n    vanilla: ${JSON.stringify(w.log)}`);
           if (JSON.stringify(v.models) !== JSON.stringify(w.models)) problems.push(`${label}: models\n    vue:     ${JSON.stringify(v.models)}\n    vanilla: ${JSON.stringify(w.models)}`);
         });
       }
