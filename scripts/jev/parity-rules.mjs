@@ -21,4 +21,11 @@ export const RULES = {
     "Focusing the field selects its text and shows the hint that -0 removes the limit, including the valid domain when there is one.",
     "Without an owner callback the limit is kept and updated by the component itself.",
   ],
+  LimitsEditor: [
+    "The editor is a role=\"group\" labeled \"<label> limits\" with a Min field first, the bounded control (or the axis label) in the middle, and a Max field last.",
+    "The layout prop (scalar, rail, axis-x, axis-y) is a class on the editor; changing layout never changes the stored limits.",
+    "Committing either field emits the whole limits object with only that side changed.",
+    "The minimum can never be set above the maximum, and limits outside the hard domain are rejected with an error message.",
+    "Tab moves focus from the Min field through the middle content to the Max field.",
+  ],
 };
