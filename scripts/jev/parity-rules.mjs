@@ -28,4 +28,14 @@ export const RULES = {
     "The minimum can never be set above the maximum, and limits outside the hard domain are rejected with an error message.",
     "Tab moves focus from the Min field through the middle content to the Max field.",
   ],
+  NumberField: [
+    "Typing a valid number emits it immediately; an invalid draft (out of range, off the step grid, or empty) is marked aria-invalid=\"true\" and is not emitted.",
+    "Enter, Escape, or leaving the field replaces an invalid draft with the current valid value and clears aria-invalid.",
+    "Dragging the field changes the value in steps: right or up increases, left or down decreases, and it stays within the effective limits.",
+    "With editable limits, the value is clamped into new limits when they change and on first render, unless the limits are managed by a parent.",
+    "With managed limits, the editable limits are validated against limitMin and limitMax instead of the field's own min and max.",
+    "A value longer than seven characters in a bounded field is shown with a 12px font.",
+    "A disabled field cannot be dragged and emits nothing.",
+    "Stepper content is placed before and after the input, and Tab order runs from the decrease content through the input to the increase content.",
+  ],
 };
