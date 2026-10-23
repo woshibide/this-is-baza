@@ -1,4 +1,5 @@
-import { fixture, clone, log, kebab, handlerName, buildSpec } from "./fixture-common.js";
+import { fixture, clone, log, kebab, handlerName, buildSpec, playbackOptions } from "./fixture-common.js";
+import { createPlayback } from "../../vanilla/playback.js";
 import { modelCallback } from "../../vanilla/dom.js";
 
 const module = await import(`../../vanilla/components/${kebab(fixture.component)}.js`);
@@ -18,9 +19,12 @@ const slots = Object.fromEntries(
     specs.map((spec) => buildSpec(spec, element)),
   ]),
 );
+const playback = fixture.playback ? createPlayback(playbackOptions(() => state)) : null;
+window.__parity.playback = playback;
 let control = null;
 control = create({
   ...fixture.props,
+  ...(playback && { playback }),
   ...clone(fixture.local ?? {}),
   ...slots,
   ...Object.fromEntries(
@@ -30,6 +34,8 @@ control = create({
         log.push({ type: "model", name, value: clone(value) });
         state[name] = value;
         control?.update({ [name]: value });
+        // Vue's watch on total and the reactive range; the page tells its playback what changed.
+        playback?.refresh();
       }],
     ]),
   ),

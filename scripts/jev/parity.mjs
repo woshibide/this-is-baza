@@ -10,7 +10,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { MODEL, THRESHOLDS } from "./config.mjs";
 import { readKey, request } from "./decide.mjs";
-import { RULES } from "./parity-rules.mjs";
+import { RECORDED_IN, RULES } from "./parity-rules.mjs";
 import { cases as SETUPS } from "../parity/cases.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -101,7 +101,7 @@ export function loadRecordings(component, dir = recordings) {
 export async function review(component, options) {
   const rules = RULES[component];
   if (!rules?.length) throw new Error(`No parity rules for ${component} in parity-rules.mjs.`);
-  const cases = loadRecordings(component, options.dir);
+  const cases = loadRecordings(RECORDED_IN[component] ?? component, options.dir);
   // One request per case: every rule is judged against the same pair of recordings. A recording too long for
   // one request is judged in consecutive windows of steps, each a separate "case" in the results.
   async function judge(recording, from, to) {

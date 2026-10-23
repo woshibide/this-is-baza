@@ -67,6 +67,11 @@ export function createPlayback({ total, range = () => ({ start: 0, end: total(),
 
   return {
     get time() { return time; },
+    // Moves the playhead without changing play state, as the Inspector does when a duration changes.
+    set time(value) {
+      time = value;
+      notify();
+    },
     get playing() { return playing; },
     get total() { return total(); },
     get range() { return range(); },

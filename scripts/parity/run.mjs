@@ -88,7 +88,13 @@ function snapshot() {
   };
 }
 
-const frames = (page) => page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
+// page.evaluate has no timeout; a page stuck in a loop must fail the step instead of hanging the run.
+const limit = (promise, what) =>
+  Promise.race([promise, new Promise((_, fail) => setTimeout(() => fail(new Error(`${what} did not finish in 5 s (page busy or frozen)`)), 5000))]);
+const frames = (page) => limit(page.evaluate(() => new Promise((done) => {
+  const frame = window.__realAnimationFrame ?? requestAnimationFrame;
+  setTimeout(() => frame(() => frame(done)), 0);
+})), "settling");
 
 async function perform(page, step) {
   const at = (selector) => page.locator(`#root ${selector}`).first();
@@ -127,9 +133,10 @@ async function perform(page, step) {
     await page.mouse.up();
     for (const key of step.modifiers ?? []) await page.keyboard.up(key);
   } else if (step.mouseUp) await page.mouse.up();
+  else if (step.frames) await limit(page.evaluate((durations) => window.__frames(durations), step.frames), "frames");
   else if (step.props) await page.evaluate((partial) => window.__parity.setProps(partial), step.props);
   else if (step.call) await page.evaluate((name) => window.__parity.control[name](), step.call);
-  else if (step.eval) await page.evaluate(step.eval);
+  else if (step.eval) await limit(page.evaluate(step.eval), "eval");
   else if (step.wait) await page.waitForTimeout(step.wait);
   else if (!step.shot) throw new Error(`Unknown step ${JSON.stringify(step)}`);
 }
@@ -151,7 +158,7 @@ async function play(context, url, scenario) {
       throw new Error(`${url.includes("vue") ? "vue" : "vanilla"} step ${JSON.stringify(step)}: ${error.message}`);
     }
     await frames(page);
-    records.push({ step, ...(await page.evaluate(snapshot)) });
+    records.push({ step, ...(await limit(page.evaluate(snapshot), "snapshot")) });
     // `of` screenshots another element, such as a popover in the top layer.
     if (step.shot) {
       const target = page.locator(step.of ? `#root ${step.of}` : "#stage").first();
@@ -220,6 +227,8 @@ try {
     try {
     for (const theme of themes) {
       const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+      // A step that cannot act within 5 s is a broken step, not a slow page.
+      context.setDefaultTimeout(5000);
       const query = `case=${encodeURIComponent(name)}&theme=${theme}`;
       const vue = await play(context, `${base}scripts/parity/fixture-vue.html?${query}`, fixture.steps ?? []);
       const vanilla = await play(context, `${base}scripts/parity/fixture-vanilla.html?${query}`, fixture.steps ?? []);

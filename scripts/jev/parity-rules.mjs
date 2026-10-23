@@ -1,6 +1,9 @@
 // Behavior rules per component for the Jev parity review, taken from the references and the Vue sources.
 // Each rule is one checkable statement about what a recording should show.
 
+// Components without their own parity cases are judged on the recordings of the component that contains them.
+export const RECORDED_IN = { KeyframeLane: "Timeline", Playback: "Timeline" };
+
 export const RULES = {
   Icon: [
     "The icon is an svg with a 0 0 24 24 viewBox that is hidden from assistive technology with aria-hidden=\"true\".",
@@ -132,5 +135,34 @@ export const RULES = {
     "The plot shows the curve, handle lines, a playhead at the current progress, and a dot at the evaluated value; the value scale grows to fit overshoot.",
     "The Play or Pause button only asks the owner to toggle the preview; its label follows the playing prop.",
     "The motion preview places the travel point at the evaluated value and the readout states the mapped value in the output unit, the evaluated percentage, and the time.",
+  ],
+  KeyframeLane: [
+    "Dragging the clip moves both keyframes together, keeping its length inside the step; dragging a keyframe retimes only that edge, between 0, its partner, and the step's end; times round to hundredths.",
+    "Arrow keys on the clip or a keyframe move it by 0.01 seconds, or 0.1 with Shift, and select the lane.",
+    "Escape during a drag restores the clip from before the drag.",
+    "Clicking the empty lane scrubs to that point of the step; the playhead marker shows only while the time is inside the step.",
+  ],
+  Timeline: [
+    "Play toggles playback from the page's clock and its label switches between Play and Pause; Space does the same unless a control has focus.",
+    "Previous and next frame step one frame at the clock's frame rate, disabled at the range start and end; Restart scrubs to the range start.",
+    "Clicking a step selects it for the inspector and scrubs to its start; double-clicking opens its keyframe lanes, and the open step loops during playback.",
+    "All steps, or Escape when no control has focus, closes the open step.",
+    "The clock shows the time, the total, and the frame number; the step strip sizes steps by duration and marks the current step.",
+    "Lane edits change only that track's start and end in the tracks for the open step.",
+    "When disabled, the transport, steps, and lanes do not respond.",
+  ],
+  Inspector: [
+    "With a step selected, the duration slider changes the step's duration, rescales its keyframes to the same relative times, and keeps the playhead at the same progress within the step.",
+    "The Elements list shows each keyframed element with its start and end; clicking one selects it, and the breadcrumb returns to the step.",
+    "The Start and End fields change the selected element's keyframes, limited to the step, and push the other keyframe so start never passes end.",
+    "Ease presets set the element's ease to that curve and show which preset matches; the Bézier editor edits the same ease.",
+    "Number, choice, and position parameters edit that parameter of the selected element only.",
+    "The close button reports a close request; the body is disabled when the disabled prop is set.",
+  ],
+  Playback: [
+    "Each animation frame advances the time by the elapsed time, but by at most 0.1 seconds per frame.",
+    "Playing the whole sequence stops at its end; playing an open step loops from its end back to its start.",
+    "Starting playback from the end of the range, or from outside it, starts again at the range's beginning.",
+    "Scrubbing or stepping a frame pauses playback.",
   ],
 };

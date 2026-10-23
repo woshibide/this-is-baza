@@ -103,6 +103,8 @@ export function checkProps(component, spec, given, previous = null) {
       else if (rule.default !== undefined) value = rule.default;
       else if (types.includes(Boolean)) value = false;
     }
+    // Like Vue, an absent or undefined Boolean prop is false.
+    if (value === undefined && types.includes(Boolean) && !types.includes(String)) value = false;
     if (value === undefined || value === null) {
       if (rule.required) throw new Error(`${component}: missing required prop "${name}".`);
     } else if (rule.type && !types.some((type) => matches(type, value))) {

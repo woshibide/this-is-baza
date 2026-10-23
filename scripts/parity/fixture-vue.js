@@ -1,5 +1,6 @@
 import { createApp, h, reactive, ref } from "vue";
-import { fixture, clone, log, handlerName, buildSpec } from "./fixture-common.js";
+import { fixture, clone, log, handlerName, buildSpec, playbackOptions } from "./fixture-common.js";
+import { usePlayback } from "../../src/composables/usePlayback.js";
 
 const components = import.meta.glob("../../src/components/*.vue", { import: "default" });
 const component = await components[`../../src/components/${fixture.component}.vue`]();
@@ -21,12 +22,19 @@ const slots = Object.fromEntries(
 const instance = ref(null);
 Object.defineProperty(window.__parity, "control", { get: () => instance.value });
 createApp({
-  render: () =>
-    h(
+  setup() {
+    const playback = fixture.playback ? usePlayback(playbackOptions(() => state)) : null;
+    window.__parity.playback = playback;
+    return () => render(playback);
+  },
+}).mount("#root");
+function render(playback) {
+  return h(
       component,
       {
         ref: instance,
         ...extra,
+        ...(playback && { playback }),
         // Models without a listener stay local to the component, as when an owner omits v-model.
         ...Object.fromEntries(Object.entries(fixture.local ?? {}).map(([name, value]) => [vueName(name), clone(value)])),
         ...Object.fromEntries(
@@ -46,6 +54,6 @@ createApp({
         ),
       },
       slots,
-    ),
-}).mount("#root");
+    );
+}
 document.documentElement.dataset.ready = "true";

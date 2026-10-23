@@ -3,7 +3,13 @@
 let input = "";
 process.stdin.on("data", (chunk) => (input += chunk)).on("end", () => {
   for (const part of input.split(/\n(?=\{)/)) {
-    const report = JSON.parse(part);
+    let report;
+    try {
+      report = JSON.parse(part);
+    } catch {
+      console.log(part);
+      continue;
+    }
     if (report.jev !== "available") { console.log(part); continue; }
     console.log(`${report.component} (${report.model}, ${report.inputTokens} input tokens)`);
     for (const r of report.results) {
