@@ -10,8 +10,8 @@ import { createColorEditor } from "../../components/color-editor.js";
 import { createTimeline } from "../../components/timeline.js";
 import { createInspector } from "../../components/inspector.js";
 import { validLimits } from "../../../src/lib/numeric-limits.js";
-import { clone, finite, validColor } from "../../../src/lib/values.js";
-import { FORMATS, MAX_EDGE, download, exportCanvas, exportFilename, frameSchedule, outputSize } from "../../../src/lib/export.js";
+import { clone, validColor } from "../../../src/lib/values.js";
+import { FORMATS, MAX_EDGE, download, exportCanvas, exportFilename, frameCount, outputSize } from "../../../src/lib/export.js";
 import { defaultDurations, defaultTracks, playRange, restoreTracks, sequenceDuration, validDurations } from "../../../src/lib/timeline.js";
 import { STEPS, LOOK, render as renderArtwork } from "../../../src/demo/hello.js";
 
@@ -38,19 +38,21 @@ const saved = createSavedState(
   {
     aspect: (v) => Object.hasOwn(ASPECTS, v),
     background: (v) =>
-      Array.isArray(v) && v.length >= 2 && v.length <= 8 && v.every((stop) => validColor(stop) && finite(stop.position, 0, 100)),
+      Array.isArray(v) && v.length >= 2 && v.length <= 8 && v.every((stop) => validColor(stop) && Number.isFinite(stop.position)),
     ink: validColor,
-    size: (v) => finite(v, 1, 100),
-    sizeLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 100 }),
-    weight: (v) => finite(v, 100, 900),
-    weightLimits: (v) => validLimits(v, { hardMin: 100, hardMax: 900 }),
+    // Values and limits accept any number: the limits are the user's range, never a hardcoded one.
+    // Export reports sizes and frame rates it cannot encode.
+    size: Number.isFinite,
+    sizeLimits: (v) => validLimits(v),
+    weight: Number.isFinite,
+    weightLimits: (v) => validLimits(v),
     export: (v) =>
-      v !== null && typeof v === "object" && Object.hasOwn(FORMATS, v.format) && Number.isInteger(v.longEdge) &&
-      finite(v.longEdge, 16, MAX_EDGE) && finite(v.fps, 1, 120) && typeof v.transparent === "boolean",
+      v !== null && typeof v === "object" && Object.hasOwn(FORMATS, v.format) && Number.isFinite(v.longEdge) &&
+      Number.isFinite(v.fps) && typeof v.transparent === "boolean",
     durations: (v) => validDurations(STEPS, v),
-    durationLimits: (v) => validLimits(v, { hardMin: 0.1 }),
-    longEdgeLimits: (v) => validLimits(v, { hardMin: 16, hardMax: MAX_EDGE }),
-    fpsLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 120 }),
+    durationLimits: (v) => validLimits(v),
+    longEdgeLimits: (v) => validLimits(v),
+    fpsLimits: (v) => validLimits(v),
     // Track contents are merged key by key with restoreTracks below.
     tracks: (v) => v !== null && typeof v === "object",
     panelOpen: (v) => typeof v === "boolean",
@@ -176,8 +178,6 @@ const size = createSliderControl({
   bounds: state().sizeLimits,
   onBoundsInput: (value) => set("sizeLimits", value),
   label: "Letter size (% of height)",
-  min: 1,
-  max: 100,
   step: 0.5,
 });
 const weight = createSliderControl({
@@ -186,8 +186,6 @@ const weight = createSliderControl({
   bounds: state().weightLimits,
   onBoundsInput: (value) => set("weightLimits", value),
   label: "Letter weight",
-  min: 100,
-  max: 900,
   step: 100,
 });
 const theme = segmented("theme", ["light", "dark"].map((id) => [id, id[0].toUpperCase() + id.slice(1)]), (value) => {
@@ -202,8 +200,6 @@ const longEdge = createSliderControl({
   bounds: state().longEdgeLimits,
   onBoundsInput: (value) => set("longEdgeLimits", value),
   label: "Long edge (px)",
-  min: 16,
-  max: MAX_EDGE,
   step: 2,
 });
 // Like the Vue v-if, the frame rate slider exists only while a video format is selected.
@@ -215,8 +211,6 @@ const createFps = () =>
     bounds: state().fpsLimits,
     onBoundsInput: (value) => set("fpsLimits", value),
     label: "Frame rate (fps)",
-    min: 1,
-    max: 120,
     step: 1,
   });
 const transparent = h("input", { type: "checkbox", name: "transparent", on: { change: (event) => setExport({ transparent: event.target.checked }) } });
@@ -379,7 +373,7 @@ function redraw() {
   children(exportStack, [longEdge.element, png ? transparentLabel : fps.element]);
   const output = outputSize(ASPECTS[s.aspect], s.export.longEdge);
   text(outputSizeText, `${output.width} × ${output.height} px`);
-  if (!png) text(outputVideoText, ` · ${playback.total.toFixed(2)} s · ${frameSchedule(playback.total, s.export.fps).length} frames`);
+  if (!png) text(outputVideoText, ` · ${playback.total.toFixed(2)} s · ${frameCount(playback.total, s.export.fps)} frames`);
   children(readout, [outputSizeText, !png && outputVideoText]);
   text(exportNote, png ? "PNG renders the frame at the playhead." : "Video renders the whole timeline; background opacity is flattened.");
   prop(exportButton, "disabled", exporting);

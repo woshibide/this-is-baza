@@ -1,6 +1,6 @@
 // Normalized XY position as {x,y} in percent. Coordinates are independent of display size.
 import { checkProps, modelSetter, uid, h, svg, attr, style, text, children, renderer } from "../dom.js";
-import { effectiveLimits } from "../../src/lib/numeric-limits.js";
+import { effectiveLimits, overshootView } from "../../src/lib/numeric-limits.js";
 import { createLimitsEditor } from "./limits-editor.js";
 import { createNumberField } from "./number-field.js";
 import { createGraphicPanel } from "./graphic-panel.js";
@@ -20,13 +20,28 @@ export function createPositionControl(given) {
   let rendered = false;
   const setModel = modelSetter(given, () => props, "value", (value) => apply({ value }), () => ready);
   const setBounds = modelSetter(given, () => props, "bounds", (bounds) => apply({ bounds }), () => ready);
-  const xLimits = () => effectiveLimits(props.bounds.x, 0, 100);
-  const yLimits = () => effectiveLimits(props.bounds.y, 0, 100);
+  const xLimits = () => effectiveLimits(props.bounds.x);
+  const yLimits = () => effectiveLimits(props.bounds.y);
+  // The pad shows the 0–100% canvas and widens to set limits and a point outside it; a drag keeps its starting view.
+  let frozen = null;
+  const view = () =>
+    frozen ?? { x: overshootView(props.bounds.x, [props.value.x]), y: overshootView(props.bounds.y, [props.value.y]) };
+  const place = (axis, value) => ((value - view()[axis].min) / (view()[axis].max - view()[axis].min)) * 100;
+  const placeX = (value) => place("x", value);
+  const placeY = (value) => place("y", value);
+  const widened = () => ["x", "y"].some((axis) => view()[axis].min < 0 || view()[axis].max > 100);
+  // The allowed region in pad percent, cut to the view.
+  const allowedRegion = () => {
+    const v = view(), xl = xLimits(), yl = yLimits();
+    const left = placeX(Math.max(v.x.min, xl.min)), top = placeY(Math.max(v.y.min, yl.min));
+    return { left, top, width: placeX(Math.min(v.x.max, xl.max)) - left, height: placeY(Math.min(v.y.max, yl.max)) - top };
+  };
+  const allowedText = ({ min, max }) => `${min ?? "−∞"}–${max ?? "∞"}%`;
   const hatchId = uid();
   const maskId = uid();
   const restricted = () => {
-    const x = xLimits(), y = yLimits();
-    return x.min > 0 || x.max < 100 || y.min > 0 || y.max < 100;
+    const v = view(), x = xLimits(), y = yLimits();
+    return x.min > v.x.min || x.max < v.x.max || y.min > v.y.min || y.max < v.y.max;
   };
   let pointer = null;
   function move(x, y) {
@@ -38,16 +53,21 @@ export function createPositionControl(given) {
     event.preventDefault();
     handle.focus();
     pointer = event.pointerId;
+    frozen = view();
     pad.setPointerCapture(pointer);
     drag(event);
   }
   function drag(event) {
     if (event.pointerId !== pointer) return;
     const rect = pad.getBoundingClientRect();
-    move(((event.clientX - rect.left) / rect.width) * 100, ((event.clientY - rect.top) / rect.height) * 100);
+    const { x, y } = view();
+    move(x.min + ((event.clientX - rect.left) / rect.width) * (x.max - x.min), y.min + ((event.clientY - rect.top) / rect.height) * (y.max - y.min));
   }
   function finish() {
     pointer = null;
+    if (!frozen) return;
+    frozen = null;
+    render();
   }
   function nudge(event) {
     const delta = arrowDelta(event);
@@ -70,6 +90,7 @@ export function createPositionControl(given) {
     ),
     svg("rect", { width: "100%", height: "100%", fill: `url(#${hatchId})`, mask: `url(#${maskId})` }),
   );
+  const nominal = h("div", { class: "xy-nominal", "aria-hidden": "true" });
   const allowed = h("div", { class: "xy-allowed", "aria-hidden": "true" });
   const horizontal = h("div", { class: "xy-crosshair horizontal", "aria-hidden": "true" });
   const vertical = h("div", { class: "xy-crosshair vertical", "aria-hidden": "true" });
@@ -86,8 +107,6 @@ export function createPositionControl(given) {
       label: `${axis.toUpperCase()} %`,
       layout: `axis-${axis}`,
       axis: `${axis.toUpperCase()} %`,
-      hardMin: 0,
-      hardMax: 100,
     });
   const yEditor = axisEditor("y");
   const xEditor = axisEditor("x");
@@ -104,27 +123,30 @@ export function createPositionControl(given) {
     title,
     h("p", null, "Drag, use arrow keys, or enter exact coordinates."),
     panel.element,
-    h("p", { class: "note" }, " Fixed 0–100% canvas. Hatched areas are outside the limits. Shift nudges by 5%. "),
+    h("p", { class: "note" }, " 0–100% canvas; limits outside it widen the view, and a dashed outline marks the canvas. Hatched areas are outside the limits. Shift nudges by 5%. "),
   );
 
   const render = renderer(draw);
   function draw() {
     const { x, y } = props.value;
     const xl = xLimits(), yl = yLimits();
+    const region = allowedRegion();
     attr(element, "aria-label", props.heading);
     text(title, props.heading);
-    attr(allowedHole, "x", xl.min + "%");
-    attr(allowedHole, "y", yl.min + "%");
-    attr(allowedHole, "width", xl.max - xl.min + "%");
-    attr(allowedHole, "height", yl.max - yl.min + "%");
-    for (const [key, value] of Object.entries({ left: xl.min + "%", top: yl.min + "%", width: xl.max - xl.min + "%", height: yl.max - yl.min + "%" }))
+    attr(allowedHole, "x", region.left + "%");
+    attr(allowedHole, "y", region.top + "%");
+    attr(allowedHole, "width", region.width + "%");
+    attr(allowedHole, "height", region.height + "%");
+    for (const [key, value] of Object.entries({ left: placeX(0) + "%", top: placeY(0) + "%", width: placeX(100) - placeX(0) + "%", height: placeY(100) - placeY(0) + "%" }))
+      style(nominal, key, value);
+    for (const [key, value] of Object.entries({ left: region.left + "%", top: region.top + "%", width: region.width + "%", height: region.height + "%" }))
       style(allowed, key, value);
-    style(horizontal, "top", y + "%");
-    style(vertical, "left", x + "%");
-    style(handle, "left", x + "%");
-    style(handle, "top", y + "%");
-    attr(handle, "aria-description", `X ${x.toFixed(1)}%, Y ${y.toFixed(1)}%. Allowed X ${xl.min}–${xl.max}%, Y ${yl.min}–${yl.max}%.`);
-    children(pad, [excluded, restricted() && allowed, horizontal, vertical, handle]);
+    style(horizontal, "top", placeY(y) + "%");
+    style(vertical, "left", placeX(x) + "%");
+    style(handle, "left", placeX(x) + "%");
+    style(handle, "top", placeY(y) + "%");
+    attr(handle, "aria-description", `X ${x.toFixed(1)}%, Y ${y.toFixed(1)}%. Allowed X ${allowedText(props.bounds.x)}, Y ${allowedText(props.bounds.y)}.`);
+    children(pad, [excluded, widened() && nominal, restricted() && allowed, horizontal, vertical, handle]);
     yEditor.update({ value: props.bounds.y });
     xEditor.update({ value: props.bounds.x });
     xField.update({ value: +x.toFixed(2), min: xl.min, max: xl.max });

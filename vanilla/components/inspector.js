@@ -9,8 +9,7 @@ import { createBezierControl } from "./bezier-control.js";
 import { createPositionControl } from "./position-control.js";
 import { createIcon } from "./icon.js";
 import { clamp } from "../../src/lib/values.js";
-import { SAFE_MAX } from "../../src/lib/numeric-limits.js";
-import { MIN_STEP, CURVES, ramp, scaleTracks, seconds, stepAt, stepOffsets, trackValue } from "../../src/lib/timeline.js";
+import { CURVES, ramp, scaleTracks, seconds, stepAt, stepOffsets, trackValue } from "../../src/lib/timeline.js";
 
 const SPEC = {
   selection: { type: Object, required: true },
@@ -23,7 +22,6 @@ const SPEC = {
   onLimitsInput: { type: Function },
   steps: { type: Array, required: true },
   playback: { type: Object, required: true },
-  max: { type: Number, default: SAFE_MAX }, // hard upper bound for a step's duration
   closable: { type: Boolean },
   disabled: { type: Boolean },
   onClose: { type: Function },
@@ -49,10 +47,11 @@ export function createInspector(given) {
   const duration = () => props.durations[step().id];
 
   // A new duration rescales this step's keyframes and keeps the playhead at the same progress.
+  // The user's limits may allow zero or less, but a step needs positive time to play, so such a value is not applied.
   function setDuration(value) {
     const id = step().id;
     const previous = props.durations[id];
-    if (value === previous) return;
+    if (value === previous || !(value > 0)) return;
     const now = stepAt(props.steps, props.durations, props.playback.time);
     const next = { ...props.durations, [id]: value };
     const at = index();
@@ -100,8 +99,6 @@ export function createInspector(given) {
       bounds: props.limits,
       onBoundsInput: (limits) => setLimits(limits),
       label: "Duration (s)",
-      min: MIN_STEP,
-      max: props.max,
       step: 0.1,
     });
     const startsAt = h("p", { class: "note" });
@@ -114,7 +111,7 @@ export function createInspector(given) {
     ];
     function draw() {
       const current = step();
-      slider.update({ value: duration(), bounds: props.limits, max: props.max });
+      slider.update({ value: duration(), bounds: props.limits });
       text(startsAt, `Starts at ${seconds(offset())} s. Changing the duration keeps keyframes at the same relative times.`);
       for (const key of [...items.keys()]) if (!specs().some((item) => `${current.id}/${item.id}` === key)) items.delete(key);
       const rows = specs().map((item) => {

@@ -1,4 +1,5 @@
 // One editable boundary. The parent supplies spatial placement; parsing and the -0/null contract stay shared.
+// A limit is the user's clamp on the value: any number is allowed, never a hardcoded range.
 import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, renderer } from "../dom.js";
 import { parseLimit, SAFE_MIN, SAFE_MAX } from "../../src/lib/numeric-limits.js";
 import { createNumberScrubber, NUMBER_SCRUB_HINT } from "../../src/lib/number-scrub.js";
@@ -9,8 +10,6 @@ const SPEC = {
   side: { type: String, required: true },
   label: { type: String, required: true },
   integer: { type: Boolean },
-  hardMin: { type: Number, default: SAFE_MIN },
-  hardMax: { type: Number, default: SAFE_MAX },
 };
 
 export function createLimitValue(given) {
@@ -25,8 +24,8 @@ export function createLimitValue(given) {
   const scrubber = createNumberScrubber({
     read: () => ({
       value: props.value[props.side],
-      min: Math.max(props.hardMin, props.side === "max" ? (props.value.min ?? SAFE_MIN) : SAFE_MIN),
-      max: Math.min(props.hardMax, props.side === "min" ? (props.value.max ?? SAFE_MAX) : SAFE_MAX),
+      min: props.side === "max" ? (props.value.min ?? SAFE_MIN) : SAFE_MIN,
+      max: props.side === "min" ? (props.value.max ?? SAFE_MAX) : SAFE_MAX,
       step: props.integer ? 1 : "any",
     }),
     write: (value) => {
@@ -34,14 +33,6 @@ export function createLimitValue(given) {
       commit();
     },
   });
-  const domainHint = () =>
-    props.hardMin !== SAFE_MIN && props.hardMax !== SAFE_MAX
-      ? ` Valid values: ${props.hardMin}-${props.hardMax}.`
-      : props.hardMin !== SAFE_MIN
-        ? ` Minimum valid value: ${props.hardMin}.`
-        : props.hardMax !== SAFE_MAX
-          ? ` Maximum valid value: ${props.hardMax}.`
-          : "";
 
   function restore() {
     draft = props.value[props.side] === null ? "-0" : String(props.value[props.side]);
@@ -99,7 +90,7 @@ export function createLimitValue(given) {
     prop(input, "value", draft);
     attr(input, "aria-invalid", String(Boolean(error)));
     if (error) text(message, error);
-    else text(hint, ` −0 removes this limit.${domainHint()}`);
+    else text(hint, " −0 removes this limit. ");
     children(element, [element.firstChild, error ? message : hint]);
   }
 

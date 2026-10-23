@@ -626,6 +626,13 @@ svg.baza-icon {
   height: 100%;
   border-radius: 4px;
 }
+.baza-gradient-control .nominal {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  border-left: 1px solid var(--_plot-boundary);
+  pointer-events: none;
+}
 .baza-gradient-control .stop {
   position: absolute;
   top: 42px;
@@ -766,6 +773,11 @@ svg.baza-icon {
 .baza-position-control .xy-allowed {
   position: absolute;
   border: 1px solid var(--_plot-boundary);
+  pointer-events: none;
+}
+.baza-position-control .xy-nominal {
+  position: absolute;
+  border: 1px dashed var(--_plot-axis);
   pointer-events: none;
 }
 .baza-position-control .xy-crosshair {

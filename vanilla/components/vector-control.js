@@ -24,7 +24,7 @@ export function createVectorControl(given) {
   const setModel = modelSetter(given, () => props, "value", (value) => apply({ value }), () => ready);
   const setBounds = modelSetter(given, () => props, "bounds", (bounds) => apply({ bounds }), () => ready);
   const angleLimits = () => effectiveLimits(props.bounds.angle);
-  const lengthLimits = () => effectiveLimits(props.bounds.length, 0);
+  const lengthLimits = () => effectiveLimits(props.bounds.length);
   const orientation = () => ((props.value.angle % 360) + 360) % 360;
   const scale = () => dialScale(props.value.length);
   const rim = () => 160 - RADIUS * scale();
@@ -37,7 +37,7 @@ export function createVectorControl(given) {
     const r = RADIUS * scale();
     return [[0, 160, 146 - r], [90, 175 + r, 155], [180, 160, 183 + r], [270, 145 - r, 155]].map(([degrees, x, y]) => ({
       degrees, x, y,
-      covered: props.value.length > 100 && Math.abs(((orientation() - degrees + 540) % 360) - 180) < 20,
+      covered: Math.abs(props.value.length) > 100 && Math.abs(((orientation() + (props.value.length < 0 ? 180 : 0) - degrees + 540) % 360) - 180) < 20,
     }));
   };
   // Two grid levels centered on the dial; halving spacing cycles seamlessly, so zooming out never ends.
@@ -203,7 +203,6 @@ export function createVectorControl(given) {
     value: props.value.length,
     limits: props.bounds.length,
     onLimitsInput: (limits) => setBounds({ ...props.bounds, length: limits }),
-    min: 0,
     step: 1,
     onInput: (value) => setModel({ ...props.value, length: value }),
   });

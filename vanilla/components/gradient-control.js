@@ -1,6 +1,6 @@
 // Spatial sRGB gradient: [{hex, alpha, position}]. Stop identities stay stable while dragging.
 import { checkProps, modelSetter, h, attr, prop, style, text, children, renderer } from "../dom.js";
-import { effectiveLimits, clampToLimits } from "../../src/lib/numeric-limits.js";
+import { effectiveLimits, clampToLimits, overshootView } from "../../src/lib/numeric-limits.js";
 import { createNumberField } from "./number-field.js";
 import { createGraphicPanel } from "./graphic-panel.js";
 import { createColorEditor } from "./color-editor.js";
@@ -24,11 +24,15 @@ export function createGradientControl(given) {
   const keep = (partial) => apply(partial);
   const setModel = modelSetter(given, () => props, "value", (value) => keep({ value }), () => ready);
   const setBounds = modelSetter(given, () => props, "bounds", (bounds) => keep({ bounds }), () => ready);
-  const effective = () => effectiveLimits(props.bounds, 0, 100);
+  const effective = () => effectiveLimits(props.bounds);
+  // The track shows 0–100% and widens to set limits and stops outside it; a drag keeps its starting view.
+  let frozen = null;
+  const view = () => frozen ?? overshootView(props.bounds, props.value.map((stop) => stop.position));
+  const place = (position) => ((position - view().min) / (view().max - view().min)) * 100;
   const gradient = () =>
     `linear-gradient(90deg in srgb, ${[...props.value]
       .sort((a, b) => a.position - b.position)
-      .map((stop) => `${rgba(stop)} ${stop.position}%`)
+      .map((stop) => `${rgba(stop)} ${place(stop.position)}%`)
       .join(",")})`;
 
   function update(value) {
@@ -44,16 +48,21 @@ export function createGradientControl(given) {
     render();
     event.currentTarget.focus();
     pointer = event.pointerId;
+    frozen = view();
     track.setPointerCapture(pointer);
     drag(event);
   }
   function drag(event) {
     if (event.pointerId !== pointer) return;
     const rect = track.getBoundingClientRect();
-    setPosition(((event.clientX - rect.left) / rect.width) * 100);
+    const { min, max } = view();
+    setPosition(min + ((event.clientX - rect.left) / rect.width) * (max - min));
   }
   function finish() {
     pointer = null;
+    if (!frozen) return;
+    frozen = null;
+    render();
   }
   function nudge(event, index) {
     const delta = arrowDelta(event);
@@ -78,6 +87,7 @@ export function createGradientControl(given) {
   }
 
   const paint = h("div", { class: "gradient-paint" });
+  const nominal = [0, 100].map(() => h("div", { class: "nominal", "aria-hidden": "true" }));
   const track = h(
     "div",
     { class: "gradient-track checker", on: { pointermove: drag, pointerup: finish, pointercancel: finish, lostpointercapture: finish } },
@@ -114,8 +124,6 @@ export function createGradientControl(given) {
     onLimitsInput: (bounds) => setBounds(bounds),
     label: "Selected stop position %",
     value: +props.value[selected].position.toFixed(2),
-    min: 0,
-    max: 100,
     onInput: setPosition,
   });
   position.element.classList.add("position");
@@ -131,7 +139,7 @@ export function createGradientControl(given) {
     title,
     h("p", null, "Drag a numbered stop or enter its exact position."),
     panel.element,
-    h("p", { class: "note" }, " Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. "),
+    h("p", { class: "note" }, " Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%. "),
   );
 
   const render = renderer(draw);
@@ -144,12 +152,14 @@ export function createGradientControl(given) {
     stops.length = list.length;
     list.forEach((stop, i) => {
       const s = stops[i];
-      style(s.element, "left", stop.position + "%");
+      style(s.element, "left", place(stop.position) + "%");
       attr(s.element, "aria-pressed", String(selected === i));
       attr(s.element, "aria-label", `Stop ${i + 1}, position ${stop.position.toFixed(1)}%`);
       text(s.label, `${i + 1} `);
     });
-    children(track, [paint, ...stops.map((s) => s.element)]);
+    const widened = view().min < 0 || view().max > 100;
+    nominal.forEach((line, i) => style(line, "left", place(i * 100) + "%"));
+    children(track, [paint, ...(widened ? nominal : []), ...stops.map((s) => s.element)]);
     prop(addButton, "disabled", list.length >= 8);
     prop(removeButton, "disabled", list.length <= 2);
     color.update({ value: list[selected] });

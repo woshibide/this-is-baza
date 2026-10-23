@@ -3,7 +3,7 @@
 This folder is a plain JavaScript port of the Baza controls, timeline, inspector, and workspace demo.
 It runs as ES modules in the browser with no framework and no build step.
 
-It is a dated snapshot: it was ported from the Vue components at commit `6e24fca` on 2026-10-23.
+It is a dated snapshot: it was ported from the Vue components at commit `6e24fca` on 2026-10-23, together with the later change that removed every hardcoded range from editable limits (`e18abbb`).
 The Vue components in `src/components/` stay the canonical reference, and this port is not kept in sync with later changes to them.
 Use it for projects without a framework or build step; Vue projects should reuse the Vue components.
 
@@ -38,16 +38,20 @@ ColorEditor also returns `open()`, the method its Vue version exposes.
 import { createSliderControl } from "./vanilla/components/slider-control.js";
 
 let copies = 8;
+let copiesLimits = { min: 1, max: 200 };
 const slider = createSliderControl({
   label: "Copies",
   value: copies,
-  min: 1,
-  max: 200,
+  bounds: copiesLimits,
   step: 1,
   onInput: (value) => {
     copies = value;
     slider.update({ value });
     drawArtwork();
+  },
+  onBoundsInput: (bounds) => {
+    copiesLimits = bounds;
+    slider.update({ bounds });
   },
 });
 panel.append(slider.element);
@@ -66,6 +70,8 @@ slider.destroy(); // when the panel goes away
 - `update()` takes any subset of the props and patches only the DOM that changed, so a field being typed in keeps its draft and focus.
 - A component may report a corrected value while it is being created, for example a value clamped to its bounds.
   It keeps that value itself, so an owner only needs to save it; the owner's later `update()` with the same value changes nothing.
+- Editable min and max limits are the user's clamp on a value and are never clamped themselves, as [Editable limits are never clamped](../references/ui-controls.md#editable-limits-are-never-clamped) describes.
+  SliderControl has no `min` or `max` props, so passing them throws; give it `bounds` instead.
 - Components own neither storage nor a clock.
   Add classes to `element` as needed; the components only toggle their own classes.
   Classes that start with `baza-` are the port's styling hooks for roots that have no class in Vue.

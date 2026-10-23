@@ -20,22 +20,29 @@ export function createDimensionsControl(given) {
   const setModel = modelSetter(given, () => props, "value", (value) => apply({ value }), () => ready);
   const setBounds = modelSetter(given, () => props, "bounds", (bounds) => apply({ bounds }), () => ready);
   const effective = () => ({
-    width: effectiveLimits(props.bounds.width, 1),
-    height: effectiveLimits(props.bounds.height, 1),
+    width: effectiveLimits(props.bounds.width),
+    height: effectiveLimits(props.bounds.height),
   });
+  // The preview draws magnitudes; zero or negative sizes are the user's choice and draw as nothing or mirrored.
   const previewSize = () => {
-    const scale = Math.min(192 / props.value.width, 100 / props.value.height);
-    return { width: props.value.width * scale, height: props.value.height * scale };
+    const width = Math.abs(props.value.width),
+      height = Math.abs(props.value.height);
+    const scale = Math.min(192 / width, 100 / height);
+    if (!Number.isFinite(scale)) return { width: 0, height: 0 };
+    return { width: width * scale, height: height * scale };
   };
+  // A zero size has no ratio to keep, so the lock applies only while the ratio is finite.
   function resize(axis, value) {
     const model = props.value;
     const limits = effective();
     const other = axis === "width" ? "height" : "width",
-      ratio = model[other] / model[axis];
-    const next = model.locked
-      ? clamp(value, Math.max(limits[axis].min, limits[other].min / ratio), Math.min(limits[axis].max, limits[other].max / ratio))
+      ratio = model[other] / model[axis],
+      locked = model.locked && Number.isFinite(ratio) && ratio !== 0;
+    const ends = locked ? [limits[other].min / ratio, limits[other].max / ratio] : [];
+    const next = locked
+      ? clamp(value, Math.max(limits[axis].min, Math.min(...ends)), Math.min(limits[axis].max, Math.max(...ends)))
       : value;
-    setModel({ ...model, [axis]: next, ...(model.locked ? { [other]: next * ratio } : {}) });
+    setModel({ ...model, [axis]: next, ...(locked ? { [other]: next * ratio } : {}) });
   }
 
   const box = svg("rect", { class: "size-box plot-shape" });
@@ -64,10 +71,7 @@ export function createDimensionsControl(given) {
       // The Vue component writes the axis limits into its bounds object; the port passes a new object instead.
       onLimitsInput: (limits) => setBounds({ ...props.bounds, [axis]: limits }),
       managedLimits: true,
-      limitMin: 1,
       value: +props.value[axis].toFixed(3),
-      min: effective()[axis].min,
-      max: effective()[axis].max,
       onInput: (value) => resize(axis, value),
     }),
   );
@@ -91,7 +95,6 @@ export function createDimensionsControl(given) {
     const { width, height } = props.value;
     const w = +width.toFixed(3), hgt = +height.toFixed(3);
     const size = previewSize();
-    const limits = effective();
     attr(preview, "aria-label", `Dimensions preview: ${w} by ${hgt} pixels`);
     attr(box, "x", 200 - size.width / 2);
     attr(box, "y", 80 - size.height / 2);
@@ -108,7 +111,7 @@ export function createDimensionsControl(given) {
     text(heightValue, `${hgt} px`);
     attr(heightLabel, "y", size.height / 2 + 14);
     AXES.forEach((axis, i) =>
-      fields[i].update({ limits: props.bounds[axis], value: +props.value[axis].toFixed(3), min: limits[axis].min, max: limits[axis].max }),
+      fields[i].update({ limits: props.bounds[axis], value: +props.value[axis].toFixed(3) }),
     );
     prop(lock, "checked", props.value.locked);
     text(readout, `${w} × ${hgt} px · ratio ${(width / height).toFixed(3)}`);

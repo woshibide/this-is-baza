@@ -1,4 +1,6 @@
-// Numeric value with optional editable limits. min/max are hard domain limits; editable limits are independent. Invalid drafts stay local; Enter/blur restores a valid value.
+// Numeric value with optional editable limits. With limits, the editable min/max inputs are the only clamp on the value;
+// min/max props are a fixed range for a field without limits, never a range on the limits. Invalid drafts stay local;
+// Enter/blur restores a valid value.
 // decrease and increase take stepper nodes placed on either side of the input.
 import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, renderer } from "../dom.js";
 import { createLimitsEditor } from "./limits-editor.js";
@@ -15,9 +17,7 @@ const SPEC = {
   max: { type: Number, default: SAFE_MAX },
   step: { type: [Number, String], default: "any" },
   disabled: { type: Boolean },
-  managedLimits: { type: Boolean },
-  limitMin: { type: Number },
-  limitMax: { type: Number },
+  managedLimits: { type: Boolean }, // the parent clamps the value to the limits, as with an aspect lock
   decrease: { type: [Node, Array] },
   increase: { type: [Node, Array] },
 };
@@ -28,7 +28,7 @@ export function createNumberField(given) {
   let draft = props.value;
   let invalid = false;
   let editing = false;
-  const effective = () => effectiveLimits(props.limits ?? { min: null, max: null }, props.min, props.max);
+  const effective = () => (props.limits ? effectiveLimits(props.limits) : { min: props.min, max: props.max });
   let ready = false;
   const setValue = modelSetter(given, () => props, "value", (value) => apply({ value }), () => ready);
   const setLimits = modelSetter(given, () => props, "limits", (limits) => apply({ limits }), () => ready);
@@ -92,8 +92,6 @@ export function createNumberField(given) {
     value: props.limits,
     label: props.label,
     integer: Number(props.step) === 1,
-    hardMin: props.managedLimits ? (props.limitMin ?? SAFE_MIN) : props.min,
-    hardMax: props.managedLimits ? (props.limitMax ?? SAFE_MAX) : props.max,
   });
   const element = h("div", { class: "number-field" }, label);
 
