@@ -3,6 +3,7 @@
 Every sketch workspace uses the same arrangement, so users find global settings, the artwork, time, and the selected element in the same places.
 The [workspace demo](../examples/demo/index.html) shows it working; its artwork only illustrates the layout and is not part of this rule.
 Port the layout from [Demo.vue](../src/Demo.vue), keeping the demo's artwork local to the demo.
+Without a framework or build step, start from the dated [vanilla demo](../vanilla/examples/demo/demo.js) and the [vanilla port](../vanilla/README.md) instead.
 
 ## Regions
 
@@ -34,6 +35,7 @@ Use the shared theme tokens for surfaces, lines, and text so both themes work.
 ## Timeline
 
 Reuse [Timeline](../src/components/Timeline.vue), [KeyframeLane](../src/components/KeyframeLane.vue), [Inspector](../src/components/Inspector.vue), [timeline.js](../src/lib/timeline.js), and [usePlayback](../src/composables/usePlayback.js).
+Their vanilla counterparts are [timeline.js](../vanilla/components/timeline.js), [keyframe-lane.js](../vanilla/components/keyframe-lane.js), [inspector.js](../vanilla/components/inspector.js), and [playback.js](../vanilla/playback.js).
 
 - Steps play back to back.
   Each step holds tracks; a track is one clip with `start` and `end` keyframes in step-local seconds, an `ease` curve, and optional parameters.

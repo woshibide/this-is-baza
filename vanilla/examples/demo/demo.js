@@ -262,7 +262,13 @@ const sidebar = h(
   h(
     "header",
     { class: "sidebar-header" },
-    h("h1", null, h("a", { href: "../" }, "Baza"), " / Demo"),
+    h(
+      "h1",
+      null,
+      h("a", { href: "../" }, "Baza"),
+      " / Demo",
+      h("a", { class: "source-link", href: "https://github.com/woshibide/this-is-baza/blob/main/vanilla/examples/demo/demo.js", target: "_blank", rel: "noopener noreferrer" }, "Vanilla JS"),
+    ),
     h("button", { class: "icon-button", "aria-label": "Hide controls", title: "Hide controls", on: { click: () => set("panelOpen", false) } }, icon("panel-close")),
   ),
   sidebarBody,

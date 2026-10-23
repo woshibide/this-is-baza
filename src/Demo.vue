@@ -39,7 +39,7 @@
     </button>
     <aside v-else class="sidebar floating" aria-label="Controls">
       <header class="sidebar-header">
-        <h1><a href="../">Baza</a> / Demo</h1>
+        <h1><a href="../">Baza</a> / Demo<a class="source-link" href="https://github.com/woshibide/this-is-baza/blob/main/vanilla/examples/demo/demo.js" target="_blank" rel="noopener noreferrer">Vanilla JS</a></h1>
         <button class="icon-button" aria-label="Hide controls" title="Hide controls" @click="state.panelOpen = false">
           <Icon name="panel-close" />
         </button>
@@ -437,6 +437,7 @@ canvas {
   letter-spacing: 0;
 }
 .sidebar-header a { color: inherit; }
+.sidebar-header .source-link { margin-left: 12px; color: var(--muted); font-size: 12px; }
 .icon-button {
   width: 32px;
   min-height: 32px;

@@ -92,6 +92,7 @@
   letter-spacing: 0;
 }
 .workspace .sidebar-header a { color: inherit; }
+.workspace .sidebar-header .source-link { margin-left: 12px; color: var(--muted); font-size: 12px; }
 .workspace :where(.sidebar-header) .icon-button {
   width: 32px;
   min-height: 32px;

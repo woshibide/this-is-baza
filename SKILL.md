@@ -60,6 +60,7 @@ Use project dependencies rather than global installations.
 ### Reference controls
 
 When adding or changing controls, use the [UI example guide](references/ui-controls.md) to select and reuse the relevant components, helpers, and styles.
+For a project without a framework or build step, start from the dated [vanilla JavaScript port](vanilla/README.md) of the same components.
 Before choosing controls, list the sketch's adjustable values as candidates and run `node <skill-folder>/scripts/jev/decide.mjs <candidates.json>`, as described in [Jev decisions](references/ui-controls.md#jev-decisions-optional).
 When it reports `"jev": "available"`, follow its `ok` answers for whether each value is exposed, which control it gets, its region and section, and whether it is saved; settle `review` answers with the references.
 When it reports `"jev": "unavailable"`, decide from the references alone.

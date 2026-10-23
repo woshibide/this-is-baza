@@ -4,6 +4,9 @@ The bundled Vue components and their running gallery define Baza's control appea
 Reuse them in Vue projects or port them to the target framework, preserving both the visual design and behavior unless the user requests a change.
 Choose only the controls needed by the sketch.
 
+For a project without a framework or build step, start from the [vanilla JavaScript port](../vanilla/README.md) instead of porting from Vue.
+It is a dated snapshot of these components (commit `6e24fca`, 2026-10-23) and is not kept in sync; when a Vue component has changed since, port the change or port from Vue.
+
 ## Reuse workflow
 
 1. Choose a component from the intent table below and inspect its live example.
@@ -20,22 +23,22 @@ Choose only the controls needed by the sketch.
 
 ## Choose by intent
 
-| User intent | Example | Integration detail |
-| --- | --- | --- |
-| Ease in, accelerate, fade over time | [BezierControl](../src/components/BezierControl.vue) | Pass actual property bounds, units, and clock progress. |
-| Pulse, breathe, grow then shrink | [BezierControl](../src/components/BezierControl.vue) with `envelope` | Preserve the movable middle anchor and its handles. |
-| Color, fill, stroke, background | [ColorEditor](../src/components/ColorEditor.vue) | Keep color and alpha together in state. |
-| Palette | [PaletteControl](../src/components/PaletteControl.vue) | Bind the entries used by the artwork. |
-| Gradient or color stops | [GradientControl](../src/components/GradientControl.vue) | Use the same stop positions, alpha, and interpolation in rendering. |
-| Minimum and maximum, interval | [RangeControl](../src/components/RangeControl.vue) | Bind both values and editable bounds. |
-| Allowed angles, rotational freedom, angular interval | [AngleRangeControl](../src/components/AngleRangeControl.vue) | Bind `{ start, sweep }` in whole degrees: start is 0–359°, clockwise sweep is 0–360°. |
-| Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | Map normalized coordinates to the composition's coordinates. |
-| Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
-| Vector, direction with magnitude, force, velocity | [VectorControl](../src/components/VectorControl.vue) | Bind `{ angle, length }`: angle keeps turns like AngleControl; length is a percentage of the dial radius, limited only by its editable limits, and a negative length points the opposite way; past 100% the dial and grid shrink to 100/length while the point stays on the rest rim. |
-| Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
-| Slider: any single number, such as how many, copies, rows, a delay, a scale, or an amount | [SliderControl](../src/components/SliderControl.vue) | Bind the value and `v-model:bounds` with meaningful default bounds, and set `step`. The bounds are the user's min and max and the only clamp: SliderControl has no `min` or `max` props, and nothing restricts the bounds. |
-| Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
-| Play, scrub, inspect a frame, sequence steps, keyframe an element | [Timeline](../src/components/Timeline.vue) with [Inspector](../src/components/Inspector.vue) | Drive rendering from one `usePlayback` engine; place them as in the [workspace layout](workspace-layout.md). |
+| User intent | Example | Vanilla module | Integration detail |
+| --- | --- | --- | --- |
+| Ease in, accelerate, fade over time | [BezierControl](../src/components/BezierControl.vue) | [bezier-control.js](../vanilla/components/bezier-control.js) | Pass actual property bounds, units, and clock progress. |
+| Pulse, breathe, grow then shrink | [BezierControl](../src/components/BezierControl.vue) with `envelope` | [bezier-control.js](../vanilla/components/bezier-control.js) | Preserve the movable middle anchor and its handles. |
+| Color, fill, stroke, background | [ColorEditor](../src/components/ColorEditor.vue) | [color-editor.js](../vanilla/components/color-editor.js) | Keep color and alpha together in state. |
+| Palette | [PaletteControl](../src/components/PaletteControl.vue) | [palette-control.js](../vanilla/components/palette-control.js) | Bind the entries used by the artwork. |
+| Gradient or color stops | [GradientControl](../src/components/GradientControl.vue) | [gradient-control.js](../vanilla/components/gradient-control.js) | Use the same stop positions, alpha, and interpolation in rendering. |
+| Minimum and maximum, interval | [RangeControl](../src/components/RangeControl.vue) | [range-control.js](../vanilla/components/range-control.js) | Bind both values and editable bounds. |
+| Allowed angles, rotational freedom, angular interval | [AngleRangeControl](../src/components/AngleRangeControl.vue) | [angle-range-control.js](../vanilla/components/angle-range-control.js) | Bind `{ start, sweep }` in whole degrees: start is 0–359°, clockwise sweep is 0–360°. |
+| Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | [position-control.js](../vanilla/components/position-control.js) | Map normalized coordinates to the composition's coordinates. |
+| Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | [angle-control.js](../vanilla/components/angle-control.js) | Preserve accumulated turns, including values such as 720°. |
+| Vector, direction with magnitude, force, velocity | [VectorControl](../src/components/VectorControl.vue) | [vector-control.js](../vanilla/components/vector-control.js) | Bind `{ angle, length }`: angle keeps turns like AngleControl; length is a percentage of the dial radius, limited only by its editable limits, and a negative length points the opposite way; past 100% the dial and grid shrink to 100/length while the point stays on the rest rim. |
+| Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | [dimensions-control.js](../vanilla/components/dimensions-control.js) | Connect the aspect lock and exact dimensions to the artwork. |
+| Slider: any single number, such as how many, copies, rows, a delay, a scale, or an amount | [SliderControl](../src/components/SliderControl.vue) | [slider-control.js](../vanilla/components/slider-control.js) | Bind the value and `v-model:bounds` with meaningful default bounds, and set `step`. The bounds are the user's min and max and the only clamp: SliderControl has no `min` or `max` props, and nothing restricts the bounds. |
+| Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | [choice-control.js](../vanilla/components/choice-control.js) | Adapt the options to the sketch while retaining selection and focus styling. |
+| Play, scrub, inspect a frame, sequence steps, keyframe an element | [Timeline](../src/components/Timeline.vue) with [Inspector](../src/components/Inspector.vue) | [timeline.js](../vanilla/components/timeline.js), [inspector.js](../vanilla/components/inspector.js) | Drive rendering from one `usePlayback` engine; place them as in the [workspace layout](workspace-layout.md). |
 
 In Baza, "slider" always means [SliderControl](../src/components/SliderControl.vue) (gallery `#slider`): a draggable number with decrease and increase buttons and editable bounds.
 Never build a slider as a native `<input type="range">` track, alone or alongside SliderControl; native range inputs appear only inside ColorEditor's hue and alpha strips.
@@ -71,6 +74,7 @@ Jev chooses among controls; take bounds, steps, units, and labels from the sketc
 
 Use [NumberField](../src/components/NumberField.vue) for exact entry and number dragging, [LimitsEditor](../src/components/LimitsEditor.vue) with [LimitValue](../src/components/LimitValue.vue) for editable bounds, and [GraphicPanel](../src/components/GraphicPanel.vue) for a graphic with attached controls.
 Their helpers in [number-scrub.js](../src/lib/number-scrub.js) and [numeric-limits.js](../src/lib/numeric-limits.js) own gesture and validation behavior; reuse or port those implementations with the components.
+Their vanilla modules are [number-field.js](../vanilla/components/number-field.js), [limits-editor.js](../vanilla/components/limits-editor.js), [limit-value.js](../vanilla/components/limit-value.js), and [graphic-panel.js](../vanilla/components/graphic-panel.js); the vanilla pages persist through [saved-state.js](../vanilla/saved-state.js).
 Put supplementary input fields beneath graphics in GraphicPanel's `fields` slot; its native “Exact values” disclosure is collapsed by default.
 Keep primary actions and readouts in the `footer` slot, and keep essential standalone inputs visible.
 Use the shared `exact-values` disclosure styles for supplementary fields outside GraphicPanel, as in the color picker.

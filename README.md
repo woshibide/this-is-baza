@@ -53,6 +53,7 @@ Choose an example by intent, inspect it in the gallery, and reuse or port its co
 Preserve the appearance and interactions while connecting its values to the target artwork and saved state.
 [App.vue](src/App.vue) demonstrates composition, persistence, and a shared playback clock.
 The [workspace demo](examples/demo/index.html) shows the standard [workspace layout](references/workspace-layout.md) with live controls.
+For projects without a framework or build step, the [vanilla JavaScript port](vanilla/README.md) provides the same controls, timeline, and workspace demo as plain ES modules; each gallery example links to its vanilla module.
 
 The gallery includes:
 

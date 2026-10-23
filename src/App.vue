@@ -47,7 +47,7 @@
       <span id="count" aria-hidden="true"></span><!-- keeps old #count links working -->
       <h2 id="values" class="reference-heading">Values</h2>
       <div class="example">
-        <p class="example-intro">A slider edits one number, such as copies, a delay, or a scale. Drag the number, step through values with the buttons, or enter a number within the chosen limits.</p>
+        <p class="example-intro">A slider edits one number, such as copies, a delay, or a scale. Drag the number, step through values with the buttons, or enter a number within the chosen limits.<br />Vanilla JS: <a :href="`${VANILLA}slider-control.js`" target="_blank" rel="noopener noreferrer">slider-control.js</a></p>
       <SliderControl
         heading="Slider"
         v-model="state.slider"
@@ -56,13 +56,13 @@
       </div>
       </div>
       <div class="example" id="choices">
-        <p class="example-intro">Choices and toggles represent discrete settings. These examples show a mutually exclusive alignment, a shape selection, and an independent on/off option.</p>
+        <p class="example-intro">Choices and toggles represent discrete settings. These examples show a mutually exclusive alignment, a shape selection, and an independent on/off option.<br />Vanilla JS: <a :href="`${VANILLA}choice-control.js`" target="_blank" rel="noopener noreferrer">choice-control.js</a></p>
       <ChoiceControl  v-model="state.choices" />
       </div>
       <div id="ramp" class="example-anchor">
       <h2 id="timing" class="reference-heading">Timing</h2>
       <div class="example">
-        <p class="example-intro">A Bézier ramp controls how a value changes over time. Move its handles to shape the acceleration and deceleration; the dot below the graph previews the resulting motion.</p>
+        <p class="example-intro">A Bézier ramp controls how a value changes over time. Move its handles to shape the acceleration and deceleration; the dot below the graph previews the resulting motion.<br />Vanilla JS: <a :href="`${VANILLA}bezier-control.js`" target="_blank" rel="noopener noreferrer">bezier-control.js</a></p>
       <BezierControl
         v-model="state.tracks.rise.ramp.ease"
         :progress="previewProgress.ramp"
@@ -74,7 +74,7 @@
       </div>
       </div>
       <div class="example" id="envelope">
-        <p class="example-intro">A pulse envelope rises to a peak and returns to its starting value. Adjust the peak and curve handles to shape a swell, flash, or other temporary change.</p>
+        <p class="example-intro">A pulse envelope rises to a peak and returns to its starting value. Adjust the peak and curve handles to shape a swell, flash, or other temporary change.<br />Vanilla JS: <a :href="`${VANILLA}bezier-control.js`" target="_blank" rel="noopener noreferrer">bezier-control.js</a></p>
       <BezierControl
         v-model="state.tracks.pulse.envelope.ease"
         envelope
@@ -86,7 +86,7 @@
       />
       </div>
       <div class="example example-timeline" id="playback">
-        <p class="example-intro">The timeline places motion in a sequence of steps, and the inspector beside it edits whatever is selected. Both curves above are the eases of its two tracks and play from the same clock. Click a step to inspect its duration; double-click it to drag its keyframes, which loops that step. See the <a href="demo/">workspace demo</a> for the full layout.</p>
+        <p class="example-intro">The timeline places motion in a sequence of steps, and the inspector beside it edits whatever is selected. Both curves above are the eases of its two tracks and play from the same clock. Click a step to inspect its duration; double-click it to drag its keyframes, which loops that step. See the <a href="demo/">workspace demo</a> for the full layout.<br />Vanilla JS: <a :href="`${VANILLA}timeline.js`" target="_blank" rel="noopener noreferrer">timeline.js</a>, <a :href="`${VANILLA}inspector.js`" target="_blank" rel="noopener noreferrer">inspector.js</a></p>
         <section aria-label="Timeline and inspector">
         <h2>Timeline &amp; inspector</h2>
         <p>Steps, keyframed tracks, and the controls of the selection.</p>
@@ -113,12 +113,12 @@
       <div id="color" class="example-anchor">
       <h2 id="colors" class="reference-heading">Color</h2>
       <div class="example">
-        <p class="example-intro">A palette keeps a small set of colors together. Select a swatch to edit its color and opacity, or add and remove colors as the sketch needs.</p>
+        <p class="example-intro">A palette keeps a small set of colors together. Select a swatch to edit its color and opacity, or add and remove colors as the sketch needs.<br />Vanilla JS: <a :href="`${VANILLA}palette-control.js`" target="_blank" rel="noopener noreferrer">palette-control.js</a></p>
       <PaletteControl  v-model="state.palette" />
       </div>
       </div>
       <div class="example" id="gradient">
-        <p class="example-intro">A gradient blends colors between stops. Move the stops to change where each color appears, and edit their colors and opacity independently.</p>
+        <p class="example-intro">A gradient blends colors between stops. Move the stops to change where each color appears, and edit their colors and opacity independently.<br />Vanilla JS: <a :href="`${VANILLA}gradient-control.js`" target="_blank" rel="noopener noreferrer">gradient-control.js</a></p>
       <GradientControl
         v-model="state.gradient"
         v-model:bounds="state.gradientBounds"
@@ -127,7 +127,7 @@
       <div id="range" class="example-anchor">
       <h2 id="ranges" class="reference-heading">Range</h2>
       <div class="example">
-        <p class="example-intro">An interval defines a lower and upper value. Move either endpoint or shift the whole interval; here, the selected range also sets the pixel distances used by the two motion previews.</p>
+        <p class="example-intro">An interval defines a lower and upper value. Move either endpoint or shift the whole interval; here, the selected range also sets the pixel distances used by the two motion previews.<br />Vanilla JS: <a :href="`${VANILLA}range-control.js`" target="_blank" rel="noopener noreferrer">range-control.js</a></p>
       <RangeControl
         v-model="state.range"
         v-model:bounds="state.rangeBounds"
@@ -135,13 +135,13 @@
       </div>
       </div>
       <div class="example" id="angle-range">
-        <p class="example-intro">An angle interval limits freedom of rotation to an allowed arc. Move either endpoint to resize it, or rotate the whole interval around the dial, including across 0°.</p>
+        <p class="example-intro">An angle interval limits freedom of rotation to an allowed arc. Move either endpoint to resize it, or rotate the whole interval around the dial, including across 0°.<br />Vanilla JS: <a :href="`${VANILLA}angle-range-control.js`" target="_blank" rel="noopener noreferrer">angle-range-control.js</a></p>
         <AngleRangeControl v-model="state.angleRange" />
       </div>
       <div id="position" class="example-anchor">
       <h2 id="geometry" class="reference-heading">Geometry</h2>
       <div class="example">
-        <p class="example-intro">An XY control places a point on a two-dimensional canvas. Drag the point for a visual adjustment, or enter exact coordinates and limits in the fields.</p>
+        <p class="example-intro">An XY control places a point on a two-dimensional canvas. Drag the point for a visual adjustment, or enter exact coordinates and limits in the fields.<br />Vanilla JS: <a :href="`${VANILLA}position-control.js`" target="_blank" rel="noopener noreferrer">position-control.js</a></p>
       <PositionControl
         v-model="state.position"
         v-model:bounds="state.positionBounds"
@@ -149,21 +149,21 @@
       </div>
       </div>
       <div class="example" id="angle">
-        <p class="example-intro">An angle control sets direction or rotation. Use the dial for visual adjustments or enter degrees directly; complete turns are retained rather than discarded.</p>
+        <p class="example-intro">An angle control sets direction or rotation. Use the dial for visual adjustments or enter degrees directly; complete turns are retained rather than discarded.<br />Vanilla JS: <a :href="`${VANILLA}angle-control.js`" target="_blank" rel="noopener noreferrer">angle-control.js</a></p>
       <AngleControl
         v-model="state.rotation"
         v-model:bounds="state.rotationBounds"
       />
       </div>
       <div class="example" id="vector">
-        <p class="example-intro">A vector control sets direction and magnitude together. Rotate it like the angle dial, then slide the point along the line to set its length.</p>
+        <p class="example-intro">A vector control sets direction and magnitude together. Rotate it like the angle dial, then slide the point along the line to set its length.<br />Vanilla JS: <a :href="`${VANILLA}vector-control.js`" target="_blank" rel="noopener noreferrer">vector-control.js</a></p>
         <VectorControl
           v-model="state.vector"
           v-model:bounds="state.vectorBounds"
         />
       </div>
       <div class="example" id="dimensions">
-        <p class="example-intro">Linked dimensions set width and height together. Lock the current aspect ratio to resize proportionally, or unlock it to change each dimension independently.</p>
+        <p class="example-intro">Linked dimensions set width and height together. Lock the current aspect ratio to resize proportionally, or unlock it to change each dimension independently.<br />Vanilla JS: <a :href="`${VANILLA}dimensions-control.js`" target="_blank" rel="noopener noreferrer">dimensions-control.js</a></p>
       <DimensionsControl
         v-model="state.dimensions"
         v-model:bounds="state.dimensionsBounds"
@@ -203,6 +203,8 @@ import {
   stepOffsets,
   trackValue,
 } from "./lib/timeline.js";
+// Each example links to its vanilla JavaScript port.
+const VANILLA = "https://github.com/woshibide/this-is-baza/blob/main/vanilla/components/";
 const { state, status } = useSavedState(
   "baza:ui-controls:v1",
   defaults,
