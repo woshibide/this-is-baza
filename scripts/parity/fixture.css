@@ -1,4 +1,4 @@
 /* Both fixture pages: one control on the theme surface at a fixed width. */
 body { margin: 0; }
 #theme { min-height: 100vh; padding: 24px; }
-#stage { width: var(--stage-width, 600px); }
+#stage { width: var(--stage-width, 600px); display: flow-root; min-height: 1px; }

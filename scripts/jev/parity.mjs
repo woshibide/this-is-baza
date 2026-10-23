@@ -17,6 +17,8 @@ const here = dirname(fileURLToPath(import.meta.url));
 const recordings = resolve(here, "../parity/out");
 const MAX_DOM_LINES = 12;
 const MAX_INITIAL_DOM_LINES = 80;
+const MAX_LINE = 240;
+const clip = (line) => (line.length > MAX_LINE ? `${line.slice(0, MAX_LINE)}…` : line);
 
 const describe = (step) => (typeof step === "string" ? step : JSON.stringify(step));
 
@@ -35,14 +37,14 @@ export function condense(records) {
     if (!previous || JSON.stringify(record.models) !== JSON.stringify(previous.models)) entry.models = record.models;
     if (!previous || record.focus !== previous.focus) entry.focus = record.focus;
     if (!previous || record.html !== previous.html) entry.html = record.html || "(none)";
-    if (!previous) entry.dom = record.dom.split("\n").slice(0, MAX_INITIAL_DOM_LINES);
+    if (!previous) entry.dom = record.dom.split("\n").slice(0, MAX_INITIAL_DOM_LINES).map(clip);
     else {
       const before = new Set(previous.dom.split("\n"));
       const after = new Set(record.dom.split("\n"));
       const added = [...after].filter((line) => !before.has(line)).map((line) => line.trim());
       const removed = [...before].filter((line) => !after.has(line)).map((line) => line.trim());
-      if (added.length) entry.domAdded = added.slice(0, MAX_DOM_LINES);
-      if (removed.length) entry.domRemoved = removed.slice(0, MAX_DOM_LINES);
+      if (added.length) entry.domAdded = added.slice(0, MAX_DOM_LINES).map(clip);
+      if (removed.length) entry.domRemoved = removed.slice(0, MAX_DOM_LINES).map(clip);
     }
     previous = record;
     return entry;
@@ -96,28 +98,44 @@ export async function review(component, options) {
   const rules = RULES[component];
   if (!rules?.length) throw new Error(`No parity rules for ${component} in parity-rules.mjs.`);
   const cases = loadRecordings(component, options.dir);
-  // One request per case: every rule is judged against the same pair of recordings.
-  const replies = await Promise.all(
-    cases.map((recording) =>
-      request(
+  // One request per case: every rule is judged against the same pair of recordings. A recording too long for
+  // one request is judged in consecutive windows of steps, each a separate "case" in the results.
+  async function judge(recording, from, to) {
+    const label = to - from === recording.vue.length ? recording.case : `${recording.case} steps ${from}-${to - 1}`;
+    try {
+      const reply = await request(
         {
           model: MODEL,
-          state: { component, case: recording.case, setup: setupOf(recording.case), vue: recording.vue, vanilla: recording.vanilla },
+          state: {
+            component,
+            case: recording.case,
+            setup: setupOf(recording.case),
+            ...(from > 0 && { note: `Steps ${from} to ${to - 1} of a longer recording; earlier steps are omitted.` }),
+            vue: recording.vue.slice(from, to),
+            vanilla: recording.vanilla.slice(from, to),
+          },
           questions: questionsFor(rules),
         },
-        `${component} ${recording.case}`,
+        `${component} ${label}`,
         options,
-      ).then((reply) => ({ recording, reply })),
-    ),
-  );
+      );
+      return [{ recording: { case: label }, reply }];
+    } catch (error) {
+      if (!/max_tokens_exceeded/.test(error.message) || to - from < 2) throw error;
+      const middle = from + Math.ceil((to - from) / 2);
+      return [...(await judge(recording, from, middle)), ...(await judge(recording, middle, to))];
+    }
+  }
+  const replies = (await Promise.all(cases.map((recording) => judge(recording, 0, recording.vue.length)))).flat();
   const results = rules.map((rule, i) => {
     const perCase = replies.map(({ recording, reply }) => ({
       case: recording.case,
       same: Math.round(reply.answers[`same_${i}`].noul * 1000) / 1000,
       exercised: Math.round(reply.answers[`exercised_${i}`].noul * 1000) / 1000,
     }));
-    // A rule is judged on the cases that exercise it; none exercising it is itself a lead.
-    const relevant = perCase.filter((c) => verdict(c.exercised) !== "no");
+    // A rule is judged on the cases that clearly exercise it, else on those that might; none is itself a lead.
+    const clear = perCase.filter((c) => verdict(c.exercised) === "yes");
+    const relevant = clear.length ? clear : perCase.filter((c) => verdict(c.exercised) !== "no");
     const worst = relevant.length ? Math.min(...relevant.map((c) => c.same)) : null;
     return {
       rule,

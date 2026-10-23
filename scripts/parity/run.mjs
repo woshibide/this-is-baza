@@ -92,7 +92,8 @@ const frames = (page) => page.evaluate(() => new Promise((done) => requestAnimat
 
 async function perform(page, step) {
   const at = (selector) => page.locator(`#root ${selector}`).first();
-  if (step.click) await at(step.click).click({ modifiers: step.modifiers, force: step.force });
+  if (step.click && step.at) await at(step.click).click({ position: { x: step.at[0], y: step.at[1] } });
+  else if (step.click) await at(step.click).click({ modifiers: step.modifiers, force: step.force });
   else if (step.dblclick) await at(step.dblclick).dblclick();
   else if (step.focus) await at(step.focus).focus();
   else if (step.hover) await at(step.hover).hover();
@@ -114,6 +115,7 @@ async function perform(page, step) {
     if (!step.hold) await page.mouse.up();
     for (const key of step.modifiers ?? []) await page.keyboard.up(key);
   } else if (step.mouseUp) await page.mouse.up();
+  else if (step.call) await page.evaluate((name) => window.__parity.control[name](), step.call);
   else if (step.eval) await page.evaluate(step.eval);
   else if (step.wait) await page.waitForTimeout(step.wait);
   else if (!step.shot) throw new Error(`Unknown step ${JSON.stringify(step)}`);
@@ -130,10 +132,21 @@ async function play(context, url, scenario) {
   const records = [{ step: "initial", ...(await page.evaluate(snapshot)) }];
   const shots = [];
   for (const step of scenario) {
-    await perform(page, step);
+    try {
+      await perform(page, step);
+    } catch (error) {
+      throw new Error(`${url.includes("vue") ? "vue" : "vanilla"} step ${JSON.stringify(step)}: ${error.message}`);
+    }
     await frames(page);
     records.push({ step, ...(await page.evaluate(snapshot)) });
-    if (step.shot) shots.push({ name: step.shot, png: await page.locator("#stage").screenshot({ animations: "disabled", caret: "hide" }) });
+    // `of` screenshots another element, such as a popover in the top layer.
+    if (step.shot) {
+      const target = page.locator(step.of ? `#root ${step.of}` : "#stage").first();
+      const png = await target.screenshot({ animations: "disabled", caret: "hide", timeout: 5000 }).catch((error) => {
+        throw new Error(`${url.includes("vue") ? "vue" : "vanilla"} shot ${step.shot}: ${error.message.split("\n")[0]}`);
+      });
+      shots.push({ name: step.shot, png });
+    }
   }
   await page.close();
   return { records, shots, errors };

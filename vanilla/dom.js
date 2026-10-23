@@ -65,14 +65,17 @@ export function text(node, value) {
   if (changed(node, "text", String(value))) node.textContent = String(value);
 }
 
-// Replaces children only when the list of nodes differs, so unchanged children keep focus and state.
+// Patches the child list with the fewest moves: nodes that stay are never re-inserted, so they keep focus and state.
 // Empty values (null, undefined, false, "") are skipped; anything else must be a node, because identity matters.
 export function children(element, nodes) {
   const next = nodes.flat().filter((child) => child !== null && child !== undefined && child !== false && child !== "");
   const stray = next.find((child) => !(child instanceof Node));
   if (stray !== undefined) throw new Error(`children() takes nodes, got ${JSON.stringify(stray)}.`);
-  if (next.length === element.childNodes.length && next.every((child, i) => child === element.childNodes[i])) return;
-  element.replaceChildren(...next);
+  const keep = new Set(next);
+  for (const child of [...element.childNodes]) if (!keep.has(child)) child.remove();
+  next.forEach((child, i) => {
+    if (element.childNodes[i] !== child) element.insertBefore(child, element.childNodes[i] ?? null);
+  });
 }
 
 const TYPE_NAMES = new Map([[String, "string"], [Number, "number"], [Boolean, "boolean"], [Function, "function"]]);

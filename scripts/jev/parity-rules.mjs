@@ -53,4 +53,15 @@ export const RULES = {
     "The Shape select emits the object with only shape changed, and the Fill shape checkbox with only fill changed.",
     "Each segment shows a check icon with the selection-check class, and keyboard focus moves Alignment, then Shape, then Fill shape.",
   ],
+  ColorEditor: [
+    "The trigger shows the color over a checkerboard with its #RRGGBBAA code and opens the picker popover; with hideTrigger there is no trigger and open() shows the picker.",
+    "Dragging or clicking the saturation and brightness plane sets saturation from x and brightness from y, clamped to 0 to 100, and emits the new hex with alpha unchanged.",
+    "On the plane, left and right arrows change saturation and up and down change brightness by 1, or by 10 with Shift.",
+    "The hue slider changes the hue while keeping saturation and brightness, and the opacity slider changes only alpha, from 0 to 1 in hundredths.",
+    "A gray or black color keeps the previously chosen hue.",
+    "Exact HSL, RGBA, and HEX fields commit on Enter or blur; a six-digit hex keeps alpha, an eight-digit hex sets it; an invalid entry keeps the color, marks the field aria-invalid=\"true\", and shows an example of the expected format.",
+    "Escape in an exact field discards the draft without committing.",
+    "A copy button reports in a role=\"status\" message whether the value was copied, and keeps focus.",
+    "Dragging the picker heading moves the popover, kept at least 8 pixels inside the window; the Close button hides it.",
+  ],
 };

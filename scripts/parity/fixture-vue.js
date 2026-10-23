@@ -1,4 +1,4 @@
-import { createApp, h, reactive } from "vue";
+import { createApp, h, reactive, ref } from "vue";
 import { fixture, clone, log, handlerName, buildSpec } from "./fixture-common.js";
 
 const components = import.meta.glob("../../src/components/*.vue", { import: "default" });
@@ -14,11 +14,15 @@ const slots = Object.fromEntries(
     () => specs.map((spec) => buildSpec(spec, (tag, attrs, kids) => h(tag, attrs, kids))),
   ]),
 );
+// Exposed methods (defineExpose) are reachable for `call` steps, as on the vanilla control.
+const instance = ref(null);
+Object.defineProperty(window.__parity, "control", { get: () => instance.value });
 createApp({
   render: () =>
     h(
       component,
       {
+        ref: instance,
         ...fixture.props,
         // Models without a listener stay local to the component, as when an owner omits v-model.
         ...Object.fromEntries(Object.entries(fixture.local ?? {}).map(([name, value]) => [vueName(name), clone(value)])),
