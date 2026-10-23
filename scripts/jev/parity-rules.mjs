@@ -64,4 +64,20 @@ export const RULES = {
     "A copy button reports in a role=\"status\" message whether the value was copied, and keeps focus.",
     "Dragging the picker heading moves the popover, kept at least 8 pixels inside the window; the Close button hides it.",
   ],
+  PaletteControl: [
+    "Each color is a swatch button showing the color over a checkerboard, its uppercase hex, and its opacity percentage; the selected swatch has aria-pressed=\"true\" and a visible check.",
+    "Clicking a swatch selects it and opens the color picker for that color; picker edits replace only the selected entry.",
+    "Add color appends a copy of the selected color and selects it, up to eight colors, after which it is disabled.",
+    "Remove selected removes the selected color and keeps the selection in range; it is disabled when only one color remains.",
+    "The heading shows the count as \"<n> / 8 colors\".",
+  ],
+  GradientControl: [
+    "Each stop is a numbered button placed at its position along the gradient track; the selected stop has aria-pressed=\"true\".",
+    "Dragging a stop selects it and moves it to the pointer position, clamped to the bounds; stops keep their numbers when they cross.",
+    "Arrow keys on a stop move it by 1 percent, or 5 percent with Shift; right and up increase, left and down decrease.",
+    "Add stop appends a copy of the selected stop at 50 percent, clamped to the bounds, up to eight stops; Remove stop is disabled at two stops.",
+    "The footer color editor edits the selected stop's color and opacity; the exact position field edits its position.",
+    "Changing the position bounds clamps every stop into them.",
+    "The painted gradient lists the stops sorted by position with their colors and alpha.",
+  ],
 };

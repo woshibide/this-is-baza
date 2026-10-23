@@ -198,6 +198,7 @@ const base = server.resolvedUrls.local[0];
 const browser = await chromium.launch({ headless: !args.includes("--headed") });
 mkdirSync(out, { recursive: true });
 let failed = 0;
+const known = [];
 try {
   for (const name of selected) {
     const fixture = cases[name];
@@ -243,7 +244,16 @@ try {
     } catch (error) {
       problems.push(`runner error: ${error.message.split("\n")[0]}`);
     }
-    if (problems.length) {
+    // A case with `known` documents an accepted difference: it must still differ, and is reported, not failed.
+    if (fixture.known) {
+      if (problems.length) {
+        known.push(name);
+        console.log(`known ${name}: ${fixture.known}\n  ${problems.slice(0, 3).join("\n  ")}`);
+      } else {
+        failed++;
+        console.log(`FAIL ${name}: marked known but no longer differs; remove "known".`);
+      }
+    } else if (problems.length) {
       failed++;
       console.log(`FAIL ${name}\n  ${problems.join("\n  ")}`);
     } else console.log(`pass ${name}`);
@@ -252,5 +262,5 @@ try {
   await browser.close();
   await server.close();
 }
-console.log(`${selected.length - failed}/${selected.length} cases pass`);
+console.log(`${selected.length - failed - known.length}/${selected.length} cases pass${known.length ? `, ${known.length} known difference(s)` : ""}`);
 process.exit(failed ? 1 : 0);

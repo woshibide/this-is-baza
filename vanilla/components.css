@@ -532,3 +532,124 @@ svg.baza-icon {
   font-size: 12px;
   margin: 4px 0 0;
 }
+
+/* PaletteControl */
+.baza-palette-control .palette-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.baza-palette-control .palette-count {
+  color: var(--muted);
+  font:
+    12px ui-monospace,
+    monospace;
+}
+.baza-palette-control .swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 12px;
+  margin: 22px 0 16px;
+}
+.baza-palette-control .swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: left;
+  min-width: 0;
+}
+.baza-palette-control .swatch-color {
+  display: block;
+  height: 112px;
+}
+.baza-palette-control .swatch-color > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.baza-palette-control .swatch-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.baza-palette-control .swatch-heading { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.baza-palette-control .swatch-label code {
+  font-size: 11px;
+}
+.baza-palette-control .swatch-label small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.baza-palette-control .swatch[aria-pressed="true"] {
+  border-color: var(--_selection-border);
+  box-shadow: 0 0 0 1px var(--_selection-border);
+}
+.baza-palette-control .swatch[aria-pressed="true"] .swatch-label {
+  background: var(--_selection-bg);
+  color: var(--_selection-fg);
+}
+.baza-palette-control .swatch[aria-pressed="true"] small { color: inherit; }
+.baza-palette-control .swatch:hover {
+  border-color: var(--ink);
+}
+.baza-palette-control .palette-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.baza-palette-control .palette-actions button {
+  font-size: 13px;
+}
+
+/* GradientControl */
+.baza-gradient-control .gradient-track {
+  position: relative;
+  height: 62px;
+  margin: 0 14px 14px;
+  border: 1px solid var(--_plot-frame);
+  border-radius: var(--plot-radius);
+  touch-action: none;
+}
+.baza-gradient-control .gradient-paint {
+  height: 100%;
+  border-radius: 4px;
+}
+.baza-gradient-control .stop {
+  position: absolute;
+  top: 42px;
+  transform: translateX(-50%);
+  min-height: 30px;
+  width: 30px;
+  padding: 0;
+  font:
+    12px ui-monospace,
+    monospace;
+  touch-action: none;
+}
+.baza-gradient-control .position {
+  margin-top: 12px;
+}
+.baza-gradient-control .stop .selection-check {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  padding: 1px;
+  border: 2px solid var(--_plot-area);
+  border-radius: 50%;
+  background: var(--_selection-bg);
+  color: var(--_selection-fg);
+}

@@ -130,12 +130,15 @@ export async function review(component, options) {
   const results = rules.map((rule, i) => {
     const perCase = replies.map(({ recording, reply }) => ({
       case: recording.case,
+      ...(SETUPS[recording.case.split(" ")[0]]?.known && { known: true }),
       same: Math.round(reply.answers[`same_${i}`].noul * 1000) / 1000,
       exercised: Math.round(reply.answers[`exercised_${i}`].noul * 1000) / 1000,
     }));
     // A rule is judged on the cases that clearly exercise it, else on those that might; none is itself a lead.
-    const clear = perCase.filter((c) => verdict(c.exercised) === "yes");
-    const relevant = clear.length ? clear : perCase.filter((c) => verdict(c.exercised) !== "no");
+    // Cases marked `known` in cases.js document an accepted difference and are reported but not judged.
+    const judged = perCase.filter((c) => !c.known);
+    const clear = judged.filter((c) => verdict(c.exercised) === "yes");
+    const relevant = clear.length ? clear : judged.filter((c) => verdict(c.exercised) !== "no");
     const worst = relevant.length ? Math.min(...relevant.map((c) => c.same)) : null;
     return {
       rule,
