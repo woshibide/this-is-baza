@@ -25,9 +25,10 @@ const SPEC = {
 
 export function createTimeline(given) {
   let props = checkProps("Timeline", SPEC, given);
-  const setTracks = modelSetter(given, () => props, "tracks", (tracks) => apply({ tracks }));
-  const setSelection = modelSetter(given, () => props, "selection", (selection) => apply({ selection }));
-  const setExpanded = modelSetter(given, () => props, "expanded", (expanded) => apply({ expanded }));
+  let ready = false;
+  const setTracks = modelSetter(given, () => props, "tracks", (tracks) => apply({ tracks }), () => ready);
+  const setSelection = modelSetter(given, () => props, "selection", (selection) => apply({ selection }), () => ready);
+  const setExpanded = modelSetter(given, () => props, "expanded", (expanded) => apply({ expanded }), () => ready);
 
   const offsets = () => stepOffsets(props.steps, props.durations);
   const scene = () => {
@@ -224,6 +225,7 @@ export function createTimeline(given) {
   }
 
   render();
+  ready = true;
   return {
     element,
     update(partial) {

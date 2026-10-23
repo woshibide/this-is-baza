@@ -54,6 +54,8 @@ export default defineConfig({
         main: fileURLToPath(new URL("./index.html", import.meta.url)),
         examples: fileURLToPath(new URL("./examples/index.html", import.meta.url)),
         demo: fileURLToPath(new URL("./examples/demo/index.html", import.meta.url)),
+        vanillaExamples: fileURLToPath(new URL("./vanilla/examples/index.html", import.meta.url)),
+        vanillaDemo: fileURLToPath(new URL("./vanilla/examples/demo/index.html", import.meta.url)),
       },
     },
   },

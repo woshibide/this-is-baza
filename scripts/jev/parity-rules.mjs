@@ -165,4 +165,13 @@ export const RULES = {
     "Starting playback from the end of the range, or from outside it, starts again at the range's beginning.",
     "Scrubbing or stepping a frame pauses playback.",
   ],
+  Demo: [
+    "Choosing an aspect ratio saves it and refits the preview frame to that ratio inside the free space.",
+    "Scrubbing the timeline or editing artwork controls such as the letter size saves the edited values (not the playhead) and redraws the preview.",
+    "The interface theme radios switch the whole workspace between light and dark and save the choice separately from the artwork.",
+    "Choosing PNG replaces the frame rate slider with a Transparent background checkbox; choosing a video format brings the frame rate back, and the readout lists the output size, plus duration and frame count for video.",
+    "Double-clicking a step opens its keyframe lanes; selecting a lane shows that element in the inspector.",
+    "Hiding the controls panel or the inspector collapses it to a corner button, saves that, and the preview grows into the freed space; showing them restores the panels.",
+    "After a reload, the saved artwork values, export settings, and panel states return, while the selection and the open step reset.",
+  ],
 };

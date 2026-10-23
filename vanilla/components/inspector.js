@@ -31,10 +31,11 @@ const SPEC = {
 
 export function createInspector(given) {
   let props = checkProps("Inspector", SPEC, given);
-  const setSelection = modelSetter(given, () => props, "selection", (selection) => apply({ selection }));
-  const setDurations = modelSetter(given, () => props, "durations", (durations) => apply({ durations }));
-  const setTracks = modelSetter(given, () => props, "tracks", (tracks) => apply({ tracks }));
-  const setLimits = modelSetter(given, () => props, "limits", (limits) => apply({ limits }));
+  let ready = false;
+  const setSelection = modelSetter(given, () => props, "selection", (selection) => apply({ selection }), () => ready);
+  const setDurations = modelSetter(given, () => props, "durations", (durations) => apply({ durations }), () => ready);
+  const setTracks = modelSetter(given, () => props, "tracks", (tracks) => apply({ tracks }), () => ready);
+  const setLimits = modelSetter(given, () => props, "limits", (limits) => apply({ limits }), () => ready);
 
   const index = () => Math.max(0, props.steps.findIndex((s) => s.id === props.selection.step));
   const step = () => props.steps[index()];
@@ -297,6 +298,7 @@ export function createInspector(given) {
   }
 
   render();
+  ready = true;
   return {
     element,
     update(partial) {

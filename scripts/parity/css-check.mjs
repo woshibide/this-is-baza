@@ -82,8 +82,15 @@ function rules(css) {
   return list;
 }
 
+// Page styles: Vue file and the vanilla stylesheet holding its section (a whole file when it has no sections).
+const PAGES = {
+  PageLayout: ["src/PageLayout.vue", "vanilla/examples/gallery.css"],
+  App: ["src/App.vue", "vanilla/examples/gallery.css"],
+  Demo: ["src/Demo.vue", "vanilla/examples/demo/demo.css"],
+};
+
 function vueRules(component) {
-  const file = resolve(root, `src/components/${component}.vue`);
+  const file = resolve(root, PAGES[component]?.[0] ?? `src/components/${component}.vue`);
   const { descriptor } = parse(readFileSync(file, "utf8"), { filename: file });
   const css = descriptor.styles
     .map((style) => compileStyle({ source: style.content, filename: file, id: "data-v-x", scoped: style.scoped }).code)
@@ -91,8 +98,8 @@ function vueRules(component) {
   return rules(css);
 }
 
-function vanillaSections() {
-  const text = readFileSync(resolve(root, "vanilla/components.css"), "utf8");
+function vanillaSections(path = "vanilla/components.css") {
+  const text = readFileSync(resolve(root, path), "utf8");
   const sections = new Map();
   const pattern = /^\/\* ([A-Z]\w+) \*\/$/gm;
   const marks = [...text.matchAll(pattern)];
@@ -101,6 +108,10 @@ function vanillaSections() {
 }
 
 const sections = vanillaSections();
+for (const [name, [, path]] of Object.entries(PAGES)) {
+  const page = vanillaSections(path);
+  sections.set(name, page.get(name) ?? readFileSync(resolve(root, path), "utf8"));
+}
 const components = process.argv.slice(2).length ? process.argv.slice(2) : [...sections.keys()];
 let failures = 0;
 for (const component of components) {

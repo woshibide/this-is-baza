@@ -73,6 +73,10 @@ export function createPlayback({ total, range = () => ({ start: 0, end: total(),
       notify();
     },
     get playing() { return playing; },
+    // Starts or stops the frame loop without the range rules of toggle(), as an export pausing the preview does.
+    set playing(on) {
+      setPlaying(Boolean(on));
+    },
     get total() { return total(); },
     get range() { return range(); },
     get fps() { return fps(); },

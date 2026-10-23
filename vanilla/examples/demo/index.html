@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baza · Workspace demo · vanilla JS</title>
+    <!-- Same order as the Vue demo: component styles, page styles, then the shared native-control styles. -->
+    <link rel="stylesheet" href="../../components.css" />
+    <link rel="stylesheet" href="./demo.css" />
+    <link rel="stylesheet" href="../../../src/styles.css" />
+    <!-- export.js imports mediabunny by name; map it to the single-file bundle. -->
+    <script type="importmap">
+      { "imports": { "mediabunny": "../../../node_modules/mediabunny/dist/bundles/mediabunny.min.mjs" } }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="./demo.js"></script>
+  </body>
+</html>
