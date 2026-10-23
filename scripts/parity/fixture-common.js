@@ -6,7 +6,10 @@ export const fixture = cases[params.get("case")];
 if (!fixture) throw new Error(`Unknown parity case "${params.get("case")}".`);
 const theme = document.getElementById("theme");
 theme.dataset.uiTheme = params.get("theme") ?? "light";
-if (fixture.width) document.getElementById("stage").style.setProperty("--stage-width", `${fixture.width}px`);
+const stage = document.getElementById("stage");
+if (fixture.width) stage.style.setProperty("--stage-width", `${fixture.width}px`);
+// Room below the control for popovers, which the stage screenshot would otherwise crop.
+if (fixture.pad) stage.style.paddingBottom = `${fixture.pad}px`;
 
 export const clone = (value) => (value === undefined ? undefined : JSON.parse(JSON.stringify(value)));
 export const log = [];

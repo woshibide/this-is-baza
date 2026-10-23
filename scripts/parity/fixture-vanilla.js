@@ -21,6 +21,7 @@ const slots = Object.fromEntries(
 let control = null;
 control = create({
   ...fixture.props,
+  ...clone(fixture.local ?? {}),
   ...slots,
   ...Object.fromEntries(
     Object.keys(fixture.models ?? {}).flatMap((name) => [

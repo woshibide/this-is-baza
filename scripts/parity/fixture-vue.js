@@ -19,6 +19,8 @@ createApp({
       component,
       {
         ...fixture.props,
+        // Models without a listener stay local to the component, as when an owner omits v-model.
+        ...Object.fromEntries(Object.entries(fixture.local ?? {}).map(([name, value]) => [vueName(name), clone(value)])),
         ...Object.fromEntries(
           Object.keys(fixture.models ?? {}).flatMap((name) => [
             [vueName(name), state[name]],

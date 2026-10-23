@@ -125,7 +125,7 @@ async function play(context, url, scenario) {
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
   await page.goto(url);
-  await page.waitForSelector("html[data-ready]");
+  await page.waitForSelector("html[data-ready]", { state: "attached", timeout: 10000 });
   await frames(page);
   const records = [{ step: "initial", ...(await page.evaluate(snapshot)) }];
   const shots = [];
@@ -190,6 +190,7 @@ try {
     const fixture = cases[name];
     const themes = fixture.themes ?? ["light", "dark"];
     const problems = [];
+    try {
     for (const theme of themes) {
       const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
       const query = `case=${encodeURIComponent(name)}&theme=${theme}`;
@@ -225,6 +226,9 @@ try {
         }
       }
       await context.close();
+    }
+    } catch (error) {
+      problems.push(`runner error: ${error.message.split("\n")[0]}`);
     }
     if (problems.length) {
       failed++;

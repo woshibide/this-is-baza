@@ -35,8 +35,19 @@ export function attr(element, name, value) {
   else element.setAttribute(name, value === true ? "" : String(value));
 }
 
+// Like Vue, a value is written only when it differs from what the field shows, so the caret stays put,
+// and value, checked, and selected are mirrored to their attributes.
 export function prop(element, name, value) {
-  if (changed(element, `prop:${name}`, value)) element[name] = value;
+  if (!changed(element, `prop:${name}`, value)) return;
+  if (name === "value") {
+    const next = value === null || value === undefined ? "" : String(value);
+    if (element.value !== next) element.value = next;
+    if (value === null || value === undefined) element.removeAttribute("value");
+    else element.setAttribute("value", next);
+    return;
+  }
+  element[name] = value;
+  if (name === "checked" || name === "selected") attr(element, name, Boolean(value));
 }
 
 export function toggle(element, name, on) {

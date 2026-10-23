@@ -12,4 +12,13 @@ export const RULES = {
     "Supplementary fields sit in a details disclosure labeled \"Exact values\" that is collapsed when the panel first renders.",
     "Clicking the \"Exact values\" summary toggles the disclosure open and closed.",
   ],
+  LimitValue: [
+    "Typing a number and pressing Enter or leaving the field commits it as that side's limit; the other side is unchanged.",
+    "The text -0 (or the typographic −0) clears the limit, which is stored as null and shown as -0.",
+    "An invalid entry, such as text, a fraction for a whole-number limit, a minimum above the maximum, or a value outside the valid domain, keeps the stored limit, marks the field aria-invalid=\"true\", and shows the error in a role=\"status\" message.",
+    "While a limit is set, dragging the field horizontally or vertically changes it in steps, Shift drags faster and Alt finer, and the minimum can never pass the maximum or leave the valid domain.",
+    "A cleared (null) limit cannot be dragged; its field says \"Type a number to set this limit.\" and lacks the number-scrub class.",
+    "Focusing the field selects its text and shows the hint that -0 removes the limit, including the valid domain when there is one.",
+    "Without an owner callback the limit is kept and updated by the component itself.",
+  ],
 };
