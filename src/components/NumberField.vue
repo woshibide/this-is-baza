@@ -1,4 +1,6 @@
-<!-- Numeric v-model with optional v-model:limits. min/max are hard domain limits; editable limits are independent. Invalid drafts stay local; Enter/blur restores a valid value. -->
+<!-- Numeric v-model with optional v-model:limits. With limits, the editable min/max inputs are the only clamp on the
+     value; min/max props are a fixed range for a field without limits, never a range on the limits. Invalid drafts stay
+     local; Enter/blur restores a valid value. -->
 <style scoped>
 .number-field {
   min-width: 0;
@@ -58,8 +60,6 @@ input.bounded-value:focus-visible {
               modelValue: limits,
               label,
               integer: Number(step) === 1,
-              hardMin: managedLimits ? (limitMin ?? SAFE_MIN) : min,
-              hardMax: managedLimits ? (limitMax ?? SAFE_MAX) : max,
             }
           : {}
       "
@@ -122,16 +122,10 @@ const props = defineProps({
   max: { type: Number, default: SAFE_MAX },
   step: { type: [Number, String], default: "any" },
   disabled: Boolean,
-  managedLimits: Boolean,
-  limitMin: Number,
-  limitMax: Number,
+  managedLimits: Boolean, // the parent clamps the value to the limits, as with an aspect lock
 });
 const effective = computed(() =>
-  effectiveLimits(
-    limits.value ?? { min: null, max: null },
-    props.min,
-    props.max,
-  ),
+  limits.value ? effectiveLimits(limits.value) : { min: props.min, max: props.max },
 );
 const id = useId(),
   draft = ref(model.value),

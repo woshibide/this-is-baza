@@ -65,6 +65,7 @@ When it reports `"jev": "available"`, follow its `ok` answers for whether each v
 When it reports `"jev": "unavailable"`, decide from the references alone.
 Preserve their appearance, direct manipulation, exact entry, keyboard behavior, and graphical state distinctions unless the user requests a change.
 A "slider" in Baza is SliderControl (a draggable number with -/+ buttons and editable bounds), never a native `<input type="range">`.
+Editable min and max limits are the user's clamp on a value and are never clamped themselves: never add a hardcoded range, domain, or validator bound on top of them, and guard a value the code cannot use only where it is used, as [Editable limits are never clamped](references/ui-controls.md#editable-limits-are-never-clamped) describes.
 Bind the controls to real artwork values and the project's saved state; include only controls that the sketch uses.
 Reuse an existing open-source icon set or the bundled Lucide icons, retain attribution, and give icon-only controls accessible names.
 

@@ -27,12 +27,18 @@ test("past the rim the point holds still while the dial shrinks to 100/length", 
   assert.equal(dialScale(50), 1);
   assert.equal(dialScale(200), 0.5);
   assert.equal(dialScale(1000), 0.1);
+  // A negative length points the opposite way at the same scale.
+  assert.equal(pointDistance(-50), -0.5);
+  assert.equal(pointDistance(-400), -1);
+  assert.equal(dialScale(-200), 0.5);
+  assert.equal(dialScale(0), 1);
 });
 
-test("saved vectors keep accumulated turns and any non-negative length", () => {
+test("saved vectors keep accumulated turns and any whole length the limits allow", () => {
   assert.ok(validVector({ angle: 765, length: 0 }));
   assert.ok(validVector({ angle: -30, length: 500 }));
   assert.equal(validVector({ angle: 1.5, length: 50 }), false);
-  assert.equal(validVector({ angle: 0, length: -1 }), false);
+  assert.ok(validVector({ angle: 0, length: -1 }));
+  assert.equal(validVector({ angle: 0, length: 0.5 }), false);
   assert.equal(validVector(null), false);
 });

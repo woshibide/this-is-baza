@@ -1,13 +1,14 @@
 import { clampToLimits } from "./numeric-limits.js";
 
 // Past 100% the view zooms out: the point stays on the rest rim and the dial shrinks to 100/length.
+// A negative length, allowed when the user's limits allow it, points the opposite way.
 export function dialScale(length) {
-  return Math.min(1, 100 / length);
+  return Math.min(1, 100 / Math.abs(length));
 }
 
-// Point distance from the center in rest radii.
+// Signed point distance from the center in rest radii.
 export function pointDistance(length) {
-  return Math.min(length, 100) / 100;
+  return Math.sign(length) * Math.min(Math.abs(length), 100) / 100;
 }
 
 // Length after dragging `delta` rest radii along the direction; the gain is the same at any zoom.
@@ -23,5 +24,5 @@ export function alongDirection(x, y, angle) {
 
 export function validVector(value) {
   return !!value && Number.isSafeInteger(value.angle) &&
-    Number.isSafeInteger(value.length) && value.length >= 0;
+    Number.isSafeInteger(value.length);
 }

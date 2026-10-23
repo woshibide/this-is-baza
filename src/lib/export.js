@@ -12,12 +12,16 @@ export function outputSize({ width, height }, longEdge) {
   return { width: even(width), height: even(height) };
 }
 
-// Frame indices 0..count-1; the last frame is clipped so the total equals the duration.
-export function frameSchedule(duration, fps) {
+// Frames needed to cover the duration, without building the schedule.
+export function frameCount(duration, fps) {
   const frameTotal = duration * fps;
   const roundoff = Number.EPSILON * Math.max(1, frameTotal);
-  const count = Math.max(1, Math.ceil(frameTotal - roundoff));
-  return Array.from({ length: count }, (_, i) => {
+  return Math.max(1, Math.ceil(frameTotal - roundoff));
+}
+
+// Frame indices 0..count-1; the last frame is clipped so the total equals the duration.
+export function frameSchedule(duration, fps) {
+  return Array.from({ length: frameCount(duration, fps) }, (_, i) => {
     const time = i / fps;
     return { time, duration: Math.min(1 / fps, duration - time) };
   });

@@ -27,8 +27,6 @@
             v-model="duration"
             v-model:bounds="limits"
             label="Duration (s)"
-            :min="MIN_STEP"
-            :max="max"
             :step="0.1"
           />
           <p class="note">Starts at {{ seconds(offset) }} s. Changing the duration keeps keyframes at the same relative times.</p>
@@ -124,8 +122,7 @@ import BezierControl from "./BezierControl.vue";
 import PositionControl from "./PositionControl.vue";
 import Icon from "./Icon.vue";
 import { clamp } from "../lib/values.js";
-import { SAFE_MAX } from "../lib/numeric-limits.js";
-import { MIN_STEP, CURVES, ramp, scaleTracks, seconds, stepAt, stepOffsets, trackValue } from "../lib/timeline.js";
+import { CURVES, ramp, scaleTracks, seconds, stepAt, stepOffsets, trackValue } from "../lib/timeline.js";
 
 const selection = defineModel("selection", { type: Object, required: true });
 const durations = defineModel("durations", { type: Object, required: true });
@@ -134,7 +131,6 @@ const limits = defineModel("limits", { type: Object, required: true });
 const props = defineProps({
   steps: { type: Array, required: true },
   playback: { type: Object, required: true },
-  max: { type: Number, default: SAFE_MAX }, // hard upper bound for a step's duration
   closable: Boolean,
   disabled: Boolean,
 });
@@ -152,12 +148,13 @@ const progress = computed(() => trackValue(track.value, local.value).progress);
 const outputRange = computed(() => spec.value.range?.(track.value) ?? { min: 0, max: 1, unit: "", label: "" });
 
 // A new duration rescales this step's keyframes and keeps the playhead at the same progress.
+// The user's limits may allow zero or less, but a step needs positive time to play, so such a value is not applied.
 const duration = computed({
   get: () => durations.value[step.value.id],
   set: (value) => {
     const id = step.value.id;
     const previous = durations.value[id];
-    if (value === previous) return;
+    if (value === previous || !(value > 0)) return;
     const now = stepAt(props.steps, durations.value, props.playback.time);
     const next = { ...durations.value, [id]: value };
     if (tracks.value[id]) tracks.value = { ...tracks.value, [id]: scaleTracks(tracks.value[id], value / previous) };

@@ -57,7 +57,7 @@
       <template #fields>
         <div class="pair">
           <NumberField label="Rotation (degrees)" :model-value="model.angle" v-model:limits="bounds.angle" :step="1" @update:model-value="model = { ...model, angle: $event }" />
-          <NumberField label="Length (%)" :model-value="model.length" v-model:limits="bounds.length" :min="0" :step="1" @update:model-value="model = { ...model, length: $event }" />
+          <NumberField label="Length (%)" :model-value="model.length" v-model:limits="bounds.length" :step="1" @update:model-value="model = { ...model, length: $event }" />
         </div>
       </template>
     </GraphicPanel>
@@ -84,7 +84,7 @@ const bounds = defineModel("bounds", {
   default: () => ({ angle: { min: -36000, max: 36000 }, length: { min: 0, max: 200 } }),
 });
 const angleLimits = computed(() => effectiveLimits(bounds.value.angle));
-const lengthLimits = computed(() => effectiveLimits(bounds.value.length, 0));
+const lengthLimits = computed(() => effectiveLimits(bounds.value.length));
 const orientation = computed(() => ((model.value.angle % 360) + 360) % 360);
 const scale = computed(() => dialScale(model.value.length));
 const rim = computed(() => 160 - RADIUS * scale.value);
@@ -98,7 +98,7 @@ const labels = computed(() => {
   const r = RADIUS * scale.value;
   return [[0, 160, 146 - r], [90, 175 + r, 155], [180, 160, 183 + r], [270, 145 - r, 155]].map(([degrees, x, y]) => ({
   degrees, x, y,
-  covered: model.value.length > 100 && Math.abs(((orientation.value - degrees + 540) % 360) - 180) < 20,
+  covered: Math.abs(model.value.length) > 100 && Math.abs(((orientation.value + (model.value.length < 0 ? 180 : 0) - degrees + 540) % 360) - 180) < 20,
 }));
 });
 

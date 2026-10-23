@@ -1,5 +1,5 @@
 import { validLimits } from "./numeric-limits.js";
-import { finite, validColor } from "./values.js";
+import { validColor } from "./values.js";
 import { rampDefault, envelopeDefault } from "./bezier.js";
 import { defaultDurations, defaultTracks, validDurations } from "./timeline.js";
 import { validAngleRange } from "./angle-range.js";
@@ -62,7 +62,7 @@ export const validators = {
     Array.isArray(v) &&
     v.length >= 2 &&
     v.length <= 8 &&
-    v.every((s) => validColor(s) && finite(s.position, 0, 100)),
+    v.every((s) => validColor(s) && Number.isFinite(s.position)),
   range: (v) =>
     v &&
     Number.isInteger(v.min) &&
@@ -70,32 +70,28 @@ export const validators = {
     Number.isSafeInteger(v.min) &&
     Number.isSafeInteger(v.max) &&
     v.min <= v.max,
-  position: (v) => v && finite(v.x, 0, 100) && finite(v.y, 0, 100),
+  position: (v) => v && Number.isFinite(v.x) && Number.isFinite(v.y),
   rotation: (v) => Number.isSafeInteger(v),
   dimensions: (v) =>
     v &&
-    finite(v.width, 1, Number.MAX_SAFE_INTEGER) &&
-    finite(v.height, 1, Number.MAX_SAFE_INTEGER) &&
+    Number.isFinite(v.width) &&
+    Number.isFinite(v.height) &&
     typeof v.locked === "boolean",
   slider: (v) => Number.isSafeInteger(v),
   sliderBounds: (v) => validLimits(v, { integer: true }),
   rangeBounds: (v) => validLimits(v, { integer: true }),
-  positionBounds: (v) =>
-    v &&
-    ["x", "y"].every((key) =>
-      validLimits(v[key], { hardMin: 0, hardMax: 100 }),
-    ),
+  positionBounds: (v) => v && ["x", "y"].every((key) => validLimits(v[key])),
   rotationBounds: (v) => validLimits(v, { integer: true }),
   vector: validVector,
   vectorBounds: (v) =>
     v &&
     validLimits(v.angle, { integer: true }) &&
-    validLimits(v.length, { integer: true, hardMin: 0 }),
+    validLimits(v.length, { integer: true }),
   dimensionsBounds: (v) =>
     v &&
-    ["width", "height"].every((key) => validLimits(v[key], { hardMin: 1 })),
-  durationLimits: (v) => validLimits(v, { hardMin: 0.1 }),
-  gradientBounds: (v) => validLimits(v, { hardMin: 0, hardMax: 100 }),
+    ["width", "height"].every((key) => validLimits(v[key])),
+  durationLimits: (v) => validLimits(v),
+  gradientBounds: (v) => validLimits(v),
   choices: (v) =>
     v &&
     ["left", "center", "right"].includes(v.align) &&

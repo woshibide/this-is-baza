@@ -1,4 +1,5 @@
-<!-- One editable boundary. The parent supplies spatial placement; parsing and the -0/null contract stay shared. -->
+<!-- One editable boundary. The parent supplies spatial placement; parsing and the -0/null contract stay shared.
+     A limit is the user's clamp on the value: any number is allowed, never a hardcoded range. -->
 <style scoped>
 .limit-value {
   position: relative;
@@ -109,12 +110,12 @@ label {
       {{ error }}
     </p>
     <p v-else :id="`${id}-message`" class="message hint">
-      −0 removes this limit.{{ domainHint }}
+      −0 removes this limit.
     </p>
   </div>
 </template>
 <script setup>
-import { computed, ref, useId, watch, onBeforeUnmount } from "vue";
+import { ref, useId, watch, onBeforeUnmount } from "vue";
 import { parseLimit, SAFE_MIN, SAFE_MAX } from "../lib/numeric-limits.js";
 import { createNumberScrubber, NUMBER_SCRUB_HINT } from "../lib/number-scrub.js";
 const model = defineModel({ type: Object, required: true });
@@ -122,8 +123,6 @@ const props = defineProps({
   side: { type: String, required: true },
   label: { type: String, required: true },
   integer: Boolean,
-  hardMin: { type: Number, default: SAFE_MIN },
-  hardMax: { type: Number, default: SAFE_MAX },
 });
 const id = useId(),
   draft = ref(""),
@@ -131,8 +130,8 @@ const id = useId(),
 const scrubber = createNumberScrubber({
   read: () => ({
     value: model.value[props.side],
-    min: Math.max(props.hardMin, props.side === "max" ? (model.value.min ?? SAFE_MIN) : SAFE_MIN),
-    max: Math.min(props.hardMax, props.side === "min" ? (model.value.max ?? SAFE_MAX) : SAFE_MAX),
+    min: props.side === "max" ? (model.value.min ?? SAFE_MIN) : SAFE_MIN,
+    max: props.side === "min" ? (model.value.max ?? SAFE_MAX) : SAFE_MAX,
     step: props.integer ? 1 : "any",
   }),
   write: (value) => {
@@ -141,15 +140,6 @@ const scrubber = createNumberScrubber({
   },
 });
 onBeforeUnmount(scrubber.dispose);
-const domainHint = computed(() =>
-  props.hardMin !== SAFE_MIN && props.hardMax !== SAFE_MAX
-    ? ` Valid values: ${props.hardMin}-${props.hardMax}.`
-    : props.hardMin !== SAFE_MIN
-      ? ` Minimum valid value: ${props.hardMin}.`
-      : props.hardMax !== SAFE_MAX
-        ? ` Maximum valid value: ${props.hardMax}.`
-        : "",
-);
 function restore() {
   draft.value =
     model.value[props.side] === null ? "-0" : String(model.value[props.side]);

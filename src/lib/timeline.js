@@ -6,13 +6,13 @@
 import { clamp, clone, finite } from "./values.js";
 import { evaluateCurve, validCurve, rampDefault, envelopeDefault } from "./bezier.js";
 
-export const MIN_STEP = 0.1;
 export const seconds = (value) => String(Number(value.toFixed(2)));
 const round = (value) => Number(value.toFixed(4));
 
 export const defaultDurations = (steps) => Object.fromEntries(steps.map((step) => [step.id, step.duration]));
-export const validDurations = (steps, durations, max = Number.MAX_SAFE_INTEGER) =>
-  durations !== null && typeof durations === "object" && steps.every((step) => finite(durations[step.id], MIN_STEP, max));
+// Any positive duration is valid; the user's duration limits set the editable range.
+export const validDurations = (steps, durations) =>
+  durations !== null && typeof durations === "object" && steps.every((step) => Number.isFinite(durations[step.id]) && durations[step.id] > 0);
 
 export function stepOffsets(steps, durations) {
   let start = 0;
@@ -77,7 +77,7 @@ export const defaultTracks = (steps) =>
 
 export function validParam(param, value) {
   if (param.options) return param.options.some(([id]) => id === value);
-  if (param.position) return value !== null && typeof value === "object" && finite(value.x, 0, 100) && finite(value.y, 0, 100);
+  if (param.position) return value !== null && typeof value === "object" && Number.isFinite(value.x) && Number.isFinite(value.y);
   return finite(value, param.min, param.max);
 }
 

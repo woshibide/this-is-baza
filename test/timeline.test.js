@@ -103,7 +103,7 @@ test("saved tracks merge key by key and corrupt values fall back to defaults", (
   assert.deepEqual(restoreTracks(steps, JSON.parse(JSON.stringify(defaults)), durations), defaults);
   const saved = {
     in: {
-      fade: { start: 1, end: 3, ease: CURVES, slide: 500, order: "last", from: { x: 20, y: 101 } },
+      fade: { start: 1, end: 3, ease: CURVES, slide: 500, order: "last", from: { x: 20, y: "101" } },
       pulse: { start: 3, end: 2, ease: easeOf("out") },
     },
   };
@@ -120,10 +120,11 @@ test("saved tracks merge key by key and corrupt values fall back to defaults", (
   assert.equal(fitted.in.fade.start, 0.4);
 });
 
-test("durations validate per step", () => {
+test("durations validate per step: any positive time, with no hardcoded range", () => {
   assert.ok(validDurations(steps, durations));
+  assert.ok(validDurations(steps, { in: 0.01, out: 5000 }));
   assert.equal(validDurations(steps, { in: 4 }), false);
   assert.equal(validDurations(steps, { in: 4, out: 0 }), false);
+  assert.equal(validDurations(steps, { in: 4, out: -1 }), false);
   assert.equal(validDurations(steps, null), false);
-  assert.equal(validDurations(steps, { in: 4, out: 61 }, 60), false);
 });

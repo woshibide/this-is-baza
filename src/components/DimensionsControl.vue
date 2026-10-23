@@ -32,20 +32,14 @@
         label="Width (px)"
         v-model:limits="bounds.width"
         managed-limits
-        :limit-min="1"
         :model-value="+model.width.toFixed(3)"
-        :min="effective.width.min"
-        :max="effective.width.max"
         @update:model-value="resize('width', $event)"
       />
       <NumberField
         label="Height (px)"
         v-model:limits="bounds.height"
         managed-limits
-        :limit-min="1"
         :model-value="+model.height.toFixed(3)"
-        :min="effective.height.min"
-        :max="effective.height.max"
         @update:model-value="resize('height', $event)"
       />
     </div>
@@ -80,8 +74,8 @@ const bounds = defineModel("bounds", {
   }),
 });
 const effective = computed(() => ({
-  width: effectiveLimits(bounds.value.width, 1),
-  height: effectiveLimits(bounds.value.height, 1),
+  width: effectiveLimits(bounds.value.width),
+  height: effectiveLimits(bounds.value.height),
 }));
 watch(
   effective,
@@ -94,27 +88,33 @@ watch(
   },
   { immediate: true },
 );
+// The preview draws magnitudes; zero or negative sizes are the user's choice and draw as nothing or mirrored.
 const previewSize = computed(() => {
-  const scale = Math.min(192 / model.value.width, 100 / model.value.height);
-  return {
-    width: model.value.width * scale,
-    height: model.value.height * scale,
-  };
+  const width = Math.abs(model.value.width),
+    height = Math.abs(model.value.height);
+  const scale = Math.min(192 / width, 100 / height);
+  if (!Number.isFinite(scale)) return { width: 0, height: 0 };
+  return { width: width * scale, height: height * scale };
 });
+// A zero size has no ratio to keep, so the lock applies only while the ratio is finite.
 function resize(axis, value) {
   const other = axis === "width" ? "height" : "width",
-    ratio = model.value[other] / model.value[axis];
-  const next = model.value.locked
+    ratio = model.value[other] / model.value[axis],
+    locked = model.value.locked && Number.isFinite(ratio) && ratio !== 0;
+  const ends = locked
+    ? [effective.value[other].min / ratio, effective.value[other].max / ratio]
+    : [];
+  const next = locked
     ? clamp(
         value,
-        Math.max(effective.value[axis].min, effective.value[other].min / ratio),
-        Math.min(effective.value[axis].max, effective.value[other].max / ratio),
+        Math.max(effective.value[axis].min, Math.min(...ends)),
+        Math.min(effective.value[axis].max, Math.max(...ends)),
       )
     : value;
   model.value = {
     ...model.value,
     [axis]: next,
-    ...(model.value.locked ? { [other]: next * ratio } : {}),
+    ...(locked ? { [other]: next * ratio } : {}),
   };
 }
 </script>

@@ -71,16 +71,12 @@
                 v-model="state.size"
                 v-model:bounds="state.sizeLimits"
                 label="Letter size (% of height)"
-                :min="1"
-                :max="100"
                 :step="0.5"
               />
               <SliderControl
                 v-model="state.weight"
                 v-model:bounds="state.weightLimits"
                 label="Letter weight"
-                :min="100"
-                :max="900"
                 :step="100"
               />
             </div>
@@ -116,8 +112,6 @@
                 v-model="state.export.longEdge"
                 v-model:bounds="state.longEdgeLimits"
                 label="Long edge (px)"
-                :min="16"
-                :max="MAX_EDGE"
                 :step="2"
               />
               <SliderControl
@@ -125,8 +119,6 @@
                 v-model="state.export.fps"
                 v-model:bounds="state.fpsLimits"
                 label="Frame rate (fps)"
-                :min="1"
-                :max="120"
                 :step="1"
               />
               <label v-else class="inline"
@@ -135,7 +127,7 @@
             </div>
             <output class="readout">
               {{ output.width }} × {{ output.height }} px<template v-if="state.export.format !== 'png'">
-                · {{ playback.total.toFixed(2) }} s · {{ frameSchedule(playback.total, state.export.fps).length }} frames</template
+                · {{ playback.total.toFixed(2) }} s · {{ frameCount(playback.total, state.export.fps) }} frames</template
               >
             </output>
             <p class="note">
@@ -194,8 +186,8 @@ import Inspector from "./components/Inspector.vue";
 import { useSavedState } from "./composables/useSavedState.js";
 import { usePlayback } from "./composables/usePlayback.js";
 import { validLimits } from "./lib/numeric-limits.js";
-import { clone, finite, validColor } from "./lib/values.js";
-import { FORMATS, MAX_EDGE, download, exportCanvas, exportFilename, frameSchedule, outputSize } from "./lib/export.js";
+import { clone, validColor } from "./lib/values.js";
+import { FORMATS, MAX_EDGE, download, exportCanvas, exportFilename, frameCount, outputSize } from "./lib/export.js";
 import {
   defaultDurations, defaultTracks, playRange, restoreTracks, sequenceDuration, validDurations,
 } from "./lib/timeline.js";
@@ -224,19 +216,21 @@ const { state, status } = useSavedState(
   {
     aspect: (v) => Object.hasOwn(ASPECTS, v),
     background: (v) =>
-      Array.isArray(v) && v.length >= 2 && v.length <= 8 && v.every((stop) => validColor(stop) && finite(stop.position, 0, 100)),
+      Array.isArray(v) && v.length >= 2 && v.length <= 8 && v.every((stop) => validColor(stop) && Number.isFinite(stop.position)),
     ink: validColor,
-    size: (v) => finite(v, 1, 100),
-    sizeLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 100 }),
-    weight: (v) => finite(v, 100, 900),
-    weightLimits: (v) => validLimits(v, { hardMin: 100, hardMax: 900 }),
+    // Values and limits accept any number: the limits are the user's range, never a hardcoded one.
+    // Export reports sizes and frame rates it cannot encode.
+    size: Number.isFinite,
+    sizeLimits: (v) => validLimits(v),
+    weight: Number.isFinite,
+    weightLimits: (v) => validLimits(v),
     export: (v) =>
-      v !== null && typeof v === "object" && Object.hasOwn(FORMATS, v.format) && Number.isInteger(v.longEdge) &&
-      finite(v.longEdge, 16, MAX_EDGE) && finite(v.fps, 1, 120) && typeof v.transparent === "boolean",
+      v !== null && typeof v === "object" && Object.hasOwn(FORMATS, v.format) && Number.isFinite(v.longEdge) &&
+      Number.isFinite(v.fps) && typeof v.transparent === "boolean",
     durations: (v) => validDurations(STEPS, v),
-    durationLimits: (v) => validLimits(v, { hardMin: 0.1 }),
-    longEdgeLimits: (v) => validLimits(v, { hardMin: 16, hardMax: MAX_EDGE }),
-    fpsLimits: (v) => validLimits(v, { hardMin: 1, hardMax: 120 }),
+    durationLimits: (v) => validLimits(v),
+    longEdgeLimits: (v) => validLimits(v),
+    fpsLimits: (v) => validLimits(v),
     // Track contents are merged key by key with restoreTracks below.
     tracks: (v) => v !== null && typeof v === "object",
     panelOpen: (v) => typeof v === "boolean",

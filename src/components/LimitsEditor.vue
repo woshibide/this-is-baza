@@ -174,8 +174,6 @@
         side="min"
         :label="label"
         :integer="integer"
-        :hard-min="hardMin"
-        :hard-max="hardMax"
       />
     </div>
     <div class="control">
@@ -189,22 +187,17 @@
         side="max"
         :label="label"
         :integer="integer"
-        :hard-min="hardMin"
-        :hard-max="hardMax"
       />
     </div>
   </div>
 </template>
 <script setup>
 import LimitValue from "./LimitValue.vue";
-import { SAFE_MIN, SAFE_MAX } from "../lib/numeric-limits.js";
 const model = defineModel({ type: Object, required: true });
 defineProps({
   label: { type: String, required: true },
   layout: { type: String, default: "scalar" },
   axis: String,
   integer: Boolean,
-  hardMin: { type: Number, default: SAFE_MIN },
-  hardMax: { type: Number, default: SAFE_MAX },
 });
 </script>

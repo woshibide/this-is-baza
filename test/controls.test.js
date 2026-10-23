@@ -122,7 +122,7 @@ test("RGB hex edits preserve zero alpha; RGBA edits replace it", () => {
   assert.equal(parseHex("invalid", color), null);
 });
 
-test("saved state validates defaults and rejects invalid domains", () => {
+test("saved state validates defaults and rejects malformed values", () => {
   for (const [name, value] of Object.entries(defaults))
     assert.ok(validators[name](value), name);
   assert.equal(validators.slider(2.5), false);
@@ -130,9 +130,11 @@ test("saved state validates defaults and rejects invalid domains", () => {
   assert.equal(validators.durations({ rise: 0, pulse: 2 }), false);
   assert.equal(validators.position({ x: NaN, y: 20 }), false);
   assert.equal(
-    validators.dimensions({ width: 320, height: 0, locked: true }),
+    validators.dimensions({ width: 320, height: "0", locked: true }),
     false,
   );
+  // Sizes are the user's choice within their own limits, zero included.
+  assert.ok(validators.dimensions({ width: 320, height: 0, locked: true }));
   assert.ok(validators.palette([{ hex: "#006a78", alpha: 0 }]));
 });
 

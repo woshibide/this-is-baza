@@ -77,17 +77,20 @@ const offsetOf = (point, width, height) => ({ x: ((point.x - 50) / 100) * width,
 export function render(ctx, { width, height }, look, timeline, time, { transparent = false } = {}) {
   ctx.clearRect(0, 0, width, height);
   if (!transparent) {
-    const wash = ctx.createLinearGradient(0, 0, 0, height);
-    for (const stop of [...look.background].sort((a, b) => a.position - b.position))
-      wash.addColorStop(stop.position / 100, rgba(stop));
+    // Canvas color stops must lie in 0–1, so stops outside 0–100% stretch the gradient line instead, as CSS does.
+    const stops = [...look.background].sort((a, b) => a.position - b.position);
+    const from = Math.min(0, stops[0].position), to = Math.max(100, stops.at(-1).position);
+    const wash = ctx.createLinearGradient(0, (from / 100) * height, 0, (to / 100) * height);
+    for (const stop of stops) wash.addColorStop((stop.position - from) / (to - from), rgba(stop));
     ctx.fillStyle = wash;
     ctx.fillRect(0, 0, width, height);
   }
   const { index, local } = stepAt(STEPS, timeline.durations, time);
   const step = STEPS[index].id;
   const { intro, outro } = timeline.tracks;
-  const size = (look.size / 100) * height;
-  ctx.font = `${look.weight} ${size}px system-ui, sans-serif`;
+  // The canvas ignores a font outside CSS's ranges (weight 1–1000, size from 0), so draw the nearest valid one.
+  const size = Math.max(0, (look.size / 100) * height);
+  ctx.font = `${clamp(look.weight, 1, 1000)} ${size}px system-ui, sans-serif`;
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
   ctx.fillStyle = rgba(look.ink);

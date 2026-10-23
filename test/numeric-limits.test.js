@@ -19,21 +19,21 @@ test("zero remains a bound; only the -0 sentinel clears a bound and survives JSO
     max: 100,
   });
   assert.equal(effectiveLimits(cleared).min, Number.MIN_SAFE_INTEGER);
-  assert.equal(effectiveLimits(cleared, 0).min, 0);
 });
 
-test("limits reject invalid drafts, crossing, unsafe numbers, and domain violations", () => {
+test("limits are never clamped: any safe number is a limit, with no domain or hardcoded range", () => {
+  assert.deepEqual(parseLimit("-1e6", "min", { min: 0, max: 100 }).value, { min: -1e6, max: 100 });
+  assert.deepEqual(parseLimit("1e9", "max", { min: 0, max: 100 }).value, { min: 0, max: 1e9 });
+  assert.deepEqual(effectiveLimits({ min: -500, max: 9000 }), { min: -500, max: 9000 });
+  assert.ok(validLimits({ min: -1e6, max: 1e9 }));
+});
+
+test("limits reject invalid drafts, crossing, and unsafe numbers", () => {
   for (const text of ["", "-", "Infinity", "NaN", "1e100", "4px"])
     assert.ok(parseLimit(text, "min", { min: 0, max: 100 }).error, text);
   assert.ok(parseLimit("101", "min", { min: 0, max: 100 }).error);
   assert.ok(
     parseLimit("1.5", "min", { min: 0, max: 100 }, { integer: true }).error,
-  );
-  assert.ok(
-    parseLimit("-1", "min", { min: 0, max: 100 }, { hardMin: 0 }).error,
-  );
-  assert.ok(
-    parseLimit("101", "max", { min: 0, max: 100 }, { hardMax: 100 }).error,
   );
   assert.equal(parseLimit("0.25", "min", { min: 0, max: 100 }).value.min, 0.25);
   assert.ok(validLimits({ min: 2, max: 2 }));
@@ -91,19 +91,18 @@ test("unbounded and coincident tracks have a finite nonzero display span", () =>
   }
 });
 
-test("restoration accepts extended values and bounds while preserving valid domains", () => {
+test("restoration accepts any values and bounds the user's limits allowed", () => {
   assert.ok(validators.range({ min: -1000, max: 5000 }));
   assert.ok(validators.durations({ rise: 90, pulse: 2 }));
   assert.ok(validators.dimensions({ width: 8192, height: 4608, locked: true }));
   assert.ok(validators.rotation(72000));
   assert.ok(validators.rangeBounds({ min: null, max: null }));
   assert.equal(validators.rangeBounds({ min: 1.5, max: 2 }), false);
-  assert.equal(validators.durationLimits({ min: 0, max: null }), false);
-  assert.equal(
-    validators.positionBounds({
-      x: { min: 0, max: 110 },
-      y: { min: 0, max: 100 },
-    }),
-    false,
-  );
+  assert.ok(validators.durationLimits({ min: -5, max: null }));
+  assert.ok(validators.positionBounds({ x: { min: -50, max: 150 }, y: { min: 0, max: 100 } }));
+  assert.ok(validators.gradientBounds({ min: -20, max: 120 }));
+  assert.ok(validators.dimensionsBounds({ width: { min: -10, max: null }, height: { min: 0, max: 10 } }));
+  assert.ok(validators.vectorBounds({ angle: { min: null, max: null }, length: { min: -100, max: 100 } }));
+  assert.ok(validators.position({ x: -20, y: 140 }));
+  assert.equal(validators.durations({ rise: 0, pulse: 2 }), false);
 });

@@ -31,9 +31,9 @@ Choose only the controls needed by the sketch.
 | Allowed angles, rotational freedom, angular interval | [AngleRangeControl](../src/components/AngleRangeControl.vue) | Bind `{ start, sweep }` in whole degrees: start is 0–359°, clockwise sweep is 0–360°. |
 | Position, offset, origin | [PositionControl](../src/components/PositionControl.vue) | Map normalized coordinates to the composition's coordinates. |
 | Angle, direction, rotation | [AngleControl](../src/components/AngleControl.vue) | Preserve accumulated turns, including values such as 720°. |
-| Vector, direction with magnitude, force, velocity | [VectorControl](../src/components/VectorControl.vue) | Bind `{ angle, length }`: angle keeps turns like AngleControl; length is a percentage of the dial radius with no upper domain; past 100% the dial and grid shrink to 100/length while the point stays on the rest rim. |
+| Vector, direction with magnitude, force, velocity | [VectorControl](../src/components/VectorControl.vue) | Bind `{ angle, length }`: angle keeps turns like AngleControl; length is a percentage of the dial radius, limited only by its editable limits, and a negative length points the opposite way; past 100% the dial and grid shrink to 100/length while the point stays on the rest rim. |
 | Width and height, aspect ratio | [DimensionsControl](../src/components/DimensionsControl.vue) | Connect the aspect lock and exact dimensions to the artwork. |
-| Slider: any single number, such as how many, copies, rows, a delay, a scale, or an amount | [SliderControl](../src/components/SliderControl.vue) | Set `min`, `max`, and `step` to the value's domain; use meaningful default bounds within it. |
+| Slider: any single number, such as how many, copies, rows, a delay, a scale, or an amount | [SliderControl](../src/components/SliderControl.vue) | Bind the value and `v-model:bounds` with meaningful default bounds, and set `step`. The bounds are the user's min and max and the only clamp: SliderControl has no `min` or `max` props, and nothing restricts the bounds. |
 | Mode, alignment, on/off | [ChoiceControl](../src/components/ChoiceControl.vue) | Adapt the options to the sketch while retaining selection and focus styling. |
 | Play, scrub, inspect a frame, sequence steps, keyframe an element | [Timeline](../src/components/Timeline.vue) with [Inspector](../src/components/Inspector.vue) | Drive rendering from one `usePlayback` engine; place them as in the [workspace layout](workspace-layout.md). |
 
@@ -74,9 +74,9 @@ Their helpers in [number-scrub.js](../src/lib/number-scrub.js) and [numeric-limi
 Put supplementary input fields beneath graphics in GraphicPanel's `fields` slot; its native “Exact values” disclosure is collapsed by default.
 Keep primary actions and readouts in the `footer` slot, and keep essential standalone inputs visible.
 Use the shared `exact-values` disclosure styles for supplementary fields outside GraphicPanel, as in the color picker.
-Preserve the distinction between a value, its editable bounds, and its intrinsic domain.
+Keep a value and its editable bounds distinct.
 The text `-0` clears a custom limit and is stored as `null`; ordinary `0` remains a valid bound.
-Persist custom bounds alongside their values and retain intrinsic limits such as positive dimensions and 0–100% opacity.
+Persist custom bounds alongside their values.
 Keep drag, keyboard, and typed edits on the same model, with units and invalid-input feedback visible.
 Keep reset local to its control and integrate continuous gestures with the target's existing undo behavior when present.
 
@@ -88,7 +88,7 @@ Preserve these graphical meanings when porting:
 | Selected graphical target | Marked handle or outline, distinct from keyboard focus. |
 | Keyboard focus | Separate visible outer ring on selected and unselected controls. |
 | Value or geometry | Contours, points, measurement labels, and narrow interval tracks. |
-| Unavailable region | Hatching outside the allowed domain. |
+| Unavailable region | Hatching outside the editable limits. |
 | Editable overshoot | Usable plotting surface with labeled nominal boundaries. |
 | Playback position | Playhead and current-phase marker, independent of selection. |
 | Transparency | Checkerboard behind the actual color or artwork. |
@@ -99,6 +99,16 @@ When a different palette is requested, override public CSS variables on that wra
 Variables beginning with `--_` are internal resolved values; selection foreground and background must remain a readable pair.
 Keep hue/SV gradients and mask luminance independent of theme colors because they encode values.
 Read [state-indicator research](ui-state-research.md) only when changing these conventions or investigating their rationale.
+
+### Editable limits are never clamped
+
+Editable min and max limits are the user's clamp on a value; nothing clamps the limits themselves.
+A control with min and max inputs needs no other range: do not add a hardcoded range, an intrinsic domain, `min` or `max` props, or a validator bound on top of its limits.
+Any number the user types as a limit is accepted, including negative numbers, zero, and values beyond a nominal extent such as 0–100%; the only errors are a draft that is not a number, a fraction in a whole-number field, and a minimum above the maximum.
+Restore saved values and limits with the same rule, so a reload never resets what the user's limits allowed.
+Where code cannot use a value, guard it where the value is used and leave the value and its limits unchanged: a canvas color stop outside 0–1 stretches the gradient line as CSS does, a step needs positive time to play, and export reports a size or frame rate it cannot encode.
+Plots with a nominal extent, such as PositionControl's and GradientControl's 0–100%, widen to show limits and values outside it and mark the nominal edges.
+A fixed range belongs only to a field without min and max inputs, such as alpha or an angle's 0–359° start.
 
 ## Connecting timing controls
 

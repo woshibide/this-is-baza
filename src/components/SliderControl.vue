@@ -1,6 +1,8 @@
 <!-- Slider: Baza's control for one number. Drag the number, step with the -/+ buttons, or type an
-     exact value; all three share the editable bounds (null removes a custom bound). This is what
-     "slider" means in Baza: never a native <input type="range"> track. -->
+     exact value; all three share the editable bounds (null removes a custom bound). The bounds are
+     the user's min/max inputs and the only clamp on the value: there are no min/max props and no
+     hardcoded range on the bounds. This is what "slider" means in Baza: never a native
+     <input type="range"> track. -->
 <style scoped>
 button {
   width: 32px;
@@ -26,8 +28,6 @@ button:active:not(:disabled) {
       v-model="model"
       v-model:limits="bounds"
       :label="label"
-      :min="min"
-      :max="max"
       :step="step"
     >
       <template #decrease
@@ -53,7 +53,7 @@ button:active:not(:disabled) {
 import { computed } from "vue";
 import NumberField from "./NumberField.vue";
 import Icon from "./Icon.vue";
-import { effectiveLimits, clampToLimits, SAFE_MIN, SAFE_MAX } from "../lib/numeric-limits.js";
+import { effectiveLimits, clampToLimits } from "../lib/numeric-limits.js";
 const model = defineModel({ type: Number, required: true });
 const bounds = defineModel("bounds", {
   type: Object,
@@ -62,11 +62,9 @@ const bounds = defineModel("bounds", {
 const props = defineProps({
   label: { type: String, default: "Copies" },
   heading: { type: String, default: "" }, // gallery heading and hint; omit inside a panel
-  min: { type: Number, default: SAFE_MIN }, // intrinsic domain; bounds stay within it
-  max: { type: Number, default: SAFE_MAX },
   step: { type: Number, default: 1 }, // the buttons' increment; fractional steps work too
 });
-const effective = computed(() => effectiveLimits(bounds.value, props.min, props.max));
+const effective = computed(() => effectiveLimits(bounds.value));
 // Steps snap to the step grid so fractional steps never accumulate float error.
 const decimals = computed(() => (String(props.step).split(".")[1] ?? "").length);
 function nudge(direction) {

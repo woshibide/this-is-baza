@@ -12,6 +12,13 @@
   height: 100%;
   border-radius: 4px;
 }
+.nominal {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  border-left: 1px solid var(--_plot-boundary);
+  pointer-events: none;
+}
 .stop {
   position: absolute;
   top: 42px;
@@ -55,11 +62,15 @@
       @lostpointercapture="finish"
     >
       <div class="gradient-paint" :style="{ background: gradient }"></div>
+      <template v-if="view.min < 0 || view.max > 100">
+        <div class="nominal" :style="{ left: place(0) + '%' }" aria-hidden="true"></div>
+        <div class="nominal" :style="{ left: place(100) + '%' }" aria-hidden="true"></div>
+      </template>
       <button
         v-for="(stop, i) in model"
         :key="i"
         class="stop"
-        :style="{ left: stop.position + '%' }"
+        :style="{ left: place(stop.position) + '%' }"
         :aria-pressed="selected === i"
         :aria-label="`Stop ${i + 1}, position ${stop.position.toFixed(1)}%`"
         @click="selected = i"
@@ -86,22 +97,20 @@
       v-model:limits="bounds"
       label="Selected stop position %"
       :model-value="+model[selected].position.toFixed(2)"
-      :min="0"
-      :max="100"
       @update:model-value="setPosition"
     />
     </template>
     </GraphicPanel>
     <p class="note">
       Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their
-      identities when crossing.
+      identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%.
     </p>
   </section>
 </template>
 
 <script setup>
 import { ref, computed, watch } from "vue";
-import { effectiveLimits, clampToLimits } from "../lib/numeric-limits.js";
+import { effectiveLimits, clampToLimits, overshootView } from "../lib/numeric-limits.js";
 import NumberField from "./NumberField.vue";
 import GraphicPanel from "./GraphicPanel.vue";
 import ColorEditor from "./ColorEditor.vue";
@@ -115,7 +124,14 @@ const bounds = defineModel("bounds", {
   type: Object,
   default: () => ({ min: 0, max: 100 }),
 });
-const effective = computed(() => effectiveLimits(bounds.value, 0, 100));
+const effective = computed(() => effectiveLimits(bounds.value));
+// The track shows 0–100% and widens to set limits and stops outside it; a drag keeps its starting view.
+const frozen = ref(null);
+const view = computed(
+  () => frozen.value ?? overshootView(bounds.value, model.value.map((stop) => stop.position)),
+);
+const place = (position) =>
+  ((position - view.value.min) / (view.value.max - view.value.min)) * 100;
 watch(
   effective,
   (limits) => {
@@ -136,7 +152,7 @@ const gradient = computed(
   () =>
     `linear-gradient(90deg in srgb, ${[...model.value]
       .sort((a, b) => a.position - b.position)
-      .map((stop) => `${rgba(stop)} ${stop.position}%`)
+      .map((stop) => `${rgba(stop)} ${place(stop.position)}%`)
       .join(",")})`,
 );
 function update(value) {
@@ -153,16 +169,19 @@ function start(event, index) {
   selected.value = index;
   event.currentTarget.focus();
   pointer = event.pointerId;
+  frozen.value = view.value;
   track.value.setPointerCapture(pointer);
   drag(event);
 }
 function drag(event) {
   if (event.pointerId !== pointer) return;
   const rect = track.value.getBoundingClientRect();
-  setPosition(((event.clientX - rect.left) / rect.width) * 100);
+  const { min, max } = view.value;
+  setPosition(min + ((event.clientX - rect.left) / rect.width) * (max - min));
 }
 function finish() {
   pointer = null;
+  frozen.value = null;
 }
 function nudge(event, index) {
   const delta = arrowDelta(event);

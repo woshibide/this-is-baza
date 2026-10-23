@@ -1,10 +1,9 @@
-// null removes a user limit. Domain limits remain independent of editable limits.
+// Editable limits are the user's clamp on a value; nothing clamps the limits themselves.
+// Any safe number is a valid limit, and null removes it. There is no domain or hardcoded range:
+// code that cannot handle a value guards it where it uses the value, never in the limits.
 export const SAFE_MIN = Number.MIN_SAFE_INTEGER;
 export const SAFE_MAX = Number.MAX_SAFE_INTEGER;
-export function validLimits(
-  value,
-  { integer = false, hardMin = SAFE_MIN, hardMax = SAFE_MAX } = {},
-) {
+export function validLimits(value, { integer = false } = {}) {
   return Boolean(
     value &&
     [value.min, value.max].every(
@@ -12,32 +11,18 @@ export function validLimits(
         n === null ||
         (Number.isFinite(n) &&
           Math.abs(n) <= SAFE_MAX &&
-          n >= hardMin &&
-          n <= hardMax &&
           (!integer || Number.isInteger(n))),
     ) &&
     (value.min === null || value.max === null || value.min <= value.max),
   );
 }
-export function effectiveLimits(
-  limits,
-  hardMin = SAFE_MIN,
-  hardMax = SAFE_MAX,
-) {
-  return {
-    min: Math.max(hardMin, Math.min(hardMax, limits.min ?? hardMin)),
-    max: Math.max(hardMin, Math.min(hardMax, limits.max ?? hardMax)),
-  };
+export function effectiveLimits(limits) {
+  return { min: limits.min ?? SAFE_MIN, max: limits.max ?? SAFE_MAX };
 }
 export function clampToLimits(value, limits) {
   return Math.max(limits.min, Math.min(limits.max, value));
 }
-export function parseLimit(
-  text,
-  side,
-  limits,
-  { integer = false, hardMin = SAFE_MIN, hardMax = SAFE_MAX } = {},
-) {
+export function parseLimit(text, side, limits, { integer = false } = {}) {
   const raw = text.trim().replace("−", "-");
   const value = raw === "-0" ? null : Number(raw);
   if (
@@ -50,15 +35,6 @@ export function parseLimit(
     return {
       error: `Enter ${integer ? "a whole number" : "a number"}, or -0 for no custom limit.`,
     };
-  }
-  if (value !== null && (value < hardMin || value > hardMax)) {
-    const restriction =
-      hardMin !== SAFE_MIN && hardMax !== SAFE_MAX
-        ? `between ${hardMin} and ${hardMax}`
-        : hardMin !== SAFE_MIN
-          ? `${hardMin} or greater`
-          : `${hardMax} or less`;
-    return { error: `Enter ${restriction}, or -0 to use the valid domain.` };
   }
   const next = { ...limits, [side]: value };
   if (!validLimits(next))
@@ -74,6 +50,14 @@ export function displayLimits(limits, values, fallback = { min: 0, max: 100 }) {
     else max = min + 1;
   }
   return { min, max };
+}
+// A finite viewport for a plot with a nominal extent, such as a 0–100% canvas: it shows the
+// nominal extent and widens to include set limits and values outside it. Freeze it for each drag.
+export function overshootView(limits, values, nominal = { min: 0, max: 100 }) {
+  return {
+    min: Math.min(nominal.min, limits.min ?? nominal.min, ...values),
+    max: Math.max(nominal.max, limits.max ?? nominal.max, ...values),
+  };
 }
 export function moveInterval(initial, part, delta, limits) {
   if (part === "band") {

@@ -28,6 +28,11 @@
   border: 1px solid var(--_plot-boundary);
   pointer-events: none;
 }
+.xy-nominal {
+  position: absolute;
+  border: 1px dashed var(--_plot-axis);
+  pointer-events: none;
+}
 .xy-crosshair {
   position: absolute;
   pointer-events: none;
@@ -90,23 +95,24 @@
             </pattern>
             <mask :id="maskId">
               <rect width="100%" height="100%" fill="white" />
-              <rect :x="xLimits.min + '%'" :y="yLimits.min + '%'" :width="(xLimits.max - xLimits.min) + '%'" :height="(yLimits.max - yLimits.min) + '%'" fill="black" />
+              <rect :x="allowed.left + '%'" :y="allowed.top + '%'" :width="allowed.width + '%'" :height="allowed.height + '%'" fill="black" />
             </mask>
           </defs>
           <rect width="100%" height="100%" :fill="`url(#${hatchId})`" :mask="`url(#${maskId})`" />
         </svg>
-        <div v-if="restricted" class="xy-allowed" aria-hidden="true" :style="{ left: xLimits.min + '%', top: yLimits.min + '%', width: (xLimits.max - xLimits.min) + '%', height: (yLimits.max - yLimits.min) + '%' }"></div>
-        <div class="xy-crosshair horizontal" :style="{ top: model.y + '%' }" aria-hidden="true"></div>
-        <div class="xy-crosshair vertical" :style="{ left: model.x + '%' }" aria-hidden="true"></div>
+        <div v-if="widened" class="xy-nominal" aria-hidden="true" :style="{ left: placeX(0) + '%', top: placeY(0) + '%', width: placeX(100) - placeX(0) + '%', height: placeY(100) - placeY(0) + '%' }"></div>
+        <div v-if="restricted" class="xy-allowed" aria-hidden="true" :style="{ left: allowed.left + '%', top: allowed.top + '%', width: allowed.width + '%', height: allowed.height + '%' }"></div>
+        <div class="xy-crosshair horizontal" :style="{ top: placeY(model.y) + '%' }" aria-hidden="true"></div>
+        <div class="xy-crosshair vertical" :style="{ left: placeX(model.x) + '%' }" aria-hidden="true"></div>
         <button
           ref="handle"
           class="xy-handle"
           :style="{
-            left: model.x + '%',
-            top: model.y + '%',
+            left: placeX(model.x) + '%',
+            top: placeY(model.y) + '%',
           }"
           aria-label="Position point; use arrow keys to move"
-          :aria-description="`X ${model.x.toFixed(1)}%, Y ${model.y.toFixed(1)}%. Allowed X ${xLimits.min}–${xLimits.max}%, Y ${yLimits.min}–${yLimits.max}%.`"
+          :aria-description="`X ${model.x.toFixed(1)}%, Y ${model.y.toFixed(1)}%. Allowed X ${allowedText(bounds.x)}, Y ${allowedText(bounds.y)}.`"
           @keydown="nudge"
         ></button>
       </div>
@@ -115,16 +121,12 @@
         label="Y %"
         layout="axis-y"
         axis="Y %"
-        :hard-min="0"
-        :hard-max="100"
       />
       <LimitsEditor
         v-model="bounds.x"
         label="X %"
         layout="axis-x"
         axis="X %"
-        :hard-min="0"
-        :hard-max="100"
       />
     </div>
     <template #fields>
@@ -146,14 +148,14 @@
     </template>
     </GraphicPanel>
     <p class="note">
-      Fixed 0–100% canvas. Hatched areas are outside the limits. Shift nudges by 5%.
+      0–100% canvas; limits outside it widen the view, and a dashed outline marks the canvas. Hatched areas are outside the limits. Shift nudges by 5%.
     </p>
   </section>
 </template>
 
 <script setup>
 import { ref, computed, watch, useId } from "vue";
-import { effectiveLimits } from "../lib/numeric-limits.js";
+import { effectiveLimits, overshootView } from "../lib/numeric-limits.js";
 import LimitsEditor from "./LimitsEditor.vue";
 import NumberField from "./NumberField.vue";
 import GraphicPanel from "./GraphicPanel.vue";
@@ -166,14 +168,44 @@ const bounds = defineModel("bounds", {
   type: Object,
   default: () => ({ x: { min: 0, max: 100 }, y: { min: 0, max: 100 } }),
 });
-const xLimits = computed(() => effectiveLimits(bounds.value.x, 0, 100));
-const yLimits = computed(() => effectiveLimits(bounds.value.y, 0, 100));
+const xLimits = computed(() => effectiveLimits(bounds.value.x));
+const yLimits = computed(() => effectiveLimits(bounds.value.y));
+// The pad shows the 0–100% canvas and widens to set limits and a point outside it; a drag keeps its starting view.
+const frozen = ref(null);
+const view = computed(
+  () =>
+    frozen.value ?? {
+      x: overshootView(bounds.value.x, [model.value.x]),
+      y: overshootView(bounds.value.y, [model.value.y]),
+    },
+);
+const place = (axis, value) =>
+  ((value - view.value[axis].min) / (view.value[axis].max - view.value[axis].min)) * 100;
+const placeX = (value) => place("x", value);
+const placeY = (value) => place("y", value);
+const widened = computed(() => ["x", "y"].some((axis) => view.value[axis].min < 0 || view.value[axis].max > 100));
+// The allowed region in pad percent, cut to the view.
+const allowed = computed(() => {
+  const left = placeX(Math.max(view.value.x.min, xLimits.value.min)),
+    top = placeY(Math.max(view.value.y.min, yLimits.value.min));
+  return {
+    left,
+    top,
+    width: placeX(Math.min(view.value.x.max, xLimits.value.max)) - left,
+    height: placeY(Math.min(view.value.y.max, yLimits.value.max)) - top,
+  };
+});
+const allowedText = ({ min, max }) => `${min ?? "−∞"}–${max ?? "∞"}%`;
 watch([xLimits, yLimits], () => move(model.value.x, model.value.y), {
   immediate: true,
 });
 const hatchId = useId();
 const maskId = useId();
-const restricted = computed(() => xLimits.value.min > 0 || xLimits.value.max < 100 || yLimits.value.min > 0 || yLimits.value.max < 100);
+const restricted = computed(
+  () =>
+    xLimits.value.min > view.value.x.min || xLimits.value.max < view.value.x.max ||
+    yLimits.value.min > view.value.y.min || yLimits.value.max < view.value.y.max,
+);
 let pointer = null;
 function move(x, y) {
   model.value = {
@@ -186,19 +218,22 @@ function start(event) {
   event.preventDefault();
   handle.value.focus();
   pointer = event.pointerId;
+  frozen.value = view.value;
   pad.value.setPointerCapture(pointer);
   drag(event);
 }
 function drag(event) {
   if (event.pointerId !== pointer) return;
   const rect = pad.value.getBoundingClientRect();
+  const { x, y } = view.value;
   move(
-    ((event.clientX - rect.left) / rect.width) * 100,
-    ((event.clientY - rect.top) / rect.height) * 100,
+    x.min + ((event.clientX - rect.left) / rect.width) * (x.max - x.min),
+    y.min + ((event.clientY - rect.top) / rect.height) * (y.max - y.min),
   );
 }
 function finish() {
   pointer = null;
+  frozen.value = null;
 }
 function nudge(event) {
   const delta = arrowDelta(event);
