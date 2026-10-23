@@ -1,9 +1,10 @@
-import "../../src/styles.css";
 import { createApp, h, reactive } from "vue";
 import { fixture, clone, log, handlerName, buildSpec } from "./fixture-common.js";
 
 const components = import.meta.glob("../../src/components/*.vue", { import: "default" });
 const component = await components[`../../src/components/${fixture.component}.vue`]();
+// As in the gallery's main.js, the shared styles load after the components' scoped styles.
+await import("../../src/styles.css");
 const state = reactive(clone(fixture.models ?? {}));
 window.__parity.models = () => clone(state);
 const vueName = (name) => (name === "value" ? "modelValue" : name);

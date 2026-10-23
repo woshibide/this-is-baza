@@ -92,7 +92,7 @@ const frames = (page) => page.evaluate(() => new Promise((done) => requestAnimat
 
 async function perform(page, step) {
   const at = (selector) => page.locator(`#root ${selector}`).first();
-  if (step.click) await at(step.click).click({ modifiers: step.modifiers });
+  if (step.click) await at(step.click).click({ modifiers: step.modifiers, force: step.force });
   else if (step.dblclick) await at(step.dblclick).dblclick();
   else if (step.focus) await at(step.focus).focus();
   else if (step.hover) await at(step.hover).hover();

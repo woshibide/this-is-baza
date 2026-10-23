@@ -38,4 +38,13 @@ export const RULES = {
     "A disabled field cannot be dragged and emits nothing.",
     "Stepper content is placed before and after the input, and Tab order runs from the decrease content through the input to the increase content.",
   ],
+  SliderControl: [
+    "The decrease and increase buttons change the value by one step, snapped to the step grid without float error, and clamped to the effective bounds.",
+    "The decrease button is disabled at the effective minimum and the increase button at the effective maximum.",
+    "The buttons are labeled \"Decrease <label>\" and \"Increase <label>\" and keep keyboard focus after being pressed.",
+    "Dragging or typing the number and editing the Min and Max bounds behave as in NumberField, sharing the same bounds as the buttons.",
+    "Narrowing the bounds clamps the value into them; clearing a bound with -0 removes that limit.",
+    "With a heading, the section shows the heading and a one-line hint and is labeled by the heading; without one it is labeled by the label.",
+    "Without an owner for the bounds, the slider keeps its default bounds of 1 to 24 itself.",
+  ],
 };

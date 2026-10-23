@@ -66,8 +66,11 @@ export function text(node, value) {
 }
 
 // Replaces children only when the list of nodes differs, so unchanged children keep focus and state.
+// Empty values (null, undefined, false, "") are skipped; anything else must be a node, because identity matters.
 export function children(element, nodes) {
-  const next = nodes.flat().filter((child) => child !== null && child !== undefined && child !== false);
+  const next = nodes.flat().filter((child) => child !== null && child !== undefined && child !== false && child !== "");
+  const stray = next.find((child) => !(child instanceof Node));
+  if (stray !== undefined) throw new Error(`children() takes nodes, got ${JSON.stringify(stray)}.`);
   if (next.length === element.childNodes.length && next.every((child, i) => child === element.childNodes[i])) return;
   element.replaceChildren(...next);
 }
@@ -116,7 +119,8 @@ export const modelCallback = (name) =>
 const UNSET = {};
 // Mirrors Vue's defineModel: when the owner passes both the value and its callback, the owner holds the state
 // and calls update(); otherwise the component keeps the value itself. Repeating the current value is a no-op.
-export function modelSetter(given, read, name, keepLocally) {
+// Until `ready()` is true the owner has no handle to call update() with, so the component also keeps the value.
+export function modelSetter(given, read, name, keepLocally, ready = () => true) {
   const callback = modelCallback(name);
   const owned = name in given && typeof given[callback] === "function";
   let previous = UNSET;
@@ -124,7 +128,7 @@ export function modelSetter(given, read, name, keepLocally) {
     const props = read();
     if (Object.is(value, props[name]) && (previous === UNSET || Object.is(value, previous))) return;
     previous = value;
-    if (!owned) keepLocally(value);
+    if (!owned || !ready()) keepLocally(value);
     props[callback]?.(value);
   };
 }

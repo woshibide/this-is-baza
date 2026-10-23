@@ -29,8 +29,9 @@ export function createNumberField(given) {
   let invalid = false;
   let editing = false;
   const effective = () => effectiveLimits(props.limits ?? { min: null, max: null }, props.min, props.max);
-  const setValue = modelSetter(given, () => props, "value", (value) => apply({ value }));
-  const setLimits = modelSetter(given, () => props, "limits", (limits) => apply({ limits }));
+  let ready = false;
+  const setValue = modelSetter(given, () => props, "value", (value) => apply({ value }), () => ready);
+  const setLimits = modelSetter(given, () => props, "limits", (limits) => apply({ limits }), () => ready);
 
   const scrubber = createNumberScrubber({
     read: () => ({ value: props.value, ...effective(), step: props.step, disabled: props.disabled }),
@@ -122,13 +123,10 @@ export function createNumberField(given) {
   }
 
   // Editable limits clamp the value, except when a parent manages them.
-  // On create the owner cannot call update() yet, so the clamped value is also applied here.
-  function clampToEffective(creating = false) {
+  function clampToEffective() {
     if (!props.limits || props.managedLimits) return;
     const value = clampToLimits(props.value, effective());
-    if (value === props.value) return;
-    setValue(value);
-    if (creating) apply({ value });
+    if (value !== props.value) setValue(value);
   }
   // Mirrors the Vue component's watchers on the value and on the effective limits.
   function apply(partial) {
@@ -140,7 +138,8 @@ export function createNumberField(given) {
   }
 
   render();
-  clampToEffective(true);
+  clampToEffective();
+  ready = true;
   return {
     element,
     update(partial) {
