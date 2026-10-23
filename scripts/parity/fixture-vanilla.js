@@ -42,4 +42,5 @@ control = create({
 });
 document.getElementById("root").append(control.element);
 window.__parity.control = control;
+window.__parity.setProps = (partial) => control.update(partial);
 document.documentElement.dataset.ready = "true";

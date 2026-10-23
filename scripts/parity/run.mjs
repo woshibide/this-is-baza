@@ -127,6 +127,7 @@ async function perform(page, step) {
     await page.mouse.up();
     for (const key of step.modifiers ?? []) await page.keyboard.up(key);
   } else if (step.mouseUp) await page.mouse.up();
+  else if (step.props) await page.evaluate((partial) => window.__parity.setProps(partial), step.props);
   else if (step.call) await page.evaluate((name) => window.__parity.control[name](), step.call);
   else if (step.eval) await page.evaluate(step.eval);
   else if (step.wait) await page.waitForTimeout(step.wait);

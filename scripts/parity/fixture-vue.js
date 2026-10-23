@@ -6,6 +6,9 @@ const component = await components[`../../src/components/${fixture.component}.vu
 // As in the gallery's main.js, the shared styles load after the components' scoped styles.
 await import("../../src/styles.css");
 const state = reactive(clone(fixture.models ?? {}));
+// Plain props can be changed by `props` steps, as an owner would re-render with new values.
+const extra = reactive({ ...fixture.props });
+window.__parity.setProps = (partial) => Object.assign(extra, partial);
 window.__parity.models = () => clone(state);
 const vueName = (name) => (name === "value" ? "modelValue" : name);
 const slots = Object.fromEntries(
@@ -23,7 +26,7 @@ createApp({
       component,
       {
         ref: instance,
-        ...fixture.props,
+        ...extra,
         // Models without a listener stay local to the component, as when an owner omits v-model.
         ...Object.fromEntries(Object.entries(fixture.local ?? {}).map(([name, value]) => [vueName(name), clone(value)])),
         ...Object.fromEntries(

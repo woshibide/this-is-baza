@@ -124,4 +124,13 @@ export const RULES = {
     "Past 100 percent the point stays on the outer ring and the dial, ticks, and grid shrink to 100/length.",
     "The rotation and length fields and their limits edit the same values; new length limits clamp the length.",
   ],
+  BezierControl: [
+    "Dragging a handle moves it with the pointer, keeping its time inside its segment, allowing values beyond 0 to 100 percent, and letting handles cross; vertical movement is at half speed relative to the scale captured at the start of the drag.",
+    "Dragging the envelope's peak anchor moves it in time and value and carries its two handles with it; the start and finish anchors do not move.",
+    "Focusing or clicking a point selects it (aria-pressed=\"true\"); arrow keys move the selected point by 1 percent, or 5 with Shift; Enter and Space do nothing.",
+    "Reset restores the default ramp or envelope, or the supplied reset curve, and selects the start's outgoing handle.",
+    "The plot shows the curve, handle lines, a playhead at the current progress, and a dot at the evaluated value; the value scale grows to fit overshoot.",
+    "The Play or Pause button only asks the owner to toggle the preview; its label follows the playing prop.",
+    "The motion preview places the travel point at the evaluated value and the readout states the mapped value in the output unit, the evaluated percentage, and the time.",
+  ],
 };

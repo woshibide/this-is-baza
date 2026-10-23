@@ -857,3 +857,126 @@ svg.baza-icon {
 .baza-vector-control .length:focus-visible .focus-ring { opacity: 1; }
 .baza-vector-control .length:hover .plot-point,
 .baza-vector-control .length:focus-visible .plot-point { stroke: var(--_plot-area); stroke-width: 2px; }
+
+/* BezierControl */
+.baza-bezier-control .curve-graph {
+  display: block;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  overflow: visible;
+}
+.baza-bezier-control .curve-graph text { font-size: 8px; }
+.baza-bezier-control .graph-grid.minor { stroke-opacity: 0.5; }
+.baza-bezier-control .graph-zones { pointer-events: none; }
+.baza-bezier-control .graph-overflow { fill: var(--_plot-extended); }
+.baza-bezier-control .graph-main { fill: var(--_plot-area); }
+.baza-bezier-control .graph-frame { fill: none; stroke: var(--_plot-frame); vector-effect: non-scaling-stroke; }
+.baza-bezier-control .handle-line { stroke: var(--_plot-axis); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.baza-bezier-control .point { cursor: grab; outline: none; }
+.baza-bezier-control .point:active { cursor: grabbing; }
+.baza-bezier-control .point .hit { fill: transparent; }
+.baza-bezier-control .point .mark {
+  fill: var(--_plot-handle-fill);
+  stroke: var(--_plot-handle-stroke);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+.baza-bezier-control .point.anchor .mark { fill: var(--_plot-value); }
+.baza-bezier-control .point:hover .mark { stroke-width: 3; }
+.baza-bezier-control .point .selection-ring { fill: none; stroke: transparent; pointer-events: none; }
+.baza-bezier-control .point[aria-pressed="true"] .mark {
+  fill: var(--_selection-bg);
+  stroke: var(--_selection-border);
+}
+.baza-bezier-control .point[aria-pressed="true"] .selection-ring {
+  stroke: var(--_selection-border);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.baza-bezier-control .point:focus-visible .hit {
+  stroke: var(--focus, var(--accent));
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.baza-bezier-control .playhead {
+  stroke: var(--_plot-playhead);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+.baza-bezier-control .curve-dot { pointer-events: none; }
+.baza-bezier-control .preview-disclosure > summary {
+  padding-block: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.baza-bezier-control .preview-disclosure > summary:hover { color: var(--accent); }
+.baza-bezier-control .preview-disclosure > summary:focus-visible {
+  outline: 2px solid var(--focus, var(--accent));
+  outline-offset: 3px;
+}
+.baza-bezier-control .preview-disclosure[open] > summary { margin-bottom: 10px; }
+.baza-bezier-control .preview-heading { justify-content: flex-end; margin-bottom: 10px; }
+.baza-bezier-control .curve-sample {
+  height: 88px;
+  position: relative;
+  background: var(--_plot-extended);
+}
+.baza-bezier-control .travel-domain {
+  position: absolute;
+  inset: 0 12px;
+}
+.baza-bezier-control .travel-domain::before {
+  content: "";
+  position: absolute;
+  left: var(--preview-start);
+  width: calc(var(--preview-end) - var(--preview-start));
+  height: 100%;
+  background: var(--_plot-area);
+  border-inline: 1px solid var(--_plot-boundary);
+}
+.baza-bezier-control .travel-track {
+  position: absolute;
+  inset: 42px 0 auto;
+  border-top: 1px solid var(--_plot-axis);
+}
+.baza-bezier-control .curve-sample small {
+  position: absolute;
+  top: 62px;
+  transform: translateX(-50%);
+  color: var(--_plot-label);
+  font: 10px ui-monospace, monospace;
+  background: var(--_plot-area);
+  padding-inline: 3px;
+}
+.baza-bezier-control .travel-start { left: var(--preview-start); }
+.baza-bezier-control .travel-end { left: var(--preview-end); }
+.baza-bezier-control .curve-sample .travel-value {
+  top: 12px;
+  color: var(--_plot-value);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.baza-bezier-control .curve-sample .travel-overshoot {
+  top: 64px;
+  left: 85%;
+  font: 9px system-ui, sans-serif;
+}
+.baza-bezier-control .travel-point {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 43px;
+  transform: translate(-50%, -50%);
+  background: var(--_plot-current);
+  border: 2px solid var(--_plot-marker-outline);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--_plot-current);
+}
+.baza-bezier-control .curve-value { margin-top: 10px; }
+@media (max-width: 767px) {
+  .baza-bezier-control .curve-graph text { font-size: 11px; }
+}
