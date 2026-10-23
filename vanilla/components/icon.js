@@ -1,5 +1,5 @@
 // Lucide UI icons; licenses and attribution: ../../THIRD_PARTY_NOTICES.txt.
-import { checkProps, svg, attr, children } from "../dom.js";
+import { checkProps, svg, attr, children, renderer } from "../dom.js";
 
 const NAMES = ["play", "pause", "reset", "plus", "minus", "copy", "check", "sliders", "panel-close", "panel-right-close", "spline", "chevron-left", "download", "x"];
 const paths = {
@@ -29,7 +29,8 @@ export function createIcon(given) {
     svg("rect", { x: 14, y: 3, width: 5, height: 18, rx: 1 }),
     svg("rect", { x: 5, y: 3, width: 5, height: 18, rx: 1 }),
   ];
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     if (props.name === "pause") children(element, pause);
     else {
       attr(path, "d", paths[props.name]);

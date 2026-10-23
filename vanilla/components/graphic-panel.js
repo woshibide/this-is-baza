@@ -1,6 +1,6 @@
 // Geometry in content, primary actions/readouts in footer, optional exact entry in fields (collapsed by default).
 // content, footer, and fields take a node or an array of nodes; omitting footer or fields omits its region.
-import { checkProps, h, toggle, children } from "../dom.js";
+import { checkProps, h, toggle, children, renderer } from "../dom.js";
 
 const SLOT = [Node, Array];
 const SPEC = {
@@ -18,7 +18,8 @@ export function createGraphicPanel(given) {
   const fieldsContent = h("div", { class: "exact-values-content" });
   const fields = h("details", { class: "graphic-footer exact-values" }, h("summary", null, "Exact values"), fieldsContent);
   const element = h("div", { class: "graphic-panel" }, content);
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     toggle(content, "flush", props.flush);
     children(content, nodes(props.content));
     children(footer, nodes(props.footer));

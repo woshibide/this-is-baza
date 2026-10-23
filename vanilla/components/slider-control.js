@@ -1,7 +1,7 @@
 // Slider: Baza's control for one number. Drag the number, step with the -/+ buttons, or type an
 // exact value; all three share the editable bounds (null removes a custom bound). This is what
 // "slider" means in Baza: never a native <input type="range"> track.
-import { checkProps, modelSetter, h, attr, prop, text, children } from "../dom.js";
+import { checkProps, modelSetter, h, attr, prop, text, children, renderer } from "../dom.js";
 import { createNumberField } from "./number-field.js";
 import { createIcon } from "./icon.js";
 import { effectiveLimits, clampToLimits, SAFE_MIN, SAFE_MAX } from "../../src/lib/numeric-limits.js";
@@ -57,7 +57,8 @@ export function createSliderControl(given) {
   const hint = h("p", null, "Drag the number, step with the buttons, or enter an exact value.");
   const element = h("section", { class: "baza-slider-control" });
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const bounds = effective();
     attr(element, "aria-label", props.heading || props.label);
     text(title, props.heading);

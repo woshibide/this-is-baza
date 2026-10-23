@@ -806,3 +806,54 @@ svg.baza-icon {
     gap: 12px;
   }
 }
+
+/* AngleControl */
+.baza-angle-control .direction {
+  display: block;
+  width: 100%;
+  height: 180px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.baza-angle-control .direction.dragging { cursor: grabbing; }
+.baza-angle-control .direction:hover .plot-point,
+.baza-angle-control .direction:focus-visible .plot-point { stroke: var(--_plot-area); stroke-width: 2px; }
+
+/* AngleRangeControl */
+.baza-angle-range-control .angle-range { display: block; width: 100%; height: 180px; touch-action: none; user-select: none; }
+.baza-angle-range-control .sector { fill: var(--_plot-value); fill-opacity: 0.1; }
+.baza-angle-range-control .arc { fill: none; stroke: var(--_plot-value); stroke-width: 3; }
+.baza-angle-range-control .band { cursor: grab; outline: none; }
+.baza-angle-range-control .band:focus-visible .arc { stroke-width: 6; }
+.baza-angle-range-control .band:focus-visible .focus-ring { opacity: 1; }
+.baza-angle-range-control .band-hit { fill: none; stroke: transparent; stroke-width: 20; }
+.baza-angle-range-control .handle { cursor: grab; outline: none; }
+.baza-angle-range-control .dragging,
+.baza-angle-range-control .dragging .handle,
+.baza-angle-range-control .dragging .band { cursor: grabbing; }
+.baza-angle-range-control .handle-hit { fill: transparent; }
+.baza-angle-range-control .handle-mark { fill: var(--_plot-handle-fill); stroke: var(--_plot-handle-stroke); stroke-width: 2; }
+.baza-angle-range-control .handle-end .handle-mark { fill: var(--_plot-value); }
+.baza-angle-range-control .focus-ring { fill: none; stroke: var(--_plot-current); stroke-width: 1.5; opacity: 0; }
+.baza-angle-range-control .handle:hover .focus-ring,
+.baza-angle-range-control .handle:focus-visible .focus-ring { opacity: 1; }
+.baza-angle-range-control .fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.baza-angle-range-control .readout { margin: 12px 0 0; }
+
+/* VectorControl */
+.baza-vector-control .vector { display: block; width: 100%; height: 320px; cursor: grab; touch-action: none; user-select: none; }
+.baza-vector-control .vector.dragging,
+.baza-vector-control .vector.dragging .length { cursor: grabbing; }
+.baza-vector-control .direction,
+.baza-vector-control .length { outline: none; }
+.baza-vector-control .length { cursor: grab; }
+.baza-vector-control .length-hit { fill: transparent; }
+.baza-vector-control .rail-hit { stroke: transparent; stroke-width: 20; }
+.baza-vector-control .tip { fill: var(--_plot-handle-fill); stroke: var(--_plot-handle-stroke); stroke-width: 2; }
+.baza-vector-control .focus-ring { fill: none; stroke: var(--_plot-current); stroke-width: 1.5; opacity: 0; }
+.baza-vector-control .direction:focus-visible .focus-ring,
+.baza-vector-control .length:hover .focus-ring,
+.baza-vector-control .length:focus-visible .focus-ring { opacity: 1; }
+.baza-vector-control .length:hover .plot-point,
+.baza-vector-control .length:focus-visible .plot-point { stroke: var(--_plot-area); stroke-width: 2px; }

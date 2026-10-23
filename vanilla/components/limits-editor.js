@@ -1,6 +1,6 @@
 // Limits belong to the control they bound: scalar end caps, rail terminals, XY axes. Layout changes never change the stored limits.
 // content takes the bounded control (a node or an array of nodes); without it an axis label shows when `axis` is set.
-import { checkProps, modelSetter, h, attr, toggle, text, children } from "../dom.js";
+import { checkProps, modelSetter, h, attr, toggle, text, children, renderer } from "../dom.js";
 import { SAFE_MIN, SAFE_MAX } from "../../src/lib/numeric-limits.js";
 import { createLimitValue } from "./limit-value.js";
 
@@ -42,7 +42,8 @@ export function createLimitsEditor(given) {
   );
   let layout = null;
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     if (layout !== props.layout) {
       if (layout) element.classList.remove(layout);
       element.classList.add(props.layout);

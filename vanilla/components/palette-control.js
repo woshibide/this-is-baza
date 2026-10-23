@@ -1,5 +1,5 @@
 // An ordered array of alpha-aware colors. Selection is local; values flow through value and onInput.
-import { checkProps, modelSetter, h, attr, prop, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, h, attr, prop, style, text, children, renderer } from "../dom.js";
 import { createColorEditor } from "./color-editor.js";
 import { createIcon } from "./icon.js";
 import { rgba, hexAlpha } from "../../src/lib/values.js";
@@ -66,7 +66,8 @@ export function createPaletteControl(given) {
     editor.element,
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const colors = props.value;
     text(count, `${colors.length} / 8 colors`);
     while (swatchList.length < colors.length) swatchList.push(swatch(swatchList.length));

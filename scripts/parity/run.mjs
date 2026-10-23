@@ -114,6 +114,18 @@ async function perform(page, step) {
     if (step.escape) await page.keyboard.press("Escape");
     if (!step.hold) await page.mouse.up();
     for (const key of step.modifiers ?? []) await page.keyboard.up(key);
+  } else if (step.around) {
+    // Pointer drag along a circle around the element's center: [radius, fromDegrees, toDegrees, moves]; 0° is up, clockwise.
+    const box = await at(step.around).boundingBox();
+    const [radius, from, to, moves = 24] = step.circle;
+    const point = (deg) => [box.x + box.width / 2 + radius * Math.sin((deg * Math.PI) / 180), box.y + box.height / 2 - radius * Math.cos((deg * Math.PI) / 180)];
+    await page.mouse.move(...point(from));
+    for (const key of step.modifiers ?? []) await page.keyboard.down(key);
+    await page.mouse.down();
+    for (let i = 1; i <= moves; i++) await page.mouse.move(...point(from + ((to - from) * i) / moves));
+    if (step.escape) await page.keyboard.press("Escape");
+    await page.mouse.up();
+    for (const key of step.modifiers ?? []) await page.keyboard.up(key);
   } else if (step.mouseUp) await page.mouse.up();
   else if (step.call) await page.evaluate((name) => window.__parity.control[name](), step.call);
   else if (step.eval) await page.evaluate(step.eval);

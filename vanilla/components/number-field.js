@@ -1,6 +1,6 @@
 // Numeric value with optional editable limits. min/max are hard domain limits; editable limits are independent. Invalid drafts stay local; Enter/blur restores a valid value.
 // decrease and increase take stepper nodes placed on either side of the input.
-import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, renderer } from "../dom.js";
 import { createLimitsEditor } from "./limits-editor.js";
 import { createNumberScrubber, NUMBER_SCRUB_HINT } from "../../src/lib/number-scrub.js";
 import { effectiveLimits, clampToLimits, SAFE_MIN, SAFE_MAX } from "../../src/lib/numeric-limits.js";
@@ -97,7 +97,8 @@ export function createNumberField(given) {
   });
   const element = h("div", { class: "number-field" }, label);
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const bounds = effective();
     text(label, props.label);
     toggle(valueControl, "with-steppers", props.decrease || props.increase);

@@ -1,5 +1,5 @@
 // Discrete values as one object: {align,shape,fill}. Radio names are unique per component instance.
-import { checkProps, modelSetter, uid, h, prop } from "../dom.js";
+import { checkProps, modelSetter, uid, h, prop, renderer } from "../dom.js";
 import { createIcon } from "./icon.js";
 
 const SPEC = {
@@ -58,7 +58,8 @@ export function createChoiceControl(given) {
     h("div", { class: "pair" }, h("label", null, "Shape", shape), h("label", { class: "inline" }, fill, "Fill shape")),
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     radios.forEach((radio, i) => prop(radio, "checked", props.value.align === ALIGNMENTS[i]));
     prop(shape, "value", props.value.shape);
     prop(fill, "checked", props.value.fill);

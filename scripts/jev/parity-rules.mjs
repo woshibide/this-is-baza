@@ -102,4 +102,26 @@ export const RULES = {
     "The exact X and Y fields set the coordinates, limited to the allowed range.",
     "The point's accessible description states its coordinates and the allowed ranges.",
   ],
+  AngleControl: [
+    "Pressing or dragging the dial points the needle at the pointer, choosing the nearest rotation to the current one so full turns accumulate (for example 810 degrees after two extra turns); Shift snaps to 15 degrees.",
+    "Escape during a drag restores the rotation from before the drag.",
+    "Arrow keys change the rotation by 1 degree, or 15 with Shift; Home and End go to the lower and upper limits.",
+    "The dial is a focusable role=\"slider\" whose aria-valuetext states the stored rotation and the orientation from 0 to 359.",
+    "Rotation limits clamp the rotation, including on first render, and the readout shows the stored rotation and the orientation.",
+  ],
+  AngleRangeControl: [
+    "Dragging the arc rotates the whole interval and keeps its sweep; dragging an endpoint handle changes the sweep, clamped between 0 and 360 degrees.",
+    "Shift during a drag moves in 15 degree steps, and Escape during a drag restores the interval from before the drag.",
+    "Arrow keys on the arc rotate the interval by 1 degree, or 15 with Shift; Home and End set its start to 0 and 359.",
+    "On an endpoint handle, Home closes the interval to a sweep of 0 and End opens it to a full 360 degree turn.",
+    "The Start and End fields set the clockwise interval between them, and the Allowed field sets its sweep directly.",
+    "The readout shows \"<start>° → <end>° clockwise · <sweep>° allowed\", and the interval can cross 0 degrees.",
+  ],
+  VectorControl: [
+    "Dragging the dial rotates the vector toward the pointer, accumulating full turns; Escape during a drag restores the vector.",
+    "Dragging the point changes the length by the pointer's movement along the vector's direction, relative to where the drag started.",
+    "Arrow keys change the direction by 1 degree (15 with Shift) and the length by 1 percent (10 with Shift); Home and End go to the limits.",
+    "Past 100 percent the point stays on the outer ring and the dial, ticks, and grid shrink to 100/length.",
+    "The rotation and length fields and their limits edit the same values; new length limits clamp the length.",
+  ],
 };

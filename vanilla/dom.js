@@ -136,6 +136,28 @@ export function modelSetter(given, read, name, keepLocally, ready = () => true) 
   };
 }
 
+// Wraps a component's draw function: a render requested while drawing (a child emitting during its update)
+// runs again after the current pass, so a pass never finishes with values read before the change.
+export function renderer(draw) {
+  let drawing = false;
+  let again = false;
+  return function render() {
+    if (drawing) {
+      again = true;
+      return;
+    }
+    drawing = true;
+    try {
+      do {
+        again = false;
+        draw();
+      } while (again);
+    } finally {
+      drawing = false;
+    }
+  };
+}
+
 // Document and window listeners that a component removes on destroy().
 export function listen(target, type, listener, options) {
   target.addEventListener(type, listener, options);

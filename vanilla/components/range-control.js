@@ -1,5 +1,5 @@
 // Ordered numeric bounds as {min,max}; drag the band to translate both bounds, or either end to resize; crossing clamps.
-import { checkProps, modelSetter, h, attr, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, h, attr, style, text, children, renderer } from "../dom.js";
 import { createLimitsEditor } from "./limits-editor.js";
 import { createGraphicPanel } from "./graphic-panel.js";
 import { effectiveLimits, displayLimits, clampToLimits, moveInterval } from "../../src/lib/numeric-limits.js";
@@ -100,7 +100,8 @@ export function createRangeControl(given) {
     panel.element,
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const { min, max } = props.value;
     const limits = effective();
     const close = percent(max) - percent(min) < 40;

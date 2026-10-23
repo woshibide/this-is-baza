@@ -1,5 +1,5 @@
 // One editable boundary. The parent supplies spatial placement; parsing and the -0/null contract stay shared.
-import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, renderer } from "../dom.js";
 import { parseLimit, SAFE_MIN, SAFE_MAX } from "../../src/lib/numeric-limits.js";
 import { createNumberScrubber, NUMBER_SCRUB_HINT } from "../../src/lib/number-scrub.js";
 
@@ -84,7 +84,8 @@ export function createLimitValue(given) {
   const hint = h("p", { id: `${id}-message`, class: "message hint" });
   const element = h("div", { class: "limit-value" }, h("label", null, caption, input));
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const { side, label } = props;
     const unset = props.value[side] === null;
     toggle(element, "maximum", side === "max");

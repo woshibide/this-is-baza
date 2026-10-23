@@ -1,5 +1,5 @@
 // Spatial sRGB gradient: [{hex, alpha, position}]. Stop identities stay stable while dragging.
-import { checkProps, modelSetter, h, attr, prop, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, h, attr, prop, style, text, children, renderer } from "../dom.js";
 import { effectiveLimits, clampToLimits } from "../../src/lib/numeric-limits.js";
 import { createNumberField } from "./number-field.js";
 import { createGraphicPanel } from "./graphic-panel.js";
@@ -134,7 +134,8 @@ export function createGradientControl(given) {
     h("p", { class: "note" }, " Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. "),
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const list = props.value;
     attr(element, "aria-label", props.heading);
     text(title, props.heading);

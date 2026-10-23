@@ -1,5 +1,5 @@
 // Normalized XY position as {x,y} in percent. Coordinates are independent of display size.
-import { checkProps, modelSetter, uid, h, svg, attr, style, text, children } from "../dom.js";
+import { checkProps, modelSetter, uid, h, svg, attr, style, text, children, renderer } from "../dom.js";
 import { effectiveLimits } from "../../src/lib/numeric-limits.js";
 import { createLimitsEditor } from "./limits-editor.js";
 import { createNumberField } from "./number-field.js";
@@ -107,7 +107,8 @@ export function createPositionControl(given) {
     h("p", { class: "note" }, " Fixed 0–100% canvas. Hatched areas are outside the limits. Shift nudges by 5%. "),
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const { x, y } = props.value;
     const xl = xLimits(), yl = yLimits();
     attr(element, "aria-label", props.heading);

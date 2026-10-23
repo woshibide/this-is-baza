@@ -1,5 +1,5 @@
 // Dimensions as {width,height,locked}. Either field drives proportional resizing.
-import { checkProps, modelSetter, h, svg, attr, prop, text } from "../dom.js";
+import { checkProps, modelSetter, h, svg, attr, prop, text, renderer } from "../dom.js";
 import { effectiveLimits, clampToLimits } from "../../src/lib/numeric-limits.js";
 import { createNumberField } from "./number-field.js";
 import { createGraphicPanel } from "./graphic-panel.js";
@@ -86,7 +86,8 @@ export function createDimensionsControl(given) {
     readout,
   );
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const { width, height } = props.value;
     const w = +width.toFixed(3), hgt = +height.toFixed(3);
     const size = previewSize();

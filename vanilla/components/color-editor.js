@@ -1,6 +1,6 @@
 // Collapsed color trigger opens a native popover containing the HSV picker. SV plane uses arrows (Shift: 10); hue and alpha use native sliders. Values commit on blur/Enter; Escape restores.
 // open() shows the picker, for owners that hide the trigger.
-import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, listen } from "../dom.js";
+import { checkProps, modelSetter, uid, h, attr, prop, toggle, style, text, children, listen, renderer } from "../dom.js";
 import { createIcon } from "./icon.js";
 import { clamp, rgba, hexAlpha } from "../../src/lib/values.js";
 import { rgb, toHsv, fromHsv, hsl, parseColor } from "../../src/lib/color.js";
@@ -225,7 +225,8 @@ export function createColorEditor(given) {
   const element = h("div", { class: "color-editor" });
   const stopResize = listen(window, "resize", resizePanel);
 
-  function render() {
+  const render = renderer(draw);
+  function draw() {
     const color = rgba(props.value);
     const all = values();
     toggle(element, "trigger-hidden", props.hideTrigger);
