@@ -1,0 +1,38 @@
+/* Vanilla port of the Baza control styles.
+   src/styles.css holds the shared native-control and plot styles (and imports src/theme.css);
+   below are the Vue components' scoped styles, with each scope replaced by the component's root class. */
+@import url("../src/styles.css");
+
+/* Icon */
+.baza-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+/* GraphicPanel */
+.graphic-panel {
+  margin: 18px 0;
+  border: 1px solid var(--_plot-frame);
+  border-radius: var(--plot-radius);
+  background: var(--_plot-surround);
+}
+.graphic-panel > .graphic-content {
+  min-width: 0;
+  padding: 16px;
+}
+.graphic-panel > .graphic-content.flush {
+  padding: 0;
+}
+.graphic-panel > .graphic-footer {
+  min-width: 0;
+  padding: 12px 16px;
+  border-top: 1px solid var(--_plot-frame);
+  background: var(--_plot-footer);
+  border-radius: 0 0 var(--plot-radius) var(--plot-radius);
+}

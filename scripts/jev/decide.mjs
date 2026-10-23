@@ -21,13 +21,14 @@ export function readKey(env = process.env, envFile = join(skillDir, ".env")) {
   return parseEnv(readFileSync(envFile, "utf8")).TYPESAFE_API_KEY?.trim() || null;
 }
 
-export async function ask(candidate, { key, fetchImpl = fetch, sleep = delay } = {}) {
+export async function ask(candidate, options) {
   const { gold, ...value } = candidate.value;
-  const body = JSON.stringify({
-    model: MODEL,
-    state: { sketch: candidate.sketch, value },
-    questions: QUESTIONS,
-  });
+  return request({ model: MODEL, state: { sketch: candidate.sketch, value }, questions: QUESTIONS }, value.name, options);
+}
+
+// One System One call with retries on 429 and 529; `label` names the subject in errors.
+export async function request(payload, label, { key, fetchImpl = fetch, sleep = delay } = {}) {
+  const body = JSON.stringify(payload);
   for (let attempt = 0; ; attempt++) {
     const started = performance.now();
     const response = await fetchImpl(ENDPOINT, {
@@ -43,7 +44,7 @@ export async function ask(candidate, { key, fetchImpl = fetch, sleep = delay } =
       await sleep(RETRY_DELAYS_MS[attempt]);
       continue;
     }
-    throw new Error(`TypeSafe ${response.status} for "${value.name}": ${await response.text()}`);
+    throw new Error(`TypeSafe ${response.status} for "${label}": ${await response.text()}`);
   }
 }
 
