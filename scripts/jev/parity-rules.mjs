@@ -47,4 +47,10 @@ export const RULES = {
     "With a heading, the section shows the heading and a one-line hint and is labeled by the heading; without one it is labeled by the label.",
     "Without an owner for the bounds, the slider keeps its default bounds of 1 to 24 itself.",
   ],
+  ChoiceControl: [
+    "Alignment is a segmented group of three radios (Left, Center, Right) sharing one name unique to the instance; exactly one is checked.",
+    "Choosing an alignment by click or arrow keys emits the whole choices object with only align changed.",
+    "The Shape select emits the object with only shape changed, and the Fill shape checkbox with only fill changed.",
+    "Each segment shows a check icon with the selection-check class, and keyboard focus moves Alignment, then Shape, then Fill shape.",
+  ],
 };
