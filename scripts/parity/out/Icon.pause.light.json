@@ -1,0 +1,42 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"14\" y=\"3\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"5\" y=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"14\" y=\"3\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"5\" y=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"14\" y=\"3\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"5\" y=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"14\" y=\"3\">\n  <rect height=\"18\" rx=\"1\" width=\"5\" x=\"5\" y=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

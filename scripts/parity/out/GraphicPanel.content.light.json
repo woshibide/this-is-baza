@@ -1,0 +1,42 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <svg class=\"plot-surface\" height=\"40\" width=\"100\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "content"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <svg class=\"plot-surface\" height=\"40\" width=\"100\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <svg class=\"plot-surface\" height=\"40\" width=\"100\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "content"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <svg class=\"plot-surface\" height=\"40\" width=\"100\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

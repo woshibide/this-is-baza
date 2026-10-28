@@ -1,0 +1,1210 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "focused-hint"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "abc"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "invalid"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "150"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 150
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "unclamped"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "0.25e2"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(6ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"0.25e2\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.25e2\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"25\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"25\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 25
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -40,
+          0
+        ],
+        "modifiers": [
+          "Alt"
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"24.9\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"24.9\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.99
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.98
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.97
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.95
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.94
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.93
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.92
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.9
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 24.9
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -400,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"14.9\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"14.9\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 23.7
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 22.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 21.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 19.9
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 18.7
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 17.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 16.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 14.9
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 14.9
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          30,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.1
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.3
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.5
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.6
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "−0"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"−0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"−0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-max\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": null
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": null
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "cleared"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-max\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": null
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "focused-hint"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"100\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "abc"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "invalid"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"abc\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"abc\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "150"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 150
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "unclamped"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"150\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"150\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "0.25e2"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(6ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"0.25e2\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.25e2\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"25\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"25\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 25
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 25
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -40,
+          0
+        ],
+        "modifiers": [
+          "Alt"
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"24.9\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"24.9\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.99
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.98
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.97
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.95
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.94
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.93
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.92
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 24.9
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 24.9
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -400,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"14.9\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"14.9\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 23.7
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 22.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 21.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 19.9
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 18.7
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 17.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 16.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 14.9
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 14.9
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          30,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.1
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.2
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.3
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.4
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.5
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 15.6
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"15.6\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"15.6\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "−0"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"−0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"−0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 15.6
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-max\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": null
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": null
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "cleared"
+      },
+      "dom": "<div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Max\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Opacity maximum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-max\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": null
+        }
+      }
+    }
+  ]
+}

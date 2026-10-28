@@ -1,0 +1,1080 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "shot": "initial"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "type": "4.5"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        }
+      ],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "shot": "typing"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "type": "11"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"11\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"11\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 1
+        }
+      ],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "shot": "invalid"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"11\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"11\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "type": "2.25"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2.25\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2.25\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2
+        }
+      ],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Backspace"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "shot": "empty"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7
+        }
+      ],
+      "models": {
+        "value": 7
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          0,
+          40
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2
+        }
+      ],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -200,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"0\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"0\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 0
+        }
+      ],
+      "models": {
+        "value": 0
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          60,
+          0
+        ],
+        "escape": true
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 0.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 1.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7.5
+        }
+      ],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          1,
+          1
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "press": "ArrowUp"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 8
+        }
+      ],
+      "models": {
+        "value": 8
+      }
+    },
+    {
+      "step": {
+        "press": "ArrowDown"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7.5
+        }
+      ],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "press": "Shift+ArrowUp"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 8
+        }
+      ],
+      "models": {
+        "value": 8
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 8
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "shot": "initial"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"3\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"3\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 3
+      }
+    },
+    {
+      "step": {
+        "type": "4.5"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        }
+      ],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "shot": "typing"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"4.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"4.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 4.5
+      }
+    },
+    {
+      "step": {
+        "type": "11"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"11\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"11\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 1
+        }
+      ],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "shot": "invalid"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"11\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"11\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1
+      }
+    },
+    {
+      "step": {
+        "type": "2.25"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2.25\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2.25\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2
+        }
+      ],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Backspace"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "shot": "empty"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7
+        }
+      ],
+      "models": {
+        "value": 7
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          0,
+          40
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2
+        }
+      ],
+      "models": {
+        "value": 2
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -200,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"0\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"0\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 0
+        }
+      ],
+      "models": {
+        "value": 0
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          60,
+          0
+        ],
+        "escape": true
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 0.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 1.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 2.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 3.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 4.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 5.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 6.5
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7.5
+        }
+      ],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          1,
+          1
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "press": "ArrowUp"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 8
+        }
+      ],
+      "models": {
+        "value": 8
+      }
+    },
+    {
+      "step": {
+        "press": "ArrowDown"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"7.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"7.5\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 7.5
+        }
+      ],
+      "models": {
+        "value": 7.5
+      }
+    },
+    {
+      "step": {
+        "press": "Shift+ArrowUp"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "input@0.1.0.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": 8
+        }
+      ],
+      "models": {
+        "value": 8
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Speed\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"8\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"0.5\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"8\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "shot": "single"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "click": ".palette-actions button:last-child",
+        "force": true
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "click": ".palette-actions button:first-child"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"2 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"false\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n    <button aria-label=\"Color 2: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button>\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "button@0.2.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            {
+              "hex": "#000000",
+              "alpha": 0
+            }
+          ]
+        }
+      ],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          },
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "shot": "two"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"2 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"false\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n    <button aria-label=\"Color 2: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button>\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "button@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          },
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "shot": "single"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "click": ".palette-actions button:last-child",
+        "force": true
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"1 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button disabled=\"\">\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "click": ".palette-actions button:first-child"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"2 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"false\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n    <button aria-label=\"Color 2: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button>\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "button@0.2.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            {
+              "hex": "#000000",
+              "alpha": 0
+            }
+          ]
+        }
+      ],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          },
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    },
+    {
+      "step": {
+        "shot": "two"
+      },
+      "dom": "<section aria-label=\"Color and palette\">\n  <div class=\"palette-heading\">\n    <h2>\n      \"Color & palette\"\n    <span class=\"palette-count\">\n      \"2 / 8 colors\"\n  <div aria-label=\"Palette colors\" class=\"swatches\" role=\"group\">\n    <button aria-label=\"Color 1: #00000000\" aria-pressed=\"false\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n    <button aria-label=\"Color 2: #00000000\" aria-pressed=\"true\" class=\"swatch\">\n      <span class=\"checker swatch-color\">\n        <span style=\"background: rgba(0, 0, 0, 0)\">\n      <span class=\"swatch-label\">\n        <span class=\"swatch-heading\">\n          <code>\n            \"#000000\"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <small>\n          \"0% opacity\"\n  <div class=\"palette-actions\">\n    <button>\n      <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n        <path d=\"M5 12h14 M12 5v14\">\n      \"Add color\"\n    <button>\n      \" Remove selected \"\n  <div class=\"color-editor trigger-hidden\">\n    <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n      <div class=\"picker-heading\">\n        <strong>\n          \"Color\"\n        <button>\n          \"Close\"\n      <div class=\"color-surfaces\">\n        <div aria-label=\"Current color #00000000\" class=\"checker current-color\" role=\"img\">\n          <span style=\"background: rgba(0, 0, 0, 0)\">\n        <button aria-description=\"Saturation 0%, brightness 0%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n          <span class=\"sv-marker\" style=\"left: 0%; top: 100%\">\n        <div class=\"alpha-track checker\" style=\"--color: #000000\">\n          <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n      <details :open=false class=\"exact-values\">\n        <summary>\n          \"Exact values\"\n        <div class=\"exact-values-content\">\n          <div class=\"value-row\">\n            <label for=\"#1HSL\">\n              \"HSL\"\n            <input :value=\"hsl(0, 0%, 0%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 0%, 0%)\">\n            <button aria-label=\"Copy HSL\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1RGBA\">\n              \"RGBA\"\n            <input :value=\"rgba(0, 0, 0, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(0, 0, 0, 0)\">\n            <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n          <div class=\"value-row\">\n            <label for=\"#1HEX\">\n              \"HEX\"\n            <input :value=\"#00000000\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#00000000\">\n            <button aria-label=\"Copy HEX\" class=\"copy-button\">\n              <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "button@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#000000",
+            "alpha": 0
+          },
+          {
+            "hex": "#000000",
+            "alpha": 0
+          }
+        ]
+      }
+    }
+  ]
+}

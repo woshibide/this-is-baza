@@ -1,0 +1,232 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "hidden"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "call": "open"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "open",
+        "of": ".picker-panel"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".alpha-slider"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "input@0.0.1.2.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "End"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b2ff\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgb(120, 148, 178)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 1)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b2ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b2ff\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "input@0.0.1.2.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "hex": "#7894b2",
+            "alpha": 1
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 1
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b2ff\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgb(120, 148, 178)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 1)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b2ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b2ff\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 1
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "hidden"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "call": "open"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "open",
+        "of": ".picker-panel"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".alpha-slider"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b200\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgba(120, 148, 178, 0)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"0\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 0)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 0)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b200\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b200\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "input@0.0.1.2.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 0
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "End"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b2ff\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgb(120, 148, 178)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 1)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b2ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b2ff\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "input@0.0.1.2.0",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "hex": "#7894b2",
+            "alpha": 1
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 1
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"color-editor trigger-hidden\">\n  <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n    <div class=\"picker-heading\">\n      <strong>\n        \"Color\"\n      <button>\n        \"Close\"\n    <div class=\"color-surfaces\">\n      <div aria-label=\"Current color #7894b2ff\" class=\"checker current-color\" role=\"img\">\n        <span style=\"background: rgb(120, 148, 178)\">\n      <button aria-description=\"Saturation 33%, brightness 70%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(0, 123, 255)\">\n        <span class=\"sv-marker\" style=\"left: 32.5843%; top: 30.1961%\">\n      <div class=\"alpha-track checker\" style=\"--color: #7894b2\">\n        <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n    <input :value=\"211\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"211.0344827586207\">\n    <details :open=false class=\"exact-values\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"value-row\">\n          <label for=\"#1HSL\">\n            \"HSL\"\n          <input :value=\"hsl(211, 27%, 58%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(211, 27%, 58%)\">\n          <button aria-label=\"Copy HSL\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1RGBA\">\n            \"RGBA\"\n          <input :value=\"rgba(120, 148, 178, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(120, 148, 178, 1)\">\n          <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n        <div class=\"value-row\">\n          <label for=\"#1HEX\">\n            \"HEX\"\n          <input :value=\"#7894b2ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#7894b2ff\">\n          <button aria-label=\"Copy HEX\" class=\"copy-button\">\n            <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n              <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "hex": "#7894b2",
+          "alpha": 1
+        }
+      }
+    }
+  ]
+}

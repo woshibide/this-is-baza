@@ -1,0 +1,142 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "closed"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "summary"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "open"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "focused-field"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "summary"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "closed"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "summary"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "open"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "focused-field"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=true class=\"exact-values graphic-footer\" open=\"\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "summary"
+      },
+      "dom": "<div class=\"graphic-panel\">\n  <div class=\"graphic-content\">\n    <div class=\"plot-surface\" style=\"height: 60px\">\n  <div class=\"graphic-footer\">\n    <span class=\"readout\">\n      \"Readout 42\"\n  <details :open=false class=\"exact-values graphic-footer\">\n    <summary>\n      \"Exact values\"\n    <div class=\"exact-values-content\">\n      <label>\n        \"Exact\"\n        <input :value=\"3\" type=\"text\" value=\"3\">",
+      "focus": "summary@0.2.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

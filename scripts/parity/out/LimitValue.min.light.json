@@ -1,0 +1,1836 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "initial"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "hover": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "hover"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "focused"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "5"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 5,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "30"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "error"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "2.5"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "-0"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-0\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": null,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "cleared"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "3"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"3\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"3\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"3\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"3\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 3,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 3,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"13\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"13\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 4,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 5,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 6,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 8,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 9,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 11,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 13,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 13,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          0,
+          -30
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"20\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"20\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 14,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 15,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 16,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 17,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 18,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 19,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 20,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -30,
+          0
+        ],
+        "modifiers": [
+          "Shift"
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-55\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-55\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 2,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -8,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -17,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -26,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -36,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -45,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -55,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": -55,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          60,
+          0
+        ],
+        "escape": true
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-40\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-40\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -54,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -52,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -50,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -48,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -46,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -44,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -42,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -40,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": -40,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          200,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -34,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -28,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -22,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -15,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -9,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -3,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 3,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          2,
+          1
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "initial"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "hover": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "hover"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "focused"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"1\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "5"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 1,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 5,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"5\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "30"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "error"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"30\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"30\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "2.5"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Minimum must be less than or equal to maximum.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"2.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"2.5\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "-0"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"true\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-0\">\n  <p class=\"message\" id=\"#1-message\" role=\"status\">\n    \"Enter a whole number, or -0 for no custom limit.\"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 5,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": null,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "cleared"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "click": "input"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-0\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"-0\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "type": "3"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"3\" aria-describedby=\"#1-message\" aria-description=\"Type a number to set this limit.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input\" name=\"#1-min\" spellcheck=\"false\" title=\"Type a number to set this limit.\" type=\"text\" value=\"3\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": null,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"3\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"3\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 3,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 3,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"13\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"13\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 4,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 5,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 6,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 8,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 9,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 11,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 13,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 13,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          0,
+          -30
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"20\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"20\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 14,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 15,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 16,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 17,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 18,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 19,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 20,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          -30,
+          0
+        ],
+        "modifiers": [
+          "Shift"
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-55\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-55\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 2,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -8,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -17,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -26,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -36,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -45,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -55,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": -55,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          60,
+          0
+        ],
+        "escape": true
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"-40\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"-40\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -54,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -52,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -50,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -48,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -46,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -44,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -42,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -40,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": -40,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          200,
+          0
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -34,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -28,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -22,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -15,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -9,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": -3,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 3,
+            "max": 24
+          }
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          2,
+          1
+        ]
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Escape"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "input@0.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n  <label>\n    <span class=\"caption\">\n      \"Min\"\n    <input :value=\"10\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Copies minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n  <p class=\"hint message\" id=\"#1-message\">\n    \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 10,
+            "max": 24
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    }
+  ]
+}

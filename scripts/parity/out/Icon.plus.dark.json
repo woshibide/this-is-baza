@@ -1,0 +1,42 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M5 12h14 M12 5v14\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M5 12h14 M12 5v14\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M5 12h14 M12 5v14\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M5 12h14 M12 5v14\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

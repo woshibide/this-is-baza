@@ -1,0 +1,130 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "shot": "disabled"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "hover": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "shot": "hover"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "shot": "disabled"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "drag": "input",
+        "by": [
+          40,
+          0
+        ]
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "hover": "input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    },
+    {
+      "step": {
+        "shot": "hover"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Locked\"\n  <div>\n    <div class=\"value-control\">\n      <input :value=\"1.5\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"number-scrub\" disabled=\"\" id=\"#1\" max=\"9007199254740991\" min=\"-9007199254740991\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"1.5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 1.5
+      }
+    }
+  ]
+}

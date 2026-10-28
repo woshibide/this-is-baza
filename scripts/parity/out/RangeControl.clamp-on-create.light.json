@@ -1,0 +1,158 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 100
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "clamped"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".range-handle:nth-of-type(2)"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "button@0.2.0.0.1.0.3",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "End"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(48px, 100%, 100% - 48px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 100%; width: 0%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"100\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"100–100 px\"",
+      "focus": "button@0.2.0.0.1.0.2",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 100,
+            "max": 100
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 100,
+          "max": 100
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 0,
+            "max": 100
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "clamped"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".range-handle:nth-of-type(2)"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 0%, 100% - 24px)\">\n              \"0 px\"\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(24px, 100%, 100% - 24px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 0%; width: 100%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"0\" aria-valuetext=\"0 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 0%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"0–100 px\"",
+      "focus": "button@0.2.0.0.1.0.3",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "End"
+      },
+      "dom": "<section aria-label=\"Range and interval\">\n  <h2>\n    \"Range & interval\"\n  <p>\n    \"Maps 0–100% to pixel values in both motion previews.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div aria-label=\"Interval limits\" class=\"limits-editor rail\" role=\"group\">\n        <div class=\"end\">\n          <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Min\"\n              <input :value=\"0\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n            <p class=\"hint message\" id=\"#1-message\">\n              \" −0 removes this limit. \"\n        <div class=\"control\">\n          <div class=\"range-track\">\n            <span aria-hidden=\"true\" class=\"range-value\" style=\"left: clamp(48px, 100%, 100% - 48px)\">\n              \"100 px\"\n            <button aria-label=\"Move entire interval\" class=\"range-band\" style=\"left: 100%; width: 0%\">\n            <button aria-label=\"Minimum bound\" aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n            <button aria-label=\"Maximum bound\" aria-valuemax=\"100\" aria-valuemin=\"100\" aria-valuenow=\"100\" aria-valuetext=\"100 pixels\" class=\"range-handle\" role=\"slider\" style=\"left: 100%\">\n        <div class=\"end\">\n          <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n            <label>\n              <span class=\"caption\">\n                \"Max\"\n              <input :value=\"100\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Interval maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"100\">\n            <p class=\"hint message\" id=\"#2-message\">\n              \" −0 removes this limit. \"\n    <div class=\"graphic-footer\">\n      <output class=\"range-readout readout\">\n        \"100–100 px\"",
+      "focus": "button@0.2.0.0.1.0.2",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": {
+            "min": 100,
+            "max": 100
+          }
+        }
+      ],
+      "models": {
+        "value": {
+          "min": 100,
+          "max": 100
+        }
+      }
+    }
+  ]
+}

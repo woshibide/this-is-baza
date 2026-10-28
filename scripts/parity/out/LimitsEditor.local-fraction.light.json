@@ -1,0 +1,130 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": ".end:first-child input"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "type": "0.5"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "drag": ".end:last-child input",
+        "by": [
+          0,
+          20
+        ]
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"59.5\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"59.5\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.2.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": ".end:first-child input"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "ControlOrMeta+a"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.1\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.1\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "type": "0.5"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.0.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "press": "Enter"
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"60\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"60\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "drag": ".end:last-child input",
+        "by": [
+          0,
+          20
+        ]
+      },
+      "dom": "<div aria-label=\"Duration limits\" class=\"limits-editor scalar\" role=\"group\">\n  <div class=\"end\">\n    <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Min\"\n        <input :value=\"0.5\" aria-describedby=\"#1-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#1-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0.5\">\n      <p class=\"hint message\" id=\"#1-message\">\n        \" −0 removes this limit. \"\n  <div class=\"control\">\n  <div class=\"end\">\n    <div class=\"limit-value maximum\" style=\"--limit-width: calc(4ch + 16px)\">\n      <label>\n        <span class=\"caption\">\n          \"Max\"\n        <input :value=\"59.5\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Duration maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"59.5\">\n      <p class=\"hint message\" id=\"#2-message\">\n        \" −0 removes this limit. \"",
+      "focus": "input@0.2.0.0.1",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

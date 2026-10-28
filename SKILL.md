@@ -96,6 +96,11 @@ For requested or existing SVG, PNG-sequence, embedded-state, or console/batch ex
 For requested beat-based timing, automatic durations, or the p5js single-root timing pattern, use [beat-timing.md](references/beat-timing.md).
 Preserve existing timing behavior during ordinary workspace standardization.
 
+## Optional generative artwork reference
+
+When exploring or implementing generative artwork, [generative-systems.md](references/generative-systems.md) offers guidance on noise, fields, and nine system recipes.
+This is optional creative guidance, independent of interface building and workspace completion checks; use the parts relevant to the requested artwork.
+
 ## Verify and hand off
 
 Run the existing build and relevant tests, then perform the completion checks above using one running development server and the same browser tab.

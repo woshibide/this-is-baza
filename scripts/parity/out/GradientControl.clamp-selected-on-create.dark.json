@@ -1,0 +1,176 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Gradient stops\">\n  <h2>\n    \"Gradient stops\"\n  <p>\n    \"Drag a numbered stop or enter its exact position.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div class=\"checker gradient-track\">\n        <div class=\"gradient-paint\" style=\"background: linear-gradient(90deg, rgb(255, 0, 0) 10%, rgba(0, 0, 255, 0.5) 80%)\">\n        <button aria-label=\"Stop 1, position 10.0%\" aria-pressed=\"true\" class=\"stop\" style=\"left: 10%\">\n          \"1 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <button aria-label=\"Stop 2, position 80.0%\" aria-pressed=\"false\" class=\"stop\" style=\"left: 80%\">\n          \"2 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n    <div class=\"graphic-footer\">\n      <div class=\"row\">\n        <button>\n          <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n            <path d=\"M5 12h14 M12 5v14\">\n          \"Add stop\"\n        <button disabled=\"\">\n          \" Remove stop \"\n      <div class=\"color-editor\">\n        <button aria-label=\"Open color picker\" class=\"picker-trigger\">\n          <span class=\"checker trigger-swatch\">\n            <span style=\"background: rgb(255, 0, 0)\">\n          <code>\n            \"#ff0000ff\"\n        <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n          <div class=\"picker-heading\">\n            <strong>\n              \"Color\"\n            <button>\n              \"Close\"\n          <div class=\"color-surfaces\">\n            <div aria-label=\"Current color #ff0000ff\" class=\"checker current-color\" role=\"img\">\n              <span style=\"background: rgb(255, 0, 0)\">\n            <button aria-description=\"Saturation 100%, brightness 100%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n              <span class=\"sv-marker\" style=\"left: 100%; top: 0%\">\n            <div class=\"alpha-track checker\" style=\"--color: #ff0000\">\n              <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n          <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n          <details :open=false class=\"exact-values\">\n            <summary>\n              \"Exact values\"\n            <div class=\"exact-values-content\">\n              <div class=\"value-row\">\n                <label for=\"#1HSL\">\n                  \"HSL\"\n                <input :value=\"hsl(0, 100%, 50%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 100%, 50%)\">\n                <button aria-label=\"Copy HSL\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1RGBA\">\n                  \"RGBA\"\n                <input :value=\"rgba(255, 0, 0, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(255, 0, 0, 1)\">\n                <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1HEX\">\n                  \"HEX\"\n                <input :value=\"#ff0000ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#ff0000ff\">\n                <button aria-label=\"Copy HEX\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n    <details :open=false class=\"exact-values graphic-footer\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"number-field position\">\n          <label class=\"field-label\" for=\"#2\">\n            \"Selected stop position %\"\n          <div aria-label=\"Selected stop position % limits\" class=\"limits-editor scalar\" role=\"group\">\n            <div class=\"end\">\n              <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Min\"\n                  <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n                <p class=\"hint message\" id=\"#3-message\">\n                  \" −0 removes this limit. \"\n            <div class=\"control\">\n              <div class=\"value-control\">\n                <input :value=\"10\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#2\" max=\"90\" min=\"10\" name=\"#2\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"10\">\n            <div class=\"end\">\n              <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Max\"\n                  <input :value=\"90\" aria-describedby=\"#4-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#4-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"90\">\n                <p class=\"hint message\" id=\"#4-message\">\n                  \" −0 removes this limit. \"\n  <p class=\"note\">\n    \" Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#ff0000",
+              "alpha": 1,
+              "position": 10
+            },
+            {
+              "hex": "#0000ff",
+              "alpha": 0.5,
+              "position": 80
+            }
+          ]
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#ff0000",
+              "alpha": 1,
+              "position": 10
+            },
+            {
+              "hex": "#0000ff",
+              "alpha": 0.5,
+              "position": 80
+            }
+          ]
+        }
+      ],
+      "models": {
+        "value": [
+          {
+            "hex": "#ff0000",
+            "alpha": 1,
+            "position": 10
+          },
+          {
+            "hex": "#0000ff",
+            "alpha": 0.5,
+            "position": 80
+          }
+        ],
+        "bounds": {
+          "min": 10,
+          "max": 90
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "clamped"
+      },
+      "dom": "<section aria-label=\"Gradient stops\">\n  <h2>\n    \"Gradient stops\"\n  <p>\n    \"Drag a numbered stop or enter its exact position.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div class=\"checker gradient-track\">\n        <div class=\"gradient-paint\" style=\"background: linear-gradient(90deg, rgb(255, 0, 0) 10%, rgba(0, 0, 255, 0.5) 80%)\">\n        <button aria-label=\"Stop 1, position 10.0%\" aria-pressed=\"true\" class=\"stop\" style=\"left: 10%\">\n          \"1 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <button aria-label=\"Stop 2, position 80.0%\" aria-pressed=\"false\" class=\"stop\" style=\"left: 80%\">\n          \"2 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n    <div class=\"graphic-footer\">\n      <div class=\"row\">\n        <button>\n          <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n            <path d=\"M5 12h14 M12 5v14\">\n          \"Add stop\"\n        <button disabled=\"\">\n          \" Remove stop \"\n      <div class=\"color-editor\">\n        <button aria-label=\"Open color picker\" class=\"picker-trigger\">\n          <span class=\"checker trigger-swatch\">\n            <span style=\"background: rgb(255, 0, 0)\">\n          <code>\n            \"#ff0000ff\"\n        <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n          <div class=\"picker-heading\">\n            <strong>\n              \"Color\"\n            <button>\n              \"Close\"\n          <div class=\"color-surfaces\">\n            <div aria-label=\"Current color #ff0000ff\" class=\"checker current-color\" role=\"img\">\n              <span style=\"background: rgb(255, 0, 0)\">\n            <button aria-description=\"Saturation 100%, brightness 100%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n              <span class=\"sv-marker\" style=\"left: 100%; top: 0%\">\n            <div class=\"alpha-track checker\" style=\"--color: #ff0000\">\n              <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n          <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n          <details :open=false class=\"exact-values\">\n            <summary>\n              \"Exact values\"\n            <div class=\"exact-values-content\">\n              <div class=\"value-row\">\n                <label for=\"#1HSL\">\n                  \"HSL\"\n                <input :value=\"hsl(0, 100%, 50%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 100%, 50%)\">\n                <button aria-label=\"Copy HSL\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1RGBA\">\n                  \"RGBA\"\n                <input :value=\"rgba(255, 0, 0, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(255, 0, 0, 1)\">\n                <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1HEX\">\n                  \"HEX\"\n                <input :value=\"#ff0000ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#ff0000ff\">\n                <button aria-label=\"Copy HEX\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n    <details :open=false class=\"exact-values graphic-footer\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"number-field position\">\n          <label class=\"field-label\" for=\"#2\">\n            \"Selected stop position %\"\n          <div aria-label=\"Selected stop position % limits\" class=\"limits-editor scalar\" role=\"group\">\n            <div class=\"end\">\n              <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Min\"\n                  <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n                <p class=\"hint message\" id=\"#3-message\">\n                  \" −0 removes this limit. \"\n            <div class=\"control\">\n              <div class=\"value-control\">\n                <input :value=\"10\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#2\" max=\"90\" min=\"10\" name=\"#2\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"10\">\n            <div class=\"end\">\n              <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Max\"\n                  <input :value=\"90\" aria-describedby=\"#4-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#4-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"90\">\n                <p class=\"hint message\" id=\"#4-message\">\n                  \" −0 removes this limit. \"\n  <p class=\"note\">\n    \" Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#ff0000",
+            "alpha": 1,
+            "position": 10
+          },
+          {
+            "hex": "#0000ff",
+            "alpha": 0.5,
+            "position": 80
+          }
+        ],
+        "bounds": {
+          "min": 10,
+          "max": 90
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Gradient stops\">\n  <h2>\n    \"Gradient stops\"\n  <p>\n    \"Drag a numbered stop or enter its exact position.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div class=\"checker gradient-track\">\n        <div class=\"gradient-paint\" style=\"background: linear-gradient(90deg, rgb(255, 0, 0) 10%, rgba(0, 0, 255, 0.5) 80%)\">\n        <button aria-label=\"Stop 1, position 10.0%\" aria-pressed=\"true\" class=\"stop\" style=\"left: 10%\">\n          \"1 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <button aria-label=\"Stop 2, position 80.0%\" aria-pressed=\"false\" class=\"stop\" style=\"left: 80%\">\n          \"2 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n    <div class=\"graphic-footer\">\n      <div class=\"row\">\n        <button>\n          <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n            <path d=\"M5 12h14 M12 5v14\">\n          \"Add stop\"\n        <button disabled=\"\">\n          \" Remove stop \"\n      <div class=\"color-editor\">\n        <button aria-label=\"Open color picker\" class=\"picker-trigger\">\n          <span class=\"checker trigger-swatch\">\n            <span style=\"background: rgb(255, 0, 0)\">\n          <code>\n            \"#ff0000ff\"\n        <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n          <div class=\"picker-heading\">\n            <strong>\n              \"Color\"\n            <button>\n              \"Close\"\n          <div class=\"color-surfaces\">\n            <div aria-label=\"Current color #ff0000ff\" class=\"checker current-color\" role=\"img\">\n              <span style=\"background: rgb(255, 0, 0)\">\n            <button aria-description=\"Saturation 100%, brightness 100%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n              <span class=\"sv-marker\" style=\"left: 100%; top: 0%\">\n            <div class=\"alpha-track checker\" style=\"--color: #ff0000\">\n              <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n          <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n          <details :open=false class=\"exact-values\">\n            <summary>\n              \"Exact values\"\n            <div class=\"exact-values-content\">\n              <div class=\"value-row\">\n                <label for=\"#1HSL\">\n                  \"HSL\"\n                <input :value=\"hsl(0, 100%, 50%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 100%, 50%)\">\n                <button aria-label=\"Copy HSL\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1RGBA\">\n                  \"RGBA\"\n                <input :value=\"rgba(255, 0, 0, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(255, 0, 0, 1)\">\n                <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1HEX\">\n                  \"HEX\"\n                <input :value=\"#ff0000ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#ff0000ff\">\n                <button aria-label=\"Copy HEX\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n    <details :open=false class=\"exact-values graphic-footer\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"number-field position\">\n          <label class=\"field-label\" for=\"#2\">\n            \"Selected stop position %\"\n          <div aria-label=\"Selected stop position % limits\" class=\"limits-editor scalar\" role=\"group\">\n            <div class=\"end\">\n              <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Min\"\n                  <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n                <p class=\"hint message\" id=\"#3-message\">\n                  \" −0 removes this limit. \"\n            <div class=\"control\">\n              <div class=\"value-control\">\n                <input :value=\"10\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#2\" max=\"90\" min=\"10\" name=\"#2\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"10\">\n            <div class=\"end\">\n              <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Max\"\n                  <input :value=\"90\" aria-describedby=\"#4-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#4-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"90\">\n                <p class=\"hint message\" id=\"#4-message\">\n                  \" −0 removes this limit. \"\n  <p class=\"note\">\n    \" Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#ff0000",
+              "alpha": 1,
+              "position": 10
+            },
+            {
+              "hex": "#0000ff",
+              "alpha": 0.5,
+              "position": 80
+            }
+          ]
+        },
+        {
+          "type": "model",
+          "name": "value",
+          "value": [
+            {
+              "hex": "#ff0000",
+              "alpha": 1,
+              "position": 10
+            },
+            {
+              "hex": "#0000ff",
+              "alpha": 0.5,
+              "position": 80
+            }
+          ]
+        }
+      ],
+      "models": {
+        "value": [
+          {
+            "hex": "#ff0000",
+            "alpha": 1,
+            "position": 10
+          },
+          {
+            "hex": "#0000ff",
+            "alpha": 0.5,
+            "position": 80
+          }
+        ],
+        "bounds": {
+          "min": 10,
+          "max": 90
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "clamped"
+      },
+      "dom": "<section aria-label=\"Gradient stops\">\n  <h2>\n    \"Gradient stops\"\n  <p>\n    \"Drag a numbered stop or enter its exact position.\"\n  <div class=\"graphic-panel\">\n    <div class=\"graphic-content\">\n      <div class=\"checker gradient-track\">\n        <div class=\"gradient-paint\" style=\"background: linear-gradient(90deg, rgb(255, 0, 0) 10%, rgba(0, 0, 255, 0.5) 80%)\">\n        <button aria-label=\"Stop 1, position 10.0%\" aria-pressed=\"true\" class=\"stop\" style=\"left: 10%\">\n          \"1 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n        <button aria-label=\"Stop 2, position 80.0%\" aria-pressed=\"false\" class=\"stop\" style=\"left: 80%\">\n          \"2 \"\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n    <div class=\"graphic-footer\">\n      <div class=\"row\">\n        <button>\n          <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n            <path d=\"M5 12h14 M12 5v14\">\n          \"Add stop\"\n        <button disabled=\"\">\n          \" Remove stop \"\n      <div class=\"color-editor\">\n        <button aria-label=\"Open color picker\" class=\"picker-trigger\">\n          <span class=\"checker trigger-swatch\">\n            <span style=\"background: rgb(255, 0, 0)\">\n          <code>\n            \"#ff0000ff\"\n        <div aria-label=\"Color picker\" class=\"picker-panel\" id=\"#1-picker\" popover=\"\" role=\"dialog\">\n          <div class=\"picker-heading\">\n            <strong>\n              \"Color\"\n            <button>\n              \"Close\"\n          <div class=\"color-surfaces\">\n            <div aria-label=\"Current color #ff0000ff\" class=\"checker current-color\" role=\"img\">\n              <span style=\"background: rgb(255, 0, 0)\">\n            <button aria-description=\"Saturation 100%, brightness 100%. Use left and right for saturation, up and down for brightness.\" aria-label=\"Saturation and brightness\" class=\"sv-plane\" style=\"background: linear-gradient(to top, rgb(0, 0, 0), transparent), linear-gradient(to right, rgb(255, 255, 255), transparent), rgb(255, 0, 0)\">\n              <span class=\"sv-marker\" style=\"left: 100%; top: 0%\">\n            <div class=\"alpha-track checker\" style=\"--color: #ff0000\">\n              <input :value=\"100\" aria-label=\"Opacity\" aria-orientation=\"vertical\" class=\"alpha-slider\" max=\"100\" min=\"0\" step=\"1\" type=\"range\" value=\"100\">\n          <input :value=\"0\" aria-label=\"Hue\" class=\"hue-slider\" max=\"360\" min=\"0\" step=\"1\" type=\"range\" value=\"0\">\n          <details :open=false class=\"exact-values\">\n            <summary>\n              \"Exact values\"\n            <div class=\"exact-values-content\">\n              <div class=\"value-row\">\n                <label for=\"#1HSL\">\n                  \"HSL\"\n                <input :value=\"hsl(0, 100%, 50%)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HSL\" name=\"HSL\" spellcheck=\"false\" value=\"hsl(0, 100%, 50%)\">\n                <button aria-label=\"Copy HSL\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1RGBA\">\n                  \"RGBA\"\n                <input :value=\"rgba(255, 0, 0, 1)\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1RGBA\" name=\"RGBA\" spellcheck=\"false\" value=\"rgba(255, 0, 0, 1)\">\n                <button aria-label=\"Copy RGBA\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n              <div class=\"value-row\">\n                <label for=\"#1HEX\">\n                  \"HEX\"\n                <input :value=\"#ff0000ff\" aria-invalid=\"false\" autocomplete=\"off\" id=\"#1HEX\" name=\"HEX\" spellcheck=\"false\" value=\"#ff0000ff\">\n                <button aria-label=\"Copy HEX\" class=\"copy-button\">\n                  <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n                    <path d=\"M9 9h12v12H9z M5 15H3V3h12v2\">\n    <details :open=false class=\"exact-values graphic-footer\">\n      <summary>\n        \"Exact values\"\n      <div class=\"exact-values-content\">\n        <div class=\"number-field position\">\n          <label class=\"field-label\" for=\"#2\">\n            \"Selected stop position %\"\n          <div aria-label=\"Selected stop position % limits\" class=\"limits-editor scalar\" role=\"group\">\n            <div class=\"end\">\n              <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Min\"\n                  <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n                <p class=\"hint message\" id=\"#3-message\">\n                  \" −0 removes this limit. \"\n            <div class=\"control\">\n              <div class=\"value-control\">\n                <input :value=\"10\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#2\" max=\"90\" min=\"10\" name=\"#2\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"10\">\n            <div class=\"end\">\n              <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n                <label>\n                  <span class=\"caption\">\n                    \"Max\"\n                  <input :value=\"90\" aria-describedby=\"#4-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Selected stop position % maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#4-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"90\">\n                <p class=\"hint message\" id=\"#4-message\">\n                  \" −0 removes this limit. \"\n  <p class=\"note\">\n    \" Two to eight stops. Arrow keys move 1%; Shift moves 5%. Stops retain their identities when crossing. Limits outside 0–100% widen the track; lines mark 0% and 100%. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": [
+          {
+            "hex": "#ff0000",
+            "alpha": 1,
+            "position": 10
+          },
+          {
+            "hex": "#0000ff",
+            "alpha": 0.5,
+            "position": 80
+          }
+        ],
+        "bounds": {
+          "min": 10,
+          "max": 90
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=false :value=\"left\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=true :value=\"right\" checked=\"\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"square\" value=\"square\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "label:has(input[value=left])"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"square\" value=\"square\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "select": "select",
+        "value": "circle"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"circle\" value=\"circle\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "input[type=checkbox]"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"circle\" value=\"circle\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=true :value=\"on\" checked=\"\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.3.1.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=false :value=\"left\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=true :value=\"right\" checked=\"\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"square\" value=\"square\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "label:has(input[value=left])"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"square\" value=\"square\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "select": "select",
+        "value": "circle"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"circle\" value=\"circle\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=false :value=\"on\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.2.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "click": "input[type=checkbox]"
+      },
+      "dom": "<section aria-label=\"Choices and toggles\">\n  <h2>\n    \"Choices & toggles\"\n  <p>\n    \"One choice, a mode, and an independent boolean.\"\n  <fieldset>\n    <legend>\n      \"Alignment\"\n    <div class=\"segmented\">\n      <label>\n        <input :checked=true :value=\"left\" checked=\"\" name=\"#1\" type=\"radio\" value=\"left\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Left\"\n      <label>\n        <input :checked=false :value=\"center\" name=\"#1\" type=\"radio\" value=\"center\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Center\"\n      <label>\n        <input :checked=false :value=\"right\" name=\"#1\" type=\"radio\" value=\"right\">\n        <span>\n          <svg aria-hidden=\"true\" class=\"selection-check\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 6 9 17l-5-5\">\n          \"Right\"\n  <div class=\"pair\">\n    <label>\n      \"Shape\"\n      <select :value=\"circle\" value=\"circle\">\n        <option value=\"circle\">\n          \"Circle\"\n        <option value=\"square\">\n          \"Square\"\n    <label class=\"inline\">\n      <input :checked=true :value=\"on\" checked=\"\" type=\"checkbox\">\n      \"Fill shape\"",
+      "focus": "input@0.3.1.0",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

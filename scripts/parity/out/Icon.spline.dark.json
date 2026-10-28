@@ -1,0 +1,42 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M17 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M3 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M5 17A12 12 0 0 1 17 5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M17 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M3 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M5 17A12 12 0 0 1 17 5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M17 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M3 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M5 17A12 12 0 0 1 17 5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    },
+    {
+      "step": {
+        "shot": "icon"
+      },
+      "dom": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\">\n  <path d=\"M17 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M3 19a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M5 17A12 12 0 0 1 17 5\">",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {}
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "vue": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "steppers"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".value-control input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "input@0.1.1.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Shift+Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "button@0.1.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "input@0.1.1.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "button@0.1.1.0.2",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    }
+  ],
+  "vanilla": [
+    {
+      "step": "initial",
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "shot": "steppers"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "outside",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "focus": ".value-control input"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "input@0.1.1.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Shift+Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "button@0.1.1.0.0",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "input@0.1.1.0.1",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    {
+      "step": {
+        "press": "Tab"
+      },
+      "dom": "<div class=\"number-field\">\n  <label class=\"field-label\" for=\"#1\">\n    \"Rows\"\n  <div aria-label=\"Rows limits\" class=\"limits-editor scalar\" role=\"group\">\n    <div class=\"end\">\n      <div class=\"limit-value\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Min\"\n          <input :value=\"0\" aria-describedby=\"#2-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows minimum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#2-min\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"0\">\n        <p class=\"hint message\" id=\"#2-message\">\n          \" −0 removes this limit. \"\n    <div class=\"control\">\n      <div class=\"value-control with-steppers\">\n        <button aria-label=\"Decrease\" type=\"button\">\n          \"-\"\n        <input :value=\"2\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" autocomplete=\"off\" class=\"bounded-value number-scrub\" id=\"#1\" max=\"10\" min=\"0\" name=\"#1\" required=\"\" step=\"any\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"number\" value=\"2\">\n        <button aria-label=\"Increase\" type=\"button\">\n          \"+\"\n    <div class=\"end\">\n      <div class=\"limit-value maximum\" style=\"--limit-width: calc(3ch + 16px)\">\n        <label>\n          <span class=\"caption\">\n            \"Max\"\n          <input :value=\"10\" aria-describedby=\"#3-message\" aria-description=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" aria-invalid=\"false\" aria-label=\"Rows maximum limit\" autocomplete=\"off\" class=\"limit-input number-scrub\" name=\"#3-max\" spellcheck=\"false\" title=\"Drag right or up to increase, left or down to decrease. Click to type. Shift: faster. Alt: finer.\" type=\"text\" value=\"10\">\n        <p class=\"hint message\" id=\"#3-message\">\n          \" −0 removes this limit. \"",
+      "focus": "button@0.1.1.0.2",
+      "html": "",
+      "log": [],
+      "models": {
+        "value": 2,
+        "limits": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    }
+  ]
+}
